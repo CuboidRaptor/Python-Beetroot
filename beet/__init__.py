@@ -19,6 +19,12 @@ class InvalidVoiceError(Exception):
 class InvalidTypeError(Exception):
     pass
 
+class InvalidHashSecurityValue(Exception):
+    pass
+
+class UnknownError(Exception):
+    pass
+
 #Imports
 import sys
 
@@ -35,6 +41,7 @@ import getpass
 import socket
 import uuid
 import time
+import hashlib
 
 try:
     import ujson as json
@@ -247,6 +254,21 @@ class ptx:
         
         except ValueError:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
+        
+def strhash(str_, secure=True):
+    """Hash Function that uses MD5 or SHA512."""
+    
+    if objtype(secure) != "bool":
+        raise InvalidHashSecurityValue("Argument \"secure\" can only be boolean")
+    
+    if secure:
+        return hashlib.sha512(str(str_).encode("iso-8859-1")).hexdigest()
+    
+    elif not secure:
+        return hashlib.md5(str(str_).encode("iso-8859-1")).hexdigest()
+        
+    else:
+        raise UnknownError("¯\_(ツ)_/¯")
         
 def test():
     """Test"""
