@@ -1,5 +1,7 @@
 *.pyc
 *.pyo
 
-**/pypi/
 **/__pycache__/
+
+sdist.bat
+**/dist/
