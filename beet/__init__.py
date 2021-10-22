@@ -143,11 +143,22 @@ class fil:
             
         return 0
     
-    def jdump(self, fi, data):
+    def jdump(self, fi, data, pp=True):
         """Dumps a dict into a .json file in JSON format
         with pretty print so it doesn't hurt your eyes."""
         with open(p(fi), "w") as f:
-            json.dump(data, f, indent=4)
+            if objtype(pp) != "bool":
+                f.close()
+                raise InvalidPPBool("Argument \"pp\" must be bool")
+            
+            if pp:
+                json.dump(data, f, indent=4)
+                
+            elif not pp:
+                json.dump(data, f)
+                
+            else:
+                raise UnknownError("¯\_(ツ)_/¯")
             
         return 0
 

@@ -22,3 +22,6 @@ class InvalidHashSecurityValue(Exception):
 
 class UnknownError(Exception):
     pass
+
+class InvalidPPBool(Exception):
+    pass
