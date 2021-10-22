@@ -1,28 +1,6 @@
 #Beet, a general purpose library for all sorts of uses.
 
-#Exception classes
 class VersionError(Exception):
-    pass
-
-class FunctionError(Exception):
-    pass
-
-class LanguageError(Exception):
-    pass
-
-class ModuleError(Exception):
-    pass
-
-class InvalidVoiceError(Exception):
-    pass
-
-class InvalidTypeError(Exception):
-    pass
-
-class InvalidHashSecurityValue(Exception):
-    pass
-
-class UnknownError(Exception):
     pass
 
 #Imports
@@ -60,6 +38,7 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 from pathlib import Path as p
+from .exception import *
 
 #Constants
 gen = mrandom.SystemRandom()
