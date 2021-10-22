@@ -64,7 +64,7 @@ from pathlib import Path as p
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(2000)
-__version__ = "1.0.5"
+__version__ = "1.0.6"
 
 def objtype(obj):
     return str(type(obj))[8:-2]
@@ -254,6 +254,8 @@ class ptx:
         
         except ValueError:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
+tts = ptx()
+del ptx
         
 def strhash(str_, secure=True):
     """Hash Function that uses MD5 or SHA512."""

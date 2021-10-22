@@ -14,7 +14,7 @@ if not sys.version.startswith("3"):
 #Setting up...
 setup(
     name="Beet",
-    version="1.0.5",
+    version="1.0.6",
     packages=[
         "beet"
     ]
