@@ -1,4 +1,6 @@
 #Exception classes
+class VersionError(Exception):
+    pass
 
 class FunctionError(Exception):
     pass

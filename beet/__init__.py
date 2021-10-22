@@ -1,17 +1,16 @@
 #Beet, a general purpose library for all sorts of uses.
 
-class VersionError(Exception):
-    pass
-
 #Imports
 import sys
+
+from .exception import *
 
 if not str(sys.version).startswith("3"):
     #HOW DARE YOU USE PYTHON2 IDIOT. or python4, if that ever exists
     raise VersionError("Python version is not supported.")
 
 #More imports
-import random as mrandom
+import random as mrandom #Imported as mrandom to prevent conflicts
 import os
 import shutil
 import platform
@@ -38,7 +37,6 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 from pathlib import Path as p
-from .exception import *
 
 #Constants
 gen = mrandom.SystemRandom()
