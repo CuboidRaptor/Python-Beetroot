@@ -41,7 +41,9 @@ from pathlib import Path as p
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(2000)
+
 __version__ = "1.0.6"
+__author__ = "Cuboid_Raptor"
 
 def objtype(obj):
     return str(type(obj))[8:-2]
