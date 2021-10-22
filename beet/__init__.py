@@ -57,7 +57,7 @@ from pathlib import Path as p
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(2000)
-__version__ = "1.0.4"
+__version__ = "1.0.5"
 
 def objtype(obj):
     return str(type(obj))[8:-2]
@@ -160,6 +160,8 @@ class fil:
         return 0
     
     def jdump(self, fi, data):
+        """Dumps a dict into a .json file in JSON format
+        with pretty print so it doesn't hurt your eyes."""
         with open(p(fi), "w") as f:
             json.dump(data, f, indent=4)
             
@@ -183,6 +185,7 @@ file = fil()
 del fil
 
 class ptx:
+    """tts yay"""
     def __init__(self):
         try:
             import pyttsx3
@@ -192,6 +195,7 @@ class ptx:
             pass
         
     def say(self, str_):
+        """Say something, Beet"""
         try:
             if objtype(str_) == "bytes":
                 self.engine.say(str_.decode("iso-8859-1"))
@@ -205,6 +209,7 @@ class ptx:
             raise ModuleError("You need to install pyttsx3 to use beet.tts functions.")
     
     def changeRate(self, rate):
+        """Say things faster/slower, Beet"""
         try:
             self.engine.setProperty("rate", int(round(float(rate))))
             
@@ -215,6 +220,10 @@ class ptx:
             raise InvalidTypeError("Argument \"rate\" must be int or float")
         
     def changeVoice(self, voice):
+        """Say things in different voices, Beet
+        (you can even do different languages if you install them
+        on windows, although I'm not sure how you do it on *nix
+        cuz I don't have any *nix computers or VMs.)"""
         try:
             voices = self.engine.getProperty("voices")
             self.engine.setProperty("voice", voices[int(round(float(voice)))].id)
@@ -229,6 +238,7 @@ class ptx:
             raise InvalidTypeError("Argument \"voice\" must be int or float")
         
     def changeVolume(self, volume):
+        """Talk Louder/Quieter, Beet"""
         try:
             self.engine.setProperty("volume", float(voice))
             
@@ -239,6 +249,7 @@ class ptx:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
         
 def test():
+    """Test"""
     print("Hello, world!")
     
 def quicksort(array):
@@ -292,12 +303,15 @@ def systemstats():
     return [getpass.getuser(), platform.system(), platform.version(), platform.machine(), platform.node(), socket.gethostbyname(socket.gethostname()), ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()]
 
 def unline(str_):
+    """Makes multi-line strings single-line"""
     return str(str_).replace("\n", "\\n").replace("\t", "\\t").replace("\r", "\\r").replace("\a", "\\a").replace("\b", "\\b")
 
 def reline(str_):
+    """Reverses beet.unline()"""
     return str(str_).replace("\\n", "\n").replace("\\t", "\t").replace("\\r", "\r").replace("\\a", "\a").replace("\\b", "\b")
 
 def beet():
+    """BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET-"""
     while True:
         print("""
 ██████╗░███████╗███████╗████████╗
@@ -309,4 +323,5 @@ def beet():
         time.sleep(0.5)
             
 if __name__.endswith("__main__"):
+    #Just in case I need to do any tests or smth idk
     pass
