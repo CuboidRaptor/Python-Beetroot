@@ -1,6 +1,5 @@
 @ECHO OFF
 
-python3 setup.py install
 python setup.py install
 
 RMDIR /S /Q Beet.egg-info

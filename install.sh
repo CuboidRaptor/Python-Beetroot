@@ -1,4 +1,3 @@
-python3 setup.py install
 python setup.py install
 
 rm -r Beet.egg-info
