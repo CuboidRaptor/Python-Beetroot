@@ -19,7 +19,7 @@ class AuthorError(Exception):
     pass
 
 def gv():
-    with open(p("./beet/metadata.py"), "r", encoding="iso-8859-1") as f:
+    with open(p("./beetroot/metadata.py"), "r", encoding="iso-8859-1") as f:
         code = f.read().split("\n")
         
         for item in code:
@@ -30,7 +30,7 @@ def gv():
         raise VersionError("Cannot find version from source")
 
 def ga():
-    with open(p("./beet/metadata.py"), "r", encoding="iso-8859-1") as f:
+    with open(p("./beetroot/metadata.py"), "r", encoding="iso-8859-1") as f:
         code = f.read().split("\n")
         
         for item in code:
@@ -42,13 +42,13 @@ def ga():
 
 #Setting up...
 setup(
-    name="Beet",
+    name="beetrootroot",
     version=gv(),
     packages=[
-        "beet"
+        "beetrootroot"
     ],
     description="A General Purpose Utility package for python",
-    url="https://github.com/CuboidRaptor/Python-Beet",
+    url="https://github.com/CuboidRaptor/Python-beetrootroot",
     author=ga(),
     author_email="fanjas112358@gmail.com",
     license="GNU GPLv3",
@@ -56,6 +56,9 @@ setup(
     ],
     extras_require={
         "tts": [
+            "pyttsx3>=2.90"
+        ],
+        "all": [
             "pyttsx3>=2.90"
         ]
     }
