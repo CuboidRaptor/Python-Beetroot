@@ -49,7 +49,7 @@ setup(
     packages=[
         "beetroot"
     ],
-    description="A General Purpose Utility package for python",
+    description="A General Purpose Utility package for Python 3",
     url="https://github.com/CuboidRaptor/Python-beetroot",
     author=ga()[1],
     author_email=ga()[2],
@@ -60,8 +60,20 @@ setup(
         "tts": [
             "pyttsx3>=2.90"
         ],
+        "chatbot": [
+            "chatterbot>=1.0.1",
+            "spacy>=3.1.3",
+            "pytz>=2021.3",
+            "sqlalchemy>=1.2.19",
+            "pymongo>=3.12.1"
+        ],
         "all": [
-            "pyttsx3>=2.90"
+            "pyttsx3>=2.90",
+            "chatterbot>=1.0.1",
+            "spacy>=3.1.3",
+            "pytz>=2021.3",
+            "sqlalchemy>=1.2.19",
+            "pymongo>=3.12.1"
         ]
     }
 )
