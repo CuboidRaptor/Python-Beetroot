@@ -18,39 +18,41 @@ class VersionError(Exception):
 class AuthorError(Exception):
     pass
 
-def gv():
-    with open(p("./beetroot/metadata.py"), "r", encoding="iso-8859-1") as f:
-        code = f.read().split("\n")
-        
-        for item in code:
-            if item.startswith("__version__"):
-                yeet = item.split("\"")
-                return str(yeet[1])
-            
-        raise VersionError("Cannot find version from source")
-
 def ga():
     with open(p("./beetroot/metadata.py"), "r", encoding="iso-8859-1") as f:
         code = f.read().split("\n")
         
+        version = ""
+        author = ""
+        ae = ""
+        
+        done = []
         for item in code:
             if item.startswith("__author__"):
                 yeet = item.split("\"")
-                return str(yeet[1])
+                author = str(yeet[1])
+                
+            if item.startswith("__version__"):
+                yeet = item.split("\"")
+                version = str(yeet[1])
+                
+            if item.startswith("__authoremail__"):
+                yeet = item.split("\"")
+                ae = str(yeet[1])
             
-        raise AuthorError("Cannot find version from source")
+        return [version, author, ae]
 
 #Setting up...
 setup(
-    name="beetrootroot",
-    version=gv(),
+    name="Beetroot",
+    version=ga()[0],
     packages=[
-        "beetrootroot"
+        "beetroot"
     ],
     description="A General Purpose Utility package for python",
-    url="https://github.com/CuboidRaptor/Python-beetrootroot",
-    author=ga(),
-    author_email="fanjas112358@gmail.com",
+    url="https://github.com/CuboidRaptor/Python-beetroot",
+    author=ga()[1],
+    author_email=ga()[2],
     license="GNU GPLv3",
     install_requires=[
     ],

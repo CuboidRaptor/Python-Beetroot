@@ -1,4 +1,4 @@
-#Beet, a general purpose library for all sorts of uses.
+#Beetroot, a general purpose library for all sorts of uses.
 
 #Imports
 import sys
@@ -57,7 +57,7 @@ class rand:
         """Generates a seeded randint like above.
         Note, this function is not cryptographically secure because of the fact
         that it has to be seeded, If you would
-        like it to be secure, use beet.random.randint() instead."""
+        like it to be secure, use beetroot.random.randint() instead."""
         mrandom.seed(seed)
         return mrandom.randint(s, e)
 random = rand()
@@ -190,7 +190,7 @@ class ptx:
             pass
         
     def say(self, str_):
-        """Say something, Beet"""
+        """Say something, Beetroot"""
         try:
             if objtype(str_) == "bytes":
                 self.engine.say(str_.decode("iso-8859-1"))
@@ -204,7 +204,7 @@ class ptx:
             raise ModuleError("You need to install pyttsx3 to use beet.tts functions.")
     
     def changeRate(self, rate):
-        """Say things faster/slower, Beet"""
+        """Say things faster/slower, Beetroot"""
         try:
             self.engine.setProperty("rate", int(round(float(rate))))
             
@@ -215,7 +215,7 @@ class ptx:
             raise InvalidTypeError("Argument \"rate\" must be int or float")
         
     def changeVoice(self, voice):
-        """Say things in different voices, Beet
+        """Say things in different voices, Beetroot
         (you can even do different languages if you install them
         on windows, although I'm not sure how you do it on *nix
         cuz I don't have any *nix computers or VMs.)"""
@@ -224,7 +224,7 @@ class ptx:
             self.engine.setProperty("voice", voices[int(round(float(voice)))].id)
         
         except (NameError, AttributeError):
-            raise ModuleError("You need to install pyttsx3 to use beet.tts functions.")
+            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions.")
         
         except IndexError:
             raise InvalidVoiceError("That voice id doesn't exist.")
@@ -233,12 +233,12 @@ class ptx:
             raise InvalidTypeError("Argument \"voice\" must be int or float")
         
     def changeVolume(self, volume):
-        """Talk Louder/Quieter, Beet"""
+        """Talk Louder/Quieter, Beetroot"""
         try:
             self.engine.setProperty("volume", float(voice))
             
         except (NameError, AttributeError):
-            raise ModuleError("You need to install pyttsx3 to use beet.tts functions.")
+            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions.")
         
         except ValueError:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
@@ -319,19 +319,20 @@ def unline(str_):
     return str(str_).replace("\n", "\\n").replace("\t", "\\t").replace("\r", "\\r").replace("\a", "\\a").replace("\b", "\\b")
 
 def reline(str_):
-    """Reverses beet.unline()"""
+    """Reverses beetroot.unline()"""
     return str(str_).replace("\\n", "\n").replace("\\t", "\t").replace("\\r", "\r").replace("\\a", "\a").replace("\\b", "\b")
 
-def beet():
-    """BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET BEET-"""
+def beetroot():
+    """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""
     while True:
         print("""
-██████╗░███████╗███████╗████████╗
-██╔══██╗██╔════╝██╔════╝╚══██╔══╝
-██████╦╝█████╗░░█████╗░░░░░██║░░░
-██╔══██╗██╔══╝░░██╔══╝░░░░░██║░░░
-██████╦╝███████╗███████╗░░░██║░░░
-╚═════╝░╚══════╝╚══════╝░░░╚═╝░░░""", end="", flush=True)
+
+██████╗░███████╗███████╗████████╗██████╗░░█████╗░░█████╗░████████╗
+██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝
+██████╦╝█████╗░░█████╗░░░░░██║░░░██████╔╝██║░░██║██║░░██║░░░██║░░░
+██╔══██╗██╔══╝░░██╔══╝░░░░░██║░░░██╔══██╗██║░░██║██║░░██║░░░██║░░░
+██████╦╝███████╗███████╗░░░██║░░░██║░░██║╚█████╔╝╚█████╔╝░░░██║░░░
+╚═════╝░╚══════╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░╚════╝░░░░╚═╝░░░""", end="", flush=True)
         time.sleep(0.5)
             
 if __name__.endswith("__main__"):
