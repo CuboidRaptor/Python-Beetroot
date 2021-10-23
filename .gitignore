@@ -1,6 +1,7 @@
 *.pyc
 *.pyo
 *.tar.gz
+*.whl
 
 sdist.bat
 

@@ -5,4 +5,4 @@ Run install.bat to install if you're on windows, and on \*nix with Bash installe
 
 Else, just open the command prompt on your OS and type `python setup.py install`.<br>
 
-The source of the module is in [the folder "beet"](./beet).
+The source of the module is in [the folder "beetroot"](./beetroot).
