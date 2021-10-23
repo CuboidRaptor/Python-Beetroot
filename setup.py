@@ -19,7 +19,7 @@ class AuthorError(Exception):
     pass
 
 def gv():
-    with open(p("./beet/__init__.py"), "r", encoding="iso-8859-1") as f:
+    with open(p("./beet/metadata.py"), "r", encoding="iso-8859-1") as f:
         code = f.read().split("\n")
         
         for item in code:
@@ -30,7 +30,7 @@ def gv():
         raise VersionError("Cannot find version from source")
 
 def ga():
-    with open(p("./beet/__init__.py"), "r", encoding="iso-8859-1") as f:
+    with open(p("./beet/metadata.py"), "r", encoding="iso-8859-1") as f:
         code = f.read().split("\n")
         
         for item in code:
@@ -53,5 +53,10 @@ setup(
     author_email="fanjas112358@gmail.com",
     license="GNU GPLv3",
     install_requires=[
-    ]
+    ],
+    extras_require={
+        "tts": [
+            "pyttsx3>=2.90"
+        ]
+    }
 )

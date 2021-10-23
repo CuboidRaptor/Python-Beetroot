@@ -1,7 +1,7 @@
 *.pyc
 *.pyo
 
-**/__pycache__/
-
 sdist.bat
+
+**/__pycache__/
 **/dist/
