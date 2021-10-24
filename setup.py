@@ -41,6 +41,10 @@ def ga():
                 ae = str(yeet[1])
             
         return [version, author, ae]
+    
+def readme():
+    with open(p("./README.md"), "r") as f:
+        return str(f.read())
 
 #Setting up...
 setup(
@@ -56,6 +60,8 @@ setup(
     license="GNU GPLv3",
     install_requires=[
     ],
+    long_description=readme(),
+    long_description_content_type="text/markdown"
     extras_require={
         "tts": [
             "pyttsx3>=2.90"
