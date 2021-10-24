@@ -43,7 +43,7 @@ def ga():
         return [version, author, ae]
     
 def readme():
-    with open(p("./README.md"), "r") as f:
+    with open(p("./README.rst"), "r", encoding="iso-8859-1") as f:
         return str(f.read())
 
 #Setting up...
@@ -54,14 +54,14 @@ setup(
         "beetroot"
     ],
     description="A General Purpose Utility package for Python 3",
-    url="https://github.com/CuboidRaptor/Python-beetroot",
+    url="https://github.com/CuboidRaptor/Python-Beetroot",
     author=ga()[1],
     author_email=ga()[2],
     license="GNU GPLv3",
     install_requires=[
     ],
     long_description=readme(),
-    long_description_content_type="text/markdown"
+    long_description_content_type="text/x-rst",
     extras_require={
         "tts": [
             "pyttsx3>=2.90"
@@ -70,16 +70,14 @@ setup(
             "chatterbot>=1.0.1",
             "spacy>=3.1.3",
             "pytz>=2021.3",
-            "sqlalchemy>=1.2.19",
-            "pymongo>=3.12.1"
+            "sqlalchemy>=1.2.19"
         ],
         "all": [
             "pyttsx3>=2.90",
             "chatterbot>=1.0.1",
             "spacy>=3.1.3",
             "pytz>=2021.3",
-            "sqlalchemy>=1.2.19",
-            "pymongo>=3.12.1"
+            "sqlalchemy>=1.2.19"
         ]
     }
 )

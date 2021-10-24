@@ -36,6 +36,12 @@ try:
 except (ModuleNotFoundError, ImportError):
     pass
 
+try:
+    import chatterbot
+    
+except (ModuleNotFoundError, ImportError):
+    pass
+
 from pathlib import Path as p
 from .metadata import *
 
@@ -201,7 +207,7 @@ class ptx:
             self.engine.runAndWait()
             
         except (NameError, AttributeError):
-            raise ModuleError("You need to install pyttsx3 to use beet.tts functions.")
+            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions. Try \"pip install pyttsx3\".")
     
     def changeRate(self, rate):
         """Say things faster/slower, Beetroot"""
@@ -209,7 +215,7 @@ class ptx:
             self.engine.setProperty("rate", int(round(float(rate))))
             
         except (NameError, AttributeError):
-            raise ModuleError("You need to install pyttsx3 to use beet.tts functions.")
+            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions. Try \"pip install pyttsx3\".")
         
         except ValueError:
             raise InvalidTypeError("Argument \"rate\" must be int or float")
@@ -224,7 +230,7 @@ class ptx:
             self.engine.setProperty("voice", voices[int(round(float(voice)))].id)
         
         except (NameError, AttributeError):
-            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions.")
+            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions. Try \"pip install pyttsx3\".")
         
         except IndexError:
             raise InvalidVoiceError("That voice id doesn't exist.")
@@ -238,13 +244,71 @@ class ptx:
             self.engine.setProperty("volume", float(voice))
             
         except (NameError, AttributeError):
-            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions.")
+            raise ModuleError("You need to install pyttsx3 to use beetroot.tts functions. Try \"pip install pyttsx3\".")
         
         except ValueError:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
 tts = ptx()
 del ptx
+
+class cb:
+    """Chatbot that relies on ChatterBot"""
+    def __init__(self):
+        try:
+            import spacy
+            import pytz
+            import sqlalchemy
+            import Levenshtein
+            
+            from chatterbot import ChatBot
+            from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
+            from chatterbot.comparisons import LevenshteinDistance
+            
+            self.chatb = ChatBot(
+                "Ron Obvious",
+                filters=[
+                    chatterbot.filters.get_recent_repeated_responses
+                ],
+                statement_comparison_function=LevenshteinDistance
+            )
+            
+            self.corpustrainer = ChatterBotCorpusTrainer(self.chatb)
+            self.corpustrainer.train(
+                "chatterbot.corpus.english"
+            )
+            
+            self.ltrainer = ListTrainer(self.chatb)
+            
+        except (ModuleNotFoundError, ImportError):
+            pass
         
+    def train(self, tlist):
+        """Listtrain the Chatbot"""
+        
+        if objtype(tlist) != "list":
+            raise InvalidTypeError("Argument \"tlists\" must be a list")
+                
+        try:
+            for item in tlist:
+                self.ltrainer.train(item)
+                
+        except (NameError, AttributeError):
+            raise ModuleError("You need to install ChatterBot, spaCy, pytz and sqlalchemy to use beetroot.chatbot functions. Try \"pip install chatterbot spacy pytz sqlalchemy python-levenshtein\".")
+                
+        except ValueError:
+            raise InvalidTypeError("Argument \"tlist\" must be a list of lists")
+                
+        return 0
+                
+    def response(self, bot_input):
+        try:
+            return self.chatb.get_response(str(bot_input))
+        
+        except (NameError, AttributeError):
+            raise ModuleError("You need to install ChatterBot, spaCy, pytz and sqlalchemy to use beetroot.chatbot functions. Try \"pip install chatterbot spacy pytz sqlalchemy python-levenshtein\".")
+                
+        return 0
+                
 def strhash(str_, secure=True):
     """Hash Function that uses MD5 or SHA512."""
     
@@ -299,6 +363,7 @@ def bhash(b, secure=True):
 def test():
     """Test"""
     print("Hello, world!")
+    return 0
     
 def quicksort(array):
     """Quicksort algorithm"""
@@ -336,8 +401,6 @@ def lsep(str_, sep=" "):
             
     return out
 
-
-
 def execfile(file):
     """Executes a python .py script"""
     with open(p(file), "r") as f:
@@ -370,6 +433,8 @@ def beetroot():
 ██████╦╝███████╗███████╗░░░██║░░░██║░░██║╚█████╔╝╚█████╔╝░░░██║░░░
 ╚═════╝░╚══════╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░╚════╝░░░░╚═╝░░░""", end="", flush=True)
         time.sleep(0.5)
+        
+    return 69420
             
 if __name__.endswith("__main__"):
     #Just in case I need to do any tests or smth idk
