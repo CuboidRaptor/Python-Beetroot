@@ -22,11 +22,11 @@
 
    </i>
 
-===========
-Python-Beet
-===========
+===============
+Python-Beetroot
+===============
 
-Beet, a general purpose library full of random python functions that I thought were useful. Has file manipulation, random, tts and more!
+Beetroot, a general purpose library full of random python functions that I thought were useful. Has file manipulation, random, tts and more!
 Have fun using it!
 
 Also, to make JSON dumping and reading faster, do ``pip install ujson`` or ``pip install simplejson``
@@ -125,7 +125,9 @@ Miscellaneous stuff:
 
 - beetroot.reline(string) ; Reverses beetroot.unline()
 
-An amazing function that should be called whenever possible
-===========================================================
+Amazing functions that should be called whenever possible
+=========================================================
 
 - beetroot.beetroot() ; A great function that you should call whenever you can
+
+- beetroot.totally_not_a_rickroll() ; Totally not a rickroll.

@@ -1,7 +1,6 @@
 import random as mrandom #Imported as mrandom to prevent conflicts
 
 from .exception import *
-from .metadata import *
 
 gen = mrandom.SystemRandom()
 

@@ -28,4 +28,4 @@ Changelog
 
 - 1.1 ; |ss| Added chatbot function |se| No. I need to really learn to stop using ChatterBot.
 
-- 1.1.1 ; Reorganized files and classes and made changes to documentation.
+- 1.1.1 ; Reorganized files and classes and made changes to documentation. Also added totally_not_a_rickroll().

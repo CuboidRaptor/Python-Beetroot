@@ -2,7 +2,6 @@ import shutil
 import os
 
 from .exception import *
-from .metadata import *
 from .objtype import objtype
 
 from pathlib import Path as p

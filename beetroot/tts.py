@@ -5,7 +5,6 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 from .exception import *
-from .metadata import *
 from .objtype import objtype
 
 class ptx:

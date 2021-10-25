@@ -16,6 +16,8 @@ import getpass
 import socket
 import uuid
 import hashlib
+import webbrowser
+import datetime
 
 try:
     import ujson as json
@@ -153,7 +155,7 @@ def beetroot():
         time.sleep(0.5)
         
     return 69420
-            
-if __name__.endswith("__main__"):
-    #Just in case I need to do any tests or smth idk
-    pass
+
+def totally_not_a_rickroll():
+    webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=0)
+    return "".join(["U JUST GOT RICKROLLED IN ", str(datetime.datetime.now().year)])

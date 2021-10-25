@@ -25,22 +25,25 @@ def ga():
         version = ""
         author = ""
         ae = ""
-        
-        done = []
+        url = ""
         for item in code:
             if item.startswith("__author__"):
                 yeet = item.split("\"")
                 author = str(yeet[1])
                 
-            if item.startswith("__version__"):
+            elif item.startswith("__version__"):
                 yeet = item.split("\"")
                 version = str(yeet[1])
                 
-            if item.startswith("__authoremail__"):
+            elif item.startswith("__authoremail__"):
                 yeet = item.split("\"")
                 ae = str(yeet[1])
+                
+            elif item.startswith("__url__"):
+                yeet = item.split("\"")
+                url = str(yeet[1])
             
-        return [version, author, ae]
+        return [version, author, ae, url]
     
 def readme():
     with open(p("./README.rst"), "r", encoding="iso-8859-1") as f:
@@ -54,7 +57,7 @@ setup(
         "beetroot"
     ],
     description="A General Purpose Utility package for Python 3",
-    url="https://github.com/CuboidRaptor/Python-Beetroot",
+    url=ga()[3],
     author=ga()[1],
     author_email=ga()[2],
     license="GNU GPLv3",

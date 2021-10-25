@@ -1,7 +1,6 @@
 import time
 
 from .exception import *
-from .metadata import *
 
 class sw:
     """Stopwatch thingy"""
