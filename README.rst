@@ -125,6 +125,10 @@ Miscellaneous stuff:
 
 - beetroot.reline(string) ; Reverses beetroot.unline()
 
+- beetroot.pixelgrab(x, y) ; Grabs the colour of the pixel on your screen at (x, y)
+
+- beetroot.mousepixelgrab() ; Grabs colour of the pixel at your mouse
+
 Amazing functions that should be called whenever possible
 =========================================================
 

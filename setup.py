@@ -69,8 +69,14 @@ setup(
         "tts": [
             "pyttsx3>=2.90"
         ],
+        "img": [
+            "pillow>=8.4.0",
+            "pyautogui>=0.9.53"
+        ],
         "all": [
-            "pyttsx3>=2.90"
+            "pyttsx3>=2.90",
+            "pillow>=8.4.0",
+            "pyautogui>=0.9.53"
         ]
     }
 )

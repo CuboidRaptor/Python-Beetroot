@@ -29,6 +29,17 @@ except (ModuleNotFoundError, ImportError):
     except (ModuleNotFoundError, ImportError):
         import json
     
+try:
+    import PIL
+    
+except (ModuleNotFoundError, ImportError):
+    pass
+
+try:
+    import pyautogui
+    
+except (ModuleNotFoundError, ImportError):
+    pass
 
 from pathlib import Path as p
 
@@ -140,6 +151,28 @@ def reline(str_):
     """Reverses beetroot.unline()"""
     return str(str_).replace("\\n", "\n").replace("\\t", "\t").replace("\\r", "\r").replace("\\a", "\a").replace("\\b", "\b")
 
+def pixelgrab(i_x, i_y):
+    try:
+        import PIL.ImageGrab
+        return PIL.ImageGrab.grab().load()[int(i_x), int(i_y)]
+    
+    except (ModuleNotFoundError, ImportError):
+        raise ModuleError("PIL most be installed to use beetroot.pixelgrab(). Try pip install pillow.")
+    
+    except ValueError:
+        raise InvalidTypeError("Arguement \"i_x\" and \"i_y\" must be ints or floats")
+    
+def mousepixelgrab():
+    try:
+        import PIL.ImageGrab
+        import pyautogui
+        
+        pos = pyautogui.position()
+        return PIL.ImageGrab.grab().load()[pos.x, pos.y]
+
+    except (ModuleNotFoundError, ImportError):
+        raise ModuleError("PIL and pyautogui most be installed to use beetroot.mousepixelgrab(). Try pip install pillow pyautogui.")
+    
 def beetroot():
     """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""
     while True:
@@ -157,5 +190,8 @@ def beetroot():
     return 69420
 
 def totally_not_a_rickroll():
+    for i in range(0, 100):
+        rickrolled = True
+        
     webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=0)
     return "".join(["U JUST GOT RICKROLLED IN ", str(datetime.datetime.now().year)])
