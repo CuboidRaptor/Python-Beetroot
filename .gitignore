@@ -2,8 +2,13 @@
 *.pyo
 *.tar.gz
 *.whl
+*.sqlite3
+*.sqlite3-shm
+*.sqlite3-wal
 
 sdist.bat
+r2h.py
+README.html
 
 **/__pycache__/
 **/dist/

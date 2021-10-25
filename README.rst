@@ -1,3 +1,11 @@
+.. |ss| raw:: html
+
+   <strike>
+   
+.. |se| raw:: html
+
+   </strike>
+
 ===========
 Python-Beet
 ===========
@@ -7,12 +15,18 @@ Have fun using it!
 
 Also, to make JSON dumping and reading faster, do ``pip install ujson`` or ``pip install simplejson``
 
-Warnings:
-=========
+If you find a problem, feel free to report it `here <https://github.com/CuboidRaptor/Python-Beetroot/issues>`_.
+
+Warnings/Known Issues:
+======================
 
 - beetroot.file.bdump() might not work too well, use with caution.
 
-- beetroot.chatbot is a dumpster fire, avoid using until I get around to fixing it.
+- |ss| beetroot.chatbot is a dumpster fire, avoid using until I get around to fixing it.
+  Even if I do fix it, It'll involve tons of hacky fixes trying to work around the enormous amount of bugs in ChatterBot,
+  so on second thought, just don't ever use this class. Ever. |se| Nvm, ChatterBot has been removed, it's just too annoying to work with.
+
+- beetroot.file.delete() doesn't throw errors when trying to delete non-existent files, wtf.
 
 Different extras:
 =================
@@ -21,7 +35,7 @@ Different extras:
 
 - beetroot[tts]
 
-- beetroot[chatbot]
+- |ss| beetroot[chatbot] |se| No. No. No. No.
 
 Functions and uses:
 ===================
@@ -72,16 +86,8 @@ TTS stuff:
 
 - beetroot.tts.changeVolume(text) ; Changes global tts volume, requires pyttsx3 to be installed or use ``pip install beetroot[tts]``
 
-Chatbot AI stuff:
-=================
-
-- beetroot.chatbot.train([["foo", "bar", "baz"], ["qux", "quux"]]) ; Trains chatbot using list of lists showing conversation, check out `the ChatterBot docs <https://chatterbot.readthedocs.io/en/stable/quickstart.html#training-your-chatbot>`_ for more details, this als requires ChatterBot, spaCy, pytz and sqlalchemy, as do all of the beetroot.chatbot functions.
-
-- beetroot.chatbot.response(foo) ; Returns response from the chatbot for input foo. Also, sqlalchemy uses a deprecated function, so if you get ``AttributeError: module 'time' has no attribute 'clock'`` then modify the code and replace ``time.clock`` with ``time.perf_counter``
-  If you get ``AttributeError: module 'collections' has no attribute 'Hashable'``, then delete or comment ``if not isinstance(key, collections.Hashable):`` and everything within that block.
-
-Miscelaneous stuff:
-===================
+Miscellaneous stuff:
+====================
 
 - beetroot.strhash(text, secure=<bool>) ; Hashes a string or non-bytestring that can be converted to string.
 

@@ -7,6 +7,7 @@ from .exception import *
 
 if not str(sys.version).startswith("3"):
     #HOW DARE YOU USE PYTHON2 IDIOT. or python4, if that ever exists
+    #well I mean, if it's like a massive database or smth and you don't wanna migrate 1k+ lines of code then I understand, BUT STILL.
     raise VersionError("Python version is not supported.")
 
 #More imports
@@ -32,12 +33,6 @@ except (ModuleNotFoundError, ImportError):
         
 try:
     import pyttsx3
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
-try:
-    import chatterbot
     
 except (ModuleNotFoundError, ImportError):
     pass
@@ -101,7 +96,7 @@ class fil:
 
     def delete(self, fi, force=False):
         """Deletes files/folders"""
-        fi = p(fi)
+        fi = str(p(fi))
         if os.path.isdir(fi):
             shutil.rmtree(fi)
             
@@ -123,7 +118,7 @@ class fil:
     
     def dump(self, fi, data):
         """Dumps data to a file"""
-        with open(p(fi), "w") as f:
+        with open(p(fi), "w", encoding="iso-8859-1") as f:
             f.write(data)
             f.close()
             
@@ -131,7 +126,7 @@ class fil:
 
     def bdump(self, fi, data):
         """Dumps binary (non-text) data to a file"""
-        with open(p(fi), "wb") as f:
+        with open(p(fi), "wb", encoding="iso-8859-1") as f:
             try:
                 inp = data.encode("iso-8859-1")
                 f.write(inp)
@@ -151,8 +146,8 @@ class fil:
     
     def jdump(self, fi, data, pp=True):
         """Dumps a dict into a .json file in JSON format
-        with pretty print so it doesn't hurt your eyes."""
-        with open(p(fi), "w") as f:
+        with or without pretty print."""
+        with open(p(fi), "w", encoding="iso-8859-1") as f:
             if objtype(pp) != "bool":
                 f.close()
                 raise InvalidPPBool("Argument \"pp\" must be bool")
@@ -170,17 +165,17 @@ class fil:
 
     def load(self, fi):
         """Reads data from text files."""
-        with open(p(fi), "r") as f:
+        with open(p(fi), "r", encoding="iso-8859-1") as f:
             return f.read()
         
     def bload(self, fi):
         """Reads data from binary (non-text) files."""
-        with open(p(fi), "rb") as f:
+        with open(p(fi), "rb", encoding="iso-8859-1") as f:
             return f.read()
         
     def jload(self, fi):
         """Reads data from JSON files."""
-        with open(p(fi), "r") as f:
+        with open(p(fi), "r", encoding="iso-8859-1") as f:
             return json.loads(f.read())
 file = fil()
 del fil
@@ -250,64 +245,6 @@ class ptx:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
 tts = ptx()
 del ptx
-
-class cb:
-    """Chatbot that relies on ChatterBot"""
-    def __init__(self):
-        try:
-            import spacy
-            import pytz
-            import sqlalchemy
-            import Levenshtein
-            
-            from chatterbot import ChatBot
-            from chatterbot.trainers import ListTrainer, ChatterBotCorpusTrainer
-            from chatterbot.comparisons import LevenshteinDistance
-            
-            self.chatb = ChatBot(
-                "Ron Obvious",
-                filters=[
-                    chatterbot.filters.get_recent_repeated_responses
-                ],
-                statement_comparison_function=LevenshteinDistance
-            )
-            
-            self.corpustrainer = ChatterBotCorpusTrainer(self.chatb)
-            self.corpustrainer.train(
-                "chatterbot.corpus.english"
-            )
-            
-            self.ltrainer = ListTrainer(self.chatb)
-            
-        except (ModuleNotFoundError, ImportError):
-            pass
-        
-    def train(self, tlist):
-        """Listtrain the Chatbot"""
-        
-        if objtype(tlist) != "list":
-            raise InvalidTypeError("Argument \"tlists\" must be a list")
-                
-        try:
-            for item in tlist:
-                self.ltrainer.train(item)
-                
-        except (NameError, AttributeError):
-            raise ModuleError("You need to install ChatterBot, spaCy, pytz and sqlalchemy to use beetroot.chatbot functions. Try \"pip install chatterbot spacy pytz sqlalchemy python-levenshtein\".")
-                
-        except ValueError:
-            raise InvalidTypeError("Argument \"tlist\" must be a list of lists")
-                
-        return 0
-                
-    def response(self, bot_input):
-        try:
-            return self.chatb.get_response(str(bot_input))
-        
-        except (NameError, AttributeError):
-            raise ModuleError("You need to install ChatterBot, spaCy, pytz and sqlalchemy to use beetroot.chatbot functions. Try \"pip install chatterbot spacy pytz sqlalchemy python-levenshtein\".")
-                
-        return 0
                 
 def strhash(str_, secure=True):
     """Hash Function that uses MD5 or SHA512."""
@@ -403,7 +340,7 @@ def lsep(str_, sep=" "):
 
 def execfile(file):
     """Executes a python .py script"""
-    with open(p(file), "r") as f:
+    with open(p(file), "r", encoding="iso-8859-1") as f:
         exec(f.read())
         f.close()
         
@@ -424,6 +361,7 @@ def reline(str_):
 def beetroot():
     """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""
     while True:
+        get_beetrooted = True
         print("""
 
 ██████╗░███████╗███████╗████████╗██████╗░░█████╗░░█████╗░████████╗

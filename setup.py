@@ -66,18 +66,8 @@ setup(
         "tts": [
             "pyttsx3>=2.90"
         ],
-        "chatbot": [
-            "chatterbot>=1.0.1",
-            "spacy>=3.1.3",
-            "pytz>=2021.3",
-            "sqlalchemy>=1.2.19"
-        ],
         "all": [
-            "pyttsx3>=2.90",
-            "chatterbot>=1.0.1",
-            "spacy>=3.1.3",
-            "pytz>=2021.3",
-            "sqlalchemy>=1.2.19"
+            "pyttsx3>=2.90"
         ]
     }
 )
