@@ -10,3 +10,5 @@ Else, just open the command prompt on your OS and type `python setup.py install`
 The source of the module is in [the folder "beetroot"](./beetroot).<br>
 
 Check out [README.rst](./README.rst) for more detailed docs on what you can do with beetroot.<br>
+
+[CHANGELOG.rst](./CHANGELOG.rst) has the changelog for python-beetroot.

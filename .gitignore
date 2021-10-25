@@ -8,7 +8,9 @@
 
 sdist.bat
 r2h.py
+r2h.bat
 README.html
 
 **/__pycache__/
 **/dist/
+**/r2h_output/

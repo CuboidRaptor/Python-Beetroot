@@ -5,6 +5,22 @@
 .. |se| raw:: html
 
    </strike>
+   
+.. |bs| raw:: html
+
+   <b>
+   
+.. |be| raw:: html
+
+   </b>
+   
+.. |is| raw:: html
+
+   <i>
+   
+.. |ie| raw:: html
+
+   </i>
 
 ===========
 Python-Beet
