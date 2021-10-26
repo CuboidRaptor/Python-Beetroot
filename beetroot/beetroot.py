@@ -18,6 +18,9 @@ import uuid
 import hashlib
 import webbrowser
 import datetime
+import lzma
+import base64
+import codecs
 
 try:
     import ujson as json
@@ -69,7 +72,7 @@ def strhash(str_, secure=True):
     else:
         raise UnknownError("¯\_(ツ)_/¯")
     
-def bhash(b, secure=True):
+def bytehash(b, secure=True):
     """Hash Function that uses MD5 or SHA512."""
     
     if objtype(secure) != "bool":
@@ -169,6 +172,32 @@ def mousepixelgrab():
 
     except (ModuleNotFoundError, ImportError):
         raise ModuleError("PIL and pyautogui most be installed to use beetroot.mousepixelgrab(). Try pip install pillow pyautogui.")
+    
+def strobfuscate(str_):
+    """Minorly obfuscates a string. While it is unreadable,
+    don't expect this to stand up to anyone with a bit
+    of python knowledge"""
+    return lzma.compress(base64.a85encode(codecs.encode(str(str_)[::-1], "rot-13").encode("iso-8859-1"))).decode("iso-8859-1")[::-1]
+    
+def strunobfuscate(str_):
+    """Unobfuscates a string obfuscated by beetroot.strobfuscate()"""
+    return codecs.encode(base64.a85decode(lzma.decompress(str_[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1]
+    
+def byteobfuscate(b):
+    """Minorly obfuscates a bytestring. While it is unreadable,
+    don't expect this to stand up to anyone with a bit
+    of python knowledge"""
+    if objtype(b) != "bytes":
+        raise InvalidHashTypeError("Argument \"b\" can only be bytestring")
+        
+    return lzma.compress(base64.a85encode(codecs.encode(str(b.decode("iso-8859-1"))[::-1], "rot-13").encode("iso-8859-1"))).decode("iso-8859-1")[::-1].encode("iso-8859-1")
+    
+def byteunobfuscate(b):
+    """Unobfuscates a string obfuscated by beetroot.strobfuscate()"""
+    if objtype(b) != "bytes":
+        raise InvalidHashTypeError("Argument \"b\" can only be bytestring")
+    
+    return codecs.encode(base64.a85decode(lzma.decompress(b.decode("iso-8859-1")[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1].encode("iso-8859-1")
     
 def beetroot():
     """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""

@@ -107,7 +107,7 @@ Miscellaneous stuff:
 
 - beetroot.strhash(text, secure=<bool>) ; Hashes a string or non-bytestring that can be converted to string.
 
-- beetroot.bhash(text, secure=<bool>) ; Hashes a bytestring.
+- beetroot.bytehash(text, secure=<bool>) ; Hashes a bytestring.
 
 - beetroot.objtype(obj) ; python type(), but better
 
