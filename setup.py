@@ -75,10 +75,14 @@ setup(
             "pillow>=8.4.0",
             "pyautogui>=0.9.53"
         ],
+        "ram": [
+            "psutil>=5.8.0"
+        ],  
         "all": [
             "pyttsx3>=2.90",
             "pillow>=8.4.0",
-            "pyautogui>=0.9.53"
+            "pyautogui>=0.9.53",
+            "psutil>=5.8.0"
         ]
     }
 )

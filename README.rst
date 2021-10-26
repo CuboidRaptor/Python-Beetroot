@@ -108,9 +108,11 @@ Miscellaneous stuff:
 
 - beetroot.reline(string) ; Reverses beetroot.unline()
 
-- beetroot.pixelgrab(x, y) ; Grabs the colour of the pixel on your screen at (x, y)
+- beetroot.pixelgrab(x, y) ; Grabs the colour of the pixel on your screen at (x, y), requires PIL, use ``pip install pillow``
 
-- beetroot.mousepixelgrab() ; Grabs colour of the pixel at your mouse
+- beetroot.mousepixelgrab() ; Grabs colour of the pixel at your mouse, requires PIL and pyautogui, use ``pip install pillow pyautogui`` or ``pip install beetroot[img]``
+
+- beetroot.mem() ; Returns [All memory, currently used memory, available memory].
 
 Amazing functions that should be called whenever possible
 =========================================================

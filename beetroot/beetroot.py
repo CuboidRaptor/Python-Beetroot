@@ -44,6 +44,12 @@ try:
 except (ModuleNotFoundError, ImportError):
     pass
 
+try:
+    import psutil
+    
+except (ModuleNotFoundError, ImportError):
+    pass
+
 from pathlib import Path as p
 
 from .metadata import *
@@ -198,6 +204,14 @@ def byteunobfuscate(b):
         raise InvalidHashTypeError("Argument \"b\" can only be bytestring")
     
     return codecs.encode(base64.a85decode(lzma.decompress(b.decode("iso-8859-1")[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1].encode("iso-8859-1")
+    
+def mem():
+    try:
+        yee = psutil.virtual_memory()
+        return [yee.total, yee.used, yee.free]
+    
+    except NameError:
+        raise ModuleError("psutil must be installed to use beetroot.mem(). Use pip install psutil or pip install beetroot[ram].")
     
 def beetroot():
     """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""
