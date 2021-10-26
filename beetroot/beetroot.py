@@ -60,9 +60,6 @@ def strhash(str_, secure=True):
     if objtype(secure) != "bool":
         raise InvalidHashSecurityValue("Argument \"secure\" can only be boolean")
     
-    if objtype(b) != "bytes":
-        raise InvalidHashTypeError("Argument \"str_\" can only be string or non-bytestring object")
-    
     if secure:
         return hashlib.sha512(str(str_).encode("iso-8859-1")).hexdigest()
     
