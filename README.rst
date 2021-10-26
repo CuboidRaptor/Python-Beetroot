@@ -1,27 +1,3 @@
-.. |ss| raw:: html
-
-   <strike>
-   
-.. |se| raw:: html
-
-   </strike>
-   
-.. |bs| raw:: html
-
-   <b>
-   
-.. |be| raw:: html
-
-   </b>
-   
-.. |is| raw:: html
-
-   <i>
-   
-.. |ie| raw:: html
-
-   </i>
-
 ===============
 Python-Beetroot
 ===============
@@ -38,11 +14,7 @@ Warnings/Known Issues:
 
 - beetroot.file.bdump() might not work too well, use with caution.
 
-- |ss| beetroot.chatbot is a dumpster fire, avoid using until I get around to fixing it.
-  Even if I do fix it, It'll involve tons of hacky fixes trying to work around the enormous amount of bugs in ChatterBot,
-  so on second thought, just don't ever use this class. Ever. |se| Nvm, ChatterBot has been removed, it's just too annoying to work with.
-
-- beetroot.file.delete() doesn't throw errors when trying to delete non-existent files, wtf.
+- beetroot.file.delete() doesn't throw errors when trying to delete non-existent files, *wtf*.
 
 Different extras:
 =================
@@ -51,10 +23,21 @@ Different extras:
 
 - beetroot[tts]
 
-- |ss| beetroot[chatbot] |se| No. No. No. No.
+- beetroot[img]
 
 Functions and uses:
 ===================
+
+Bad Obfuscation Stuff:
+======================
+
+- beetroot.strobfuscate(string) ; Minorly obfuscates strings, this is definitely not secure, don't rely on this being irreversible or secure.
+
+- beetroot.strunobfuscate(string) ; Deobfuscates strings made by beetroot.strobfuscate()
+
+- beetroot.byteobfuscate(bytestring) ; Obfuscates bytestrings, this isn't secure either.
+
+- beetroot.byteunobfuscate(bytestring) ; Unobfuscates bytestrings created by beetroot.byteobfuscate()
 
 Random stuff:
 =============

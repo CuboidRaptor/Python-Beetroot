@@ -18,6 +18,7 @@ class VersionError(Exception):
 class AuthorError(Exception):
     pass
 
+#Function to read data from metadata.py
 def ga():
     with open(p("./beetroot/metadata.py"), "r", encoding="iso-8859-1") as f:
         code = f.read().split("\n")
@@ -45,6 +46,7 @@ def ga():
             
         return [version, author, ae, url]
     
+#Reads REAMDE.rst
 def readme():
     with open(p("./README.rst"), "r", encoding="iso-8859-1") as f:
         return str(f.read())
