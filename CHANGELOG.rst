@@ -26,3 +26,5 @@ Version number \= 1.Major.Minor.Patch
   Strings incompatible with both will probably explode or something idk
   
 - 1.1.2 ; Reorganized and moved functions to classes, yt class is also now a thing and you can use yt.search(), also added kwargs to some functions
+
+- 1.1.2.1 ; Added yt.dl()

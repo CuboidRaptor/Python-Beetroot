@@ -25,3 +25,9 @@ class UnknownError(Exception):
 
 class InvalidPPBool(Exception):
     pass
+
+class InvalidFormat(Exception):
+    pass
+
+class FFmpegError(Exception):
+    pass

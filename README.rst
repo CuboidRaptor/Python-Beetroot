@@ -127,7 +127,10 @@ Memory functions and stuff:
 Youtube garbage:
 ================
 
-- beetroot.yt.search(search_term) ; Enter a search term, the function returns the link for the first hit on that search.
+- beetroot.yt.search(search_term) ; Enter a search term, the function returns the link for the first hit on that search. Requires youtube-search, use ``pip install youtube-search`` or ``pip install beetroot[yt]``
+
+- beetroot.yt.dl(url, filename, fileformat, playlist=<bool>) ; Downloads a video or playlist from url. Valid codecs include mp3, ogg, wav, m4a, aac, flac, mp4, webm, avi, opus, mkv, mov, flv, aiff and wma.
+  Requires youtube-dl, use ``pip install youtube-dl`` or ``pip install beetroot[yt]``
 
 Amazing functions that should be called whenever possible
 =========================================================
