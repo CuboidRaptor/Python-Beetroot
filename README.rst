@@ -9,6 +9,10 @@ Also, to make JSON dumping and reading faster, do ``pip install ujson`` or ``pip
 
 If you find a problem, feel free to report it `here <https://github.com/CuboidRaptor/Python-Beetroot/issues>`_.
 
+To install the bare minimum from pip, use ``pip install beetroot``, to install all dependencies for all classes, use ``pip install beetroot[all]``
+
+Upgrading python-beetroot uses the command ``pip install --upgrade beetroot``
+
 Warnings/Known Issues:
 ======================
 
