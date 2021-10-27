@@ -194,20 +194,28 @@ def byteobfuscate(b):
     don't expect this to stand up to anyone with a bit
     of python knowledge"""
     if objtype(b) != "bytes":
-        raise InvalidHashTypeError("Argument \"b\" can only be bytestring")
+        raise InvalidTypeError("Argument \"b\" can only be bytestring")
         
     return lzma.compress(base64.a85encode(codecs.encode(str(b.decode("iso-8859-1"))[::-1], "rot-13").encode("iso-8859-1"))).decode("iso-8859-1")[::-1].encode("iso-8859-1")
     
 def byteunobfuscate(b):
     """Unobfuscates a string obfuscated by beetroot.strobfuscate()"""
     if objtype(b) != "bytes":
-        raise InvalidHashTypeError("Argument \"b\" can only be bytestring")
+        raise InvalidTypeError("Argument \"b\" can only be bytestring")
     
     return codecs.encode(base64.a85decode(lzma.decompress(b.decode("iso-8859-1")[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1].encode("iso-8859-1")
     
 def mem():
     try:
         yee = psutil.virtual_memory()
+        return [yee.total, yee.used, yee.free]
+    
+    except NameError:
+        raise ModuleError("psutil must be installed to use beetroot.mem(). Use pip install psutil or pip install beetroot[ram].")
+    
+def swapmem():
+    try:
+        yee = psutil.swap_memory()
         return [yee.total, yee.used, yee.free]
     
     except NameError:

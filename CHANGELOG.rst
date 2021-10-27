@@ -17,3 +17,7 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.1.4 ; Fixed bug where rST didn't render on PyPI
 
 - 1.1.1.5 ; Added mem()
+
+- 1.1.1.6 ; Added swapmem()
+
+- 1.1.1.7 ; Minor fixes, changed obfuscation functions

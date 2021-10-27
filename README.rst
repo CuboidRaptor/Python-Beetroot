@@ -114,6 +114,8 @@ Miscellaneous stuff:
 
 - beetroot.mem() ; Returns [All memory, currently used memory, available memory].
 
+- beetroot.swapmem() ; Same thing as beetroot.mem(), except it's Swap memory instead.
+
 Amazing functions that should be called whenever possible
 =========================================================
 
