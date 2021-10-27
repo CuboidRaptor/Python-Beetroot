@@ -183,11 +183,19 @@ def strobfuscate(str_):
     """Minorly obfuscates a string. While it is unreadable,
     don't expect this to stand up to anyone with a bit
     of python knowledge"""
-    return lzma.compress(base64.a85encode(codecs.encode(str(str_)[::-1], "rot-13").encode("iso-8859-1"))).decode("iso-8859-1")[::-1]
+    try:
+        return lzma.compress(base64.a85encode(codecs.encode(str(str_)[::-1], "rot-13").encode("utf-8"))).decode("iso-8859-1")[::-1]
+    
+    except UnicodeDecodeError:
+        return lzma.compress(base64.a85encode(codecs.encode(str(str_)[::-1], "rot-13").encode("iso-8859-1"))).decode("iso-8859-1")[::-1]
     
 def strunobfuscate(str_):
     """Unobfuscates a string obfuscated by beetroot.strobfuscate()"""
-    return codecs.encode(base64.a85decode(lzma.decompress(str_[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1]
+    try:
+        return codecs.encode(base64.a85decode(lzma.decompress(str_[::-1].encode("iso-8859-1"))).decode("utf-8"), "rot-13")[::-1]
+    
+    except UnicodeDecodeError:
+        return codecs.encode(base64.a85decode(lzma.decompress(str_[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1]
     
 def byteobfuscate(b):
     """Minorly obfuscates a bytestring. While it is unreadable,
