@@ -117,6 +117,10 @@ Miscellaneous stuff:
 
 - beetroot.mousepixelgrab() ; Grabs colour of the pixel at your mouse, requires PIL and pyautogui, use ``pip install pillow pyautogui`` or ``pip install beetroot[img]``
 
+- beetroot.remove(str_, item_to_remove) ; Removes all occurences of item_to_remove in str_
+
+- beetroot.siteize(str_) ; Makes text into site names, for example "hello there" becomes "www.HelloThere.com"
+
 Memory functions and stuff:
 ===========================
 

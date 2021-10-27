@@ -68,6 +68,24 @@ def test():
     """Test"""
     print("Hello, world!")
     return 0
+
+def remove(str_, ting):
+    """Removes all occurences of "ting" in str_"""
+    return str_.replace(str(ting), "")
+
+def siteize(str_):
+    """Turns the string into a malformed url so you can talk
+    in a weird way. For example, "Hello, world!", gets
+    turned into "www.HelloWorld.com"."""
+    a = list(str_)
+    b = []
+    
+    for item in a:
+        if item.isalnum() or item == " ":
+            b.append(item)
+            
+    b = remove("".join(b).title(), " ")
+    return "".join(["www.", b, ".com"])
     
 def quicksort(array):
     """Quicksort algorithm"""
