@@ -77,12 +77,16 @@ setup(
         ],
         "ram": [
             "psutil>=5.8.0"
-        ],  
+        ],
+        "yt": [
+            "youtube-search>=2.1.0"
+        ],
         "all": [
             "pyttsx3>=2.90",
             "pillow>=8.4.0",
             "pyautogui>=0.9.53",
-            "psutil>=5.8.0"
+            "psutil>=5.8.0",
+            "youtube-search>=2.1.0"
         ]
     }
 )

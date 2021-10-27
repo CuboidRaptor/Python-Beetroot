@@ -101,5 +101,6 @@ class fil:
         """Reads data from JSON files."""
         with open(p(fi), "r", encoding="iso-8859-1") as f:
             return json.loads(f.read())
+
 file = fil()
 del fil

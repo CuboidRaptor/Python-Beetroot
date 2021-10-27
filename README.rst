@@ -25,19 +25,21 @@ Different extras:
 
 - beetroot[img]
 
+- beetroot[yt]
+
 Functions and uses:
 ===================
 
 Bad Obfuscation Stuff:
 ======================
 
-- beetroot.strobfuscate(string) ; Minorly obfuscates strings, this is definitely not secure, don't rely on this being irreversible or secure.
+- beetroot.obf.strobfuscate(string) ; Minorly obfuscates strings, this is definitely not secure, don't rely on this being irreversible or secure.
 
-- beetroot.strunobfuscate(string) ; Deobfuscates strings made by beetroot.strobfuscate()
+- beetroot.obf.strunobfuscate(string) ; Deobfuscates strings made by beetroot.strobfuscate()
 
-- beetroot.byteobfuscate(bytestring) ; Obfuscates bytestrings, this isn't secure either.
+- beetroot.obf.byteobfuscate(bytestring) ; Obfuscates bytestrings, this isn't secure either.
 
-- beetroot.byteunobfuscate(bytestring) ; Unobfuscates bytestrings created by beetroot.byteobfuscate()
+- beetroot.obf.byteunobfuscate(bytestring) ; Unobfuscates bytestrings created by beetroot.byteobfuscate()
 
 Random stuff:
 =============
@@ -85,12 +87,15 @@ TTS stuff:
 
 - beetroot.tts.changeVolume(text) ; Changes global tts volume, requires pyttsx3 to be installed or use ``pip install beetroot[tts]``
 
+Hash stuff:
+===========
+
+- beetroot.hashl.strhash(text, secure=<bool>) ; Hashes a string or non-bytestring that can be converted to string.
+
+- beetroot.hashl.bytehash(text, secure=<bool>) ; Hashes a bytestring.
+
 Miscellaneous stuff:
 ====================
-
-- beetroot.strhash(text, secure=<bool>) ; Hashes a string or non-bytestring that can be converted to string.
-
-- beetroot.bytehash(text, secure=<bool>) ; Hashes a bytestring.
 
 - beetroot.objtype(obj) ; python type(), but better
 
@@ -112,9 +117,17 @@ Miscellaneous stuff:
 
 - beetroot.mousepixelgrab() ; Grabs colour of the pixel at your mouse, requires PIL and pyautogui, use ``pip install pillow pyautogui`` or ``pip install beetroot[img]``
 
-- beetroot.mem() ; Returns [All memory, currently used memory, available memory].
+Memory functions and stuff:
+===========================
 
-- beetroot.swapmem() ; Same thing as beetroot.mem(), except it's Swap memory instead.
+- beetroot.mem.mem() ; Returns [All memory, currently used memory, available memory].
+
+- beetroot.mem.swapmem() ; Same thing as beetroot.mem(), except it's Swap memory instead.
+
+Youtube garbage:
+================
+
+- beetroot.yt.search(search_term) ; Enter a search term, the function returns the link for the first hit on that search.
 
 Amazing functions that should be called whenever possible
 =========================================================

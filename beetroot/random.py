@@ -18,5 +18,6 @@ class rand:
         like it to be secure, use beetroot.random.randint() instead."""
         mrandom.seed(seed)
         return mrandom.randint(s, e)
+
 random = rand()
 del rand

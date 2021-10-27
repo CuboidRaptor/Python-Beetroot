@@ -70,5 +70,6 @@ class ptx:
         
         except ValueError:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
+
 tts = ptx()
 del ptx

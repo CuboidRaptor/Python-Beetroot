@@ -18,9 +18,6 @@ import uuid
 import hashlib
 import webbrowser
 import datetime
-import lzma
-import base64
-import codecs
 
 try:
     import ujson as json
@@ -58,43 +55,14 @@ from .stopwatch import *
 from .file import *
 from .tts import *
 from .objtype import *
+from .obf import *
+from .mem import *
+from .yt import *
+from .hashl import *
 
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(32767)
-    
-def strhash(str_, secure=True):
-    """Hash Function that uses MD5 or SHA512."""
-    
-    if objtype(secure) != "bool":
-        raise InvalidHashSecurityValue("Argument \"secure\" can only be boolean")
-    
-    if secure:
-        return hashlib.sha512(str(str_).encode("iso-8859-1")).hexdigest()
-    
-    elif not secure:
-        return hashlib.md5(str(str_).encode("iso-8859-1")).hexdigest()
-        
-    else:
-        raise UnknownError("¯\_(ツ)_/¯")
-    
-def bytehash(b, secure=True):
-    """Hash Function that uses MD5 or SHA512."""
-    
-    if objtype(secure) != "bool":
-        raise InvalidHashSecurityValue("Argument \"secure\" can only be boolean")
-    
-    if objtype(b) != "bytes":
-        raise InvalidHashTypeError("Argument \"b\" can only be bytestring")
-    
-    if secure:
-        return hashlib.sha512(b).hexdigest()
-    
-    elif not secure:
-        return hashlib.md5(b).hexdigest()
-        
-    else:
-        raise UnknownError("¯\_(ツ)_/¯")
         
 def test():
     """Test"""
@@ -178,56 +146,6 @@ def mousepixelgrab():
 
     except (ModuleNotFoundError, ImportError):
         raise ModuleError("PIL and pyautogui most be installed to use beetroot.mousepixelgrab(). Try pip install pillow pyautogui.")
-    
-def strobfuscate(str_):
-    """Minorly obfuscates a string. While it is unreadable,
-    don't expect this to stand up to anyone with a bit
-    of python knowledge"""
-    try:
-        return lzma.compress(base64.a85encode(codecs.encode(str(str_)[::-1], "rot-13").encode("utf-8"))).decode("iso-8859-1")[::-1]
-    
-    except UnicodeDecodeError:
-        return lzma.compress(base64.a85encode(codecs.encode(str(str_)[::-1], "rot-13").encode("iso-8859-1"))).decode("iso-8859-1")[::-1]
-    
-def strunobfuscate(str_):
-    """Unobfuscates a string obfuscated by beetroot.strobfuscate()"""
-    try:
-        return codecs.encode(base64.a85decode(lzma.decompress(str_[::-1].encode("iso-8859-1"))).decode("utf-8"), "rot-13")[::-1]
-    
-    except UnicodeDecodeError:
-        return codecs.encode(base64.a85decode(lzma.decompress(str_[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1]
-    
-def byteobfuscate(b):
-    """Minorly obfuscates a bytestring. While it is unreadable,
-    don't expect this to stand up to anyone with a bit
-    of python knowledge"""
-    if objtype(b) != "bytes":
-        raise InvalidTypeError("Argument \"b\" can only be bytestring")
-        
-    return lzma.compress(base64.a85encode(codecs.encode(str(b.decode("iso-8859-1"))[::-1], "rot-13").encode("iso-8859-1"))).decode("iso-8859-1")[::-1].encode("iso-8859-1")
-    
-def byteunobfuscate(b):
-    """Unobfuscates a string obfuscated by beetroot.strobfuscate()"""
-    if objtype(b) != "bytes":
-        raise InvalidTypeError("Argument \"b\" can only be bytestring")
-    
-    return codecs.encode(base64.a85decode(lzma.decompress(b.decode("iso-8859-1")[::-1].encode("iso-8859-1"))).decode("iso-8859-1"), "rot-13")[::-1].encode("iso-8859-1")
-    
-def mem():
-    try:
-        yee = psutil.virtual_memory()
-        return [yee.total, yee.used, yee.free]
-    
-    except NameError:
-        raise ModuleError("psutil must be installed to use beetroot.mem(). Use pip install psutil or pip install beetroot[ram].")
-    
-def swapmem():
-    try:
-        yee = psutil.swap_memory()
-        return [yee.total, yee.used, yee.free]
-    
-    except NameError:
-        raise ModuleError("psutil must be installed to use beetroot.mem(). Use pip install psutil or pip install beetroot[ram].")
     
 def beetroot():
     """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""
