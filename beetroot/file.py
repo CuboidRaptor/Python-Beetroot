@@ -1,6 +1,16 @@
 import shutil
 import os
 
+try:
+    import ujson as json
+    
+except (ModuleNotFoundError, ImportError):
+    try:
+        import simplejson as json
+        
+    except (ModuleNotFoundError, ImportError):
+        import json
+
 from .exception import *
 from .objtype import objtype
 

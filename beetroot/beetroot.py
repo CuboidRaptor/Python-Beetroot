@@ -18,16 +18,6 @@ import uuid
 import hashlib
 import webbrowser
 import datetime
-
-try:
-    import ujson as json
-    
-except (ModuleNotFoundError, ImportError):
-    try:
-        import simplejson as json
-        
-    except (ModuleNotFoundError, ImportError):
-        import json
     
 try:
     import PIL
