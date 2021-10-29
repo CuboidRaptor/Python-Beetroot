@@ -32,3 +32,5 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.2.2 ; Added remove() and siteize(). Added more bugfixes to README.rst to help render.
 
 - 1.1.2.3 ; Bugfixes to json file functions.
+
+- 1.1.3 ; Added text class, text.udown() and text.zalgo()

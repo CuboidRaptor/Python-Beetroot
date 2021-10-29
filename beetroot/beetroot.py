@@ -49,6 +49,7 @@ from .obf import *
 from .mem import *
 from .yt import *
 from .hashl import *
+from .text import *
 
 #Constants
 gen = mrandom.SystemRandom()

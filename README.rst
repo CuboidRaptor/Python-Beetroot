@@ -31,6 +31,8 @@ Different extras:
 
 - beetroot[yt]
 
+- beetroot[text]
+
 Functions and uses:
 ===================
 
@@ -139,6 +141,13 @@ Youtube garbage:
 
 - beetroot.yt.dl(url, filename, fileformat, playlist=<bool>) ; Downloads a video or playlist from url. Valid codecs include mp3, ogg, wav, m4a, aac, flac, mp4, webm, avi, opus, mkv, mov, flv, aiff and wma.
   Requires youtube-dl, use ``pip install youtube-dl`` or ``pip install beetroot[yt]``
+  
+Text manipulation stuff:
+========================
+
+- beetroot.text.udown(text) ; Flips text upside-down
+
+- beetroot.text.zalgo(text) ; Adds zalgo to text
 
 Amazing functions that should be called whenever possible
 =========================================================
