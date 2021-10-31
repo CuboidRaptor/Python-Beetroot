@@ -20,8 +20,8 @@ Warnings/Known Issues:
 
 - beetroot.file.delete() doesn't throw errors when trying to delete non-existent files, *wtf*.
 
-Different extras:
-=================
+Different extras installation thingies:
+=======================================
 
 - beetroot[all]
 
