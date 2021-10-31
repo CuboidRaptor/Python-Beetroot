@@ -83,7 +83,8 @@ setup(
             "youtube-dl>=2021.6.6"
         ],
         "text": [
-            "upsidedown>=0.4"
+            "upsidedown>=0.4",
+            "zalgo-text>=0.6"
         ],
         "all": [
             "pyttsx3>=2.90",
@@ -92,7 +93,8 @@ setup(
             "psutil>=5.8.0",
             "youtube-search>=2.1.0",
             "youtube-dl>=2021.6.6",
-            "upsidedown>=0.4"
+            "upsidedown>=0.4",
+            "zalgo-text>=0.6"
         ]
     }
 )

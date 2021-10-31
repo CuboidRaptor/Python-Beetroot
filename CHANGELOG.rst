@@ -34,3 +34,5 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.2.3 ; Bugfixes to json file functions.
 
 - 1.1.3 ; Added text class, text.udown() and text.zalgo()
+
+- 1.1.3.1 ; Upgraded text.zalgo(), uses zalgo-text so it doesn't look stupid now. Also added argument "crazy" to adjust craziness level of zalgo text
