@@ -33,6 +33,8 @@ Different extras:
 
 - beetroot[text]
 
+- beetroot[ram]
+
 Functions and uses:
 ===================
 

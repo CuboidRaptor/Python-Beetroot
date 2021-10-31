@@ -23,6 +23,7 @@ class teg:
         self.zal = zalg.zalgo()
         
     def udown(self, intext):
+        """Generates upside-down text"""
         try:
             return upsidedown.transform(str(intext))
         
@@ -30,6 +31,7 @@ class teg:
             raise ModuleError("Upsidedown must be installed. Try pip install upsidedown or pip install beetroot[text].")
         
     def zalgo(self, intext, **kwargs):
+        """Generates Zalgo text"""
         craziness = int(
             round(
                 kwargs.get(
