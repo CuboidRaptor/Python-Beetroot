@@ -65,7 +65,18 @@ def admin():
         )
         
         try:
-            return stypes.windll.shell32.IsUserAnAdmin()
+            return ctypes.windll.shell32.IsUserAnAdmin()
+        
+        except:
+            return False
+        
+    else:
+        raise OSError("beetroot.admin() only works for windows.")
+      
+def isAdmin():
+    if platform.system() == "Windows":
+        try:
+            return ctypes.windll.shell32.IsUserAnAdmin()
         
         except:
             return False
@@ -109,7 +120,7 @@ def taskkill(tasque):
 def crash():
     """This causes python to cra- cra- cra- cras- cra- crash."""
     try:
-        taskkill(os.path.basename(sys.executable))
+        taskkill(os.path.basename(sys.executable).replace(".EXE", ".exe"))
                 
     except NameError:
         raise ModuleError("psutil must be installed to use beetroot.crash(). Use pip install psutil or pip install beetroot[ram].")
