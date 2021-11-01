@@ -20,6 +20,7 @@ import hashlib
 import webbrowser
 import datetime
 import os
+import ctypes
     
 try:
     import PIL
@@ -56,7 +57,22 @@ from .text import *
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(32767)
+      
+def admin():
+    if platform.system() == "Windows":
+        ctypes.windll.shell32.ShellExecuteW(
+            None, 'runas', sys.executable, ' '.join(sys.argv), None, None
+        )
         
+        try:
+            return stypes.windll.shell32.IsUserAnAdmin()
+        
+        except:
+            return False
+        
+    else:
+        raise OSError("beetroot.admin() only works for windows.")
+      
 def test():
     """Test"""
     print("Hello, world!")

@@ -31,3 +31,6 @@ class InvalidFormat(Exception):
 
 class FFmpegError(Exception):
     pass
+
+class StupidProgrammerError(Exception):
+    pass

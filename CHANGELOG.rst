@@ -42,3 +42,7 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.3.3 ; Added bugfixes to text class and mem class.
 
 - 1.1.3.4 ; Added taskkill() and crash().
+
+- 1.1.3.5 ; Added admin().
+
+- 1.1.3.6 ; Added hashl.dehash()

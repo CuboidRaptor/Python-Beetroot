@@ -20,6 +20,8 @@ Warnings/Known Issues:
 
 - beetroot.file.delete() doesn't throw errors when trying to delete non-existent files, *wtf*.
 
+- beetroot.crash() doesn't even do anything, damn my horrible python skills
+
 Different extras installation thingies:
 =======================================
 
@@ -102,6 +104,9 @@ Hash stuff:
 
 - beetroot.hashl.bytehash(text, secure=<bool>) ; Hashes a bytestring.
 
+- beetroot.hashl.dehash(hash) ; Dehashes a hash, this totally works and is definitely possible and is absolutely not a
+  dumb joke that I'm making...
+
 Miscellaneous stuff:
 ====================
 
@@ -132,6 +137,8 @@ Miscellaneous stuff:
 - beetroot.taskkill(task) ; I see a task and I **E A T** it. Pass tasks to it through the "task" argument.
 
 - beetroot.crash() ; Crashes pyth-
+
+- beetroot.admin() ; Requests UAC elevation on Windows.
 
 Memory functions and stuff:
 ===========================

@@ -1,4 +1,5 @@
 import hashlib
+import sys
 
 from .exception import *
 from .objtype import *
@@ -46,6 +47,10 @@ class has:
             
         else:
             raise UnknownError("¯\_(ツ)_/¯")
+        
+    def dehash(self, hashobj):
+        sys.stderr.write("You can't dehash hashes, dumb dumb. Unless it's an MD5/SHA1, which I'm too lazy to check for.")
+        sys.exit()
 
 hashl = has()
 del has
