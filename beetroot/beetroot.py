@@ -57,22 +57,7 @@ from .text import *
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(32767)
-      
-def admin():
-    if platform.system() == "Windows":
-        ctypes.windll.shell32.ShellExecuteW(
-            None, 'runas', sys.executable, ' '.join(sys.argv), None, None
-        )
-        
-        try:
-            return ctypes.windll.shell32.IsUserAnAdmin()
-        
-        except:
-            return False
-        
-    else:
-        raise OSError("beetroot.admin() only works for windows.")
-      
+
 def isAdmin():
     if platform.system() == "Windows":
         try:
@@ -80,6 +65,17 @@ def isAdmin():
         
         except:
             return False
+        
+    else:
+        raise OSError("beetroot.isAdmin() only works for windows.")
+
+def admin():
+    if platform.system() == "Windows":
+        ctypes.windll.shell32.ShellExecuteW(
+            None, 'runas', sys.executable, ' '.join(sys.argv), None, None
+        )
+        
+        return isAdmin()
         
     else:
         raise OSError("beetroot.admin() only works for windows.")
