@@ -8,6 +8,7 @@ from .exception import *
 if not str(sys.version).startswith("3"):
     #HOW DARE YOU USE PYTHON2 IDIOT. or python4, if that ever exists
     #well I mean, if it's like a massive database or smth and you don't wanna migrate 1k+ lines of code then I understand, BUT STILL.
+    #And if you're using Python1, then the following emoji is for you. 😲
     raise VersionError("Python version is not supported.")
 
 #More imports
