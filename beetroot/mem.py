@@ -16,7 +16,7 @@ class m:
             return [yee.total, yee.used, yee.free]
         
         except NameError:
-            raise ModuleError("psutil must be installed to use beetroot.mem(). Use pip install psutil or pip install beetroot[ram].")
+            raise ModuleError("psutil must be installed to use beetroot.mem.mem(). Use pip install psutil or pip install beetroot[ram].")
         
     def swapmem(self):
         """Returns total, used and available swap memory."""
@@ -25,6 +25,6 @@ class m:
             return [yee.total, yee.used, yee.free]
         
         except NameError:
-            raise ModuleError("psutil must be installed to use beetroot.mem(). Use pip install psutil or pip install beetroot[ram].")
+            raise ModuleError("psutil must be installed to use beetroot.mem.swapmem(). Use pip install psutil or pip install beetroot[ram].")
 mem = m()
 del m

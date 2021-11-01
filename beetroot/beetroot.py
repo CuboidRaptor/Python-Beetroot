@@ -19,6 +19,7 @@ import uuid
 import hashlib
 import webbrowser
 import datetime
+import os
     
 try:
     import PIL
@@ -78,6 +79,24 @@ def siteize(str_):
             
     b = remove("".join(b).title(), " ")
     return "".join(["www.", b, ".com"])
+    
+def taskkill(tasque):
+    """Kills a task by name with psutil."""
+    try:
+        for proc in psutil.process_iter():
+            if proc.name() == tasque:
+                proc.kill()
+                
+    except NameError:
+        raise ModuleError("psutil must be installed to use beetroot.taskkill(). Use pip install psutil or pip install beetroot[ram].")
+    
+def crash():
+    """This causes python to cra- cra- cra- cras- cra- crash."""
+    try:
+        taskkill(os.path.basename(sys.executable))
+                
+    except NameError:
+        raise ModuleError("psutil must be installed to use beetroot.crash(). Use pip install psutil or pip install beetroot[ram].")
     
 def quicksort(array):
     """Quicksort algorithm"""

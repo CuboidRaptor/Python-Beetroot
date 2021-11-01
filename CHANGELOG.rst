@@ -38,3 +38,7 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.3.1 ; Upgraded text.zalgo(), uses zalgo-text so it doesn't look stupid now. Also added argument "crazy" to adjust craziness level of zalgo text
 
 - 1.1.3.2 ; Made minor changes to documentation
+
+- 1.1.3.3 ; Added bugfixes to text class and mem class.
+
+- 1.1.3.4 ; Added taskkill() and crash().

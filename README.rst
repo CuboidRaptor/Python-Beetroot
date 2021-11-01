@@ -129,6 +129,10 @@ Miscellaneous stuff:
 
 - beetroot.siteize(str) ; Makes text into site names, for example "hello there" becomes "www.HelloThere.com"
 
+- beetroot.taskkill(task) ; I see a task and I **E A T** it. Pass tasks to it through the "task" argument.
+
+- beetroot.crash() ; Crashes pyth-
+
 Memory functions and stuff:
 ===========================
 

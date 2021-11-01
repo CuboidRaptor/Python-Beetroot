@@ -20,7 +20,11 @@ gen = random.SystemRandom()
 
 class teg:
     def __init__(self):
-        self.zal = zalg.zalgo()
+        try:
+            self.zal = zalg.zalgo()
+            
+        except NameError:
+            pass
         
     def udown(self, intext):
         """Generates upside-down text"""
