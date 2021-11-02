@@ -86,6 +86,10 @@ setup(
             "upsidedown>=0.4",
             "zalgo-text>=0.6"
         ],
+        "cython": [
+            "Cython>=0.29.24",
+            "setuptools>=58.3.0"
+        ],
         "all": [
             "pyttsx3>=2.90",
             "pillow>=8.4.0",
@@ -94,7 +98,9 @@ setup(
             "youtube-search>=2.1.0",
             "youtube-dl>=2021.6.6",
             "upsidedown>=0.4",
-            "zalgo-text>=0.6"
+            "zalgo-text>=0.6",
+            "Cython>=0.29.24",
+            "setuptools>=58.3.0"
         ]
     }
 )

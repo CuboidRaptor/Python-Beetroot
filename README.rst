@@ -140,6 +140,8 @@ Miscellaneous stuff:
 
 - beetroot.admin() ; Requests UAC elevation on Windows.
 
+- beetroot.cython() ; Generates a cython extension and cleans up afterwards.
+
 Memory functions and stuff:
 ===========================
 

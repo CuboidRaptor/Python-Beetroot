@@ -48,3 +48,5 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.3.6 ; Added hashl.dehash()
 
 - 1.1.3.7 ; Added isAdmin() and bugfixes to crash()
+
+- 1.1.3.8 ; Added cython()
