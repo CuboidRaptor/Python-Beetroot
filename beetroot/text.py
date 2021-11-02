@@ -109,7 +109,11 @@ class teg:
 
                     elif dumb > 80 and dumb <= 90:
                         if yee[i][1].startswith("NN"):
-                            out.append("".join([str(yee[i][0]), "e"]))
+                            if yee[i][0].endswith("e"):
+                                out.append(str(yee[i][0]))
+                                
+                            else:
+                                out.append("".join([str(yee[i][0]), "e"]))
                             
                         else:
                             if yee[i][0].endswith("a") or yee[i][0].endswith("e") or yee[i][0].endswith("i") or yee[i][0].endswith("o") or yee[i][0].endswith("u"):
@@ -145,6 +149,8 @@ class teg:
                 out[i] = self._objrepl(out[i], "rouxlse", "The Duketh of Puzzles")
                 out[i] = self._objrepl(out[i], "rouxls", "The Duketh of Puzzles")
                 out[i] = self._objrepl(out[i], "the", "thy")
+                out[i] = self._objrepl(out[i], "thyre", "there")
+                out[i] = self._objrepl(out[i], "thour", "your")
                     
             out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
             
