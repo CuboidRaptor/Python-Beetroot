@@ -11,7 +11,7 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 try:
-    from nltk import pos_tag, word_tokenize
+    from nltk import pos_tag
     
 except (ModuleNotFoundError, ImportError):
     pass
@@ -37,6 +37,12 @@ class teg:
         out = str(str_).replace(a.lower(), b.lower())
         out = str(out).replace(a.title(), b.title())
         out = str(out).replace(a.upper(), b.upper())
+        return out
+    
+    def _objreplic(self, str_, a, b):
+        out = str(str_).replace(a.lower(), b)
+        out = str(out).replace(a.title(), b)
+        out = str(out).replace(a.upper(), b)
         return out
         
     def udown(self, intext):
@@ -67,7 +73,7 @@ class teg:
         
     def rouxls(self, sentence):
         try:
-            yee = pos_tag(word_tokenize(sentence))
+            yee = pos_tag(sentence.split(" "))
             
             out = []
             for i in range(0, len(yee)):
@@ -148,10 +154,13 @@ class teg:
                 out[i] = self._objrepl(out[i], "ise", "is")
                 out[i] = self._objrepl(out[i], "rouxls", "Rouxls, The Duketh of Puzzles")
                 out[i] = self._objrepl(out[i], "rouxlse", "Rouxls, The Duketh of Puzzles")
-                out[i] = self._objrepl(out[i], "rouxlsee", "Rouxls, The Duketh of Puzzles")
+                out[i] = self._objrepl(out[i], "Rouxls, The Duketh of Puzzlese", "Rouxls, The Duketh of Puzzles")
                 out[i] = self._objrepl(out[i], "the", "thy")
                 out[i] = self._objrepl(out[i], "thyre", "there")
                 out[i] = self._objrepl(out[i], "thour", "your")
+                out[i] = self._objrepl(out[i], "amest", "am")
+                out[i] = self._objrepl(out[i], "ameth", "am")
+                out[i] = self._objrepl(out[i], "asse", "arse")
                     
             out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
             
@@ -162,6 +171,79 @@ class teg:
         
         except NameError:
             raise ModuleError("nltk must be installed to use beetroot.text.rouxls(). Try pip install nltk or pip install beetroot[text].")
+            
+    def spamton(self, sentence):
+        try:
+            yee = pos_tag(sentence.upper().split(" "))
+            
+            out = []
+            for i in range(0, len(yee)):
+                if yee[i][1].startswith("NN") or yee[i][1].startswith("VB"):
+                    dumb = random.randint(1, 100)
+                    if dumb <= 30:
+                        out.append("".join(["[", str(yee[i][0]).lower().title(), "]"]))
+
+                    elif dumb > 30 and dumb <= 40:
+                        out.append("".join(["[[", str(yee[i][0]).lower().title(), "]]"]))
+                        
+                    elif dumb > 40 and dumb <= 60:
+                        if yee[i][1] == "NN" or yee[i][1] == "NNS":
+                            out.append("[[Hyperlink Blocked]]")
+                            
+                        elif yee[i][1] == "NNPS":
+                            nnpsn = [
+                                "LIGHT neRs",
+                                "DARK nERs",
+                                "[Friends]",
+                                "[[Hearts]]"
+                            ]
+                            dumb3 = random.choice(nnpsn)
+                            dumb3_1 = random.randint(0, 1)
+                            if dumb3_1 == 0:
+                                dumb3 = "".join(["[", dumb3, "]"])
+                                
+                            else:
+                                dumb3 = "".join(["[[", dumb3, "]]"])
+                                
+                            out.append(dumb3)
+                            
+                        elif yee[i][1] == "NNP":
+                            nnpn = [
+                                "Kris",
+                                "Salesman1997"
+                                "Little Sponge"
+                            ]
+                            dumb2 = random.choice(nnpn)
+                            dumb2_1 = random.randint(0, 1)
+                            if dumb2_1 == 0:
+                                dumb2 = "".join(["[", dumb2, "]"])
+                                
+                            else:
+                                dumb2 = "".join(["[[", dumb2, "]]"])
+                                
+                            out.append(dumb2)
+                        
+                        else:
+                            out.append(str(yee[i][0]))
+                        
+                    else:
+                        out.append(str(yee[i][0]))
+                        
+                else:
+                    out.append(str(yee[i][0]))
+                    
+            for i in range(0, len(out)):
+                out[i] = self._objreplic(out[i], "spamton", "[Spamton G. Spamton]")
+                out[i] = self._objreplic(out[i], "strings", "Silly Strings")
+                out[i] = self._objreplic(out[i], "soul", "HeartShapedObject")
+                out[i] = self._objrepl(out[i], "special", "specil")
+                
+            out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
+            
+            return out
+            
+        except NameError:
+            raise ModuleError("nltk must be installed to use beetroot.text.spamton(). Try pip install nltk or pip install beetroot[text].")
             
 text = teg()
 del teg
