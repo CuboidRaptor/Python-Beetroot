@@ -61,4 +61,4 @@ Version number \= 1.Major.Minor.Patch
   
 - 1.1.3.12 ; Removed lsep(), as I found .split() does kinda the same thing and so this function is literally useless
 
-- 1.1.3.13 ; Made Rouxls text engine better
+- 1.1.3.13 ; Made Rouxls text engine better and changed cython()

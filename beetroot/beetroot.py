@@ -92,13 +92,6 @@ except (ModuleNotFoundError, ImportError):
         os.system("python " + os.path.abspath("setup.py") + " build_ext --inplace")
         
         shutil.rmtree(os.path.abspath("build"))
-        try:
-            dumb = os.path.abspath(str(filepath)).split(".")[:-1]
-            dumb.append("c")
-            os.remove(".".join(dumb))
-            
-        except FileNotFoundError:
-            pass
         
         try:
             os.remove(os.path.abspath("setup.py"))
