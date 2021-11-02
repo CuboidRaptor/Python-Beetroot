@@ -197,17 +197,6 @@ def quicksort(array):
     else:
         return array
 
-def lsep(str_, sep=" "):
-    """Seperates string str_ by seperator sep whilst avoiding all strings containing whitespace"""
-    a = str_.split(sep)
-    
-    out = []
-    for i in range(0, len(a)):
-        if (not a[i].isspace()) and a[i] != "":
-            out.append(a[i])
-            
-    return out
-
 def execfile(file):
     """Executes a python .py script"""
     with open(p(file), "r", encoding="iso-8859-1") as f:

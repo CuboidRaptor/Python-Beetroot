@@ -163,7 +163,9 @@ Text manipulation stuff:
 - beetroot.text.udown(text) ; Flips text upside-down
 
 - beetroot.text.zalgo(text, crazy=<int>) ; Adds zalgo to text, change crazy argument to modify craziness of zalgo text,
-  default value is 10
+  default value is 1
+  
+- beetroot.text.rouxls(sentence) ; Rouxls-ify text so it sounds stupid.
 
 Amazing functions that should be called whenever possible
 =========================================================

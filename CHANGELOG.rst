@@ -50,3 +50,13 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.3.7 ; Added isAdmin() and bugfixes to crash()
 
 - 1.1.3.8 ; Added cython()
+
+- 1.1.3.9 ; Added bugfix to allow float craziness values to text.zalgo()
+
+- 1.1.3.10 ; Added text.rouxls() to Rouxls-ify text.
+  Thiseth is the greatest worketh of artst ever created by thy human. This is approvedst by Thy Duke of Puzzles!
+  
+- 1.1.3.11 ; Changed text.rouxls() to make it more Rouxls-like.
+  I agree-eth, this shalt be knownest as thy greatest worketh in thy historie of thy darkners
+  
+- 1.1.3.12 ; Removed lsep(), as I found .split() does kinda the same thing and so this function is literally useless

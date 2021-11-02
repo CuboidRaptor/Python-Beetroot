@@ -84,7 +84,8 @@ setup(
         ],
         "text": [
             "upsidedown>=0.4",
-            "zalgo-text>=0.6"
+            "zalgo-text>=0.6",
+            "nltk>=3.6.5"
         ],
         "cython": [
             "Cython>=0.29.24",
@@ -100,7 +101,8 @@ setup(
             "upsidedown>=0.4",
             "zalgo-text>=0.6",
             "Cython>=0.29.24",
-            "setuptools>=58.3.0"
+            "setuptools>=58.3.0",
+            "nltk>=3.6.5"
         ]
     }
 )
