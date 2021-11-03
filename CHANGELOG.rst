@@ -67,3 +67,5 @@ Version number \= 1.Major.Minor.Patch
   YES [[Kris]]!! GOOD JOB!!!! BUT WHY SETTLE FOR [this] [[LittleSponge]] WHEN YOU CAN BUY [SPAMTON G. SPAMTON]'s [[[STUFF]]???!?!!?
   
 - 1.1.3.15 ; me stahp yoose os.system() and yoose subprocess.call() insted
+
+- 1.1.3.16 ; Improvements to cython()
