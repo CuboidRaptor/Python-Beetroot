@@ -112,6 +112,9 @@ except (ModuleNotFoundError, ImportError):
         try:
             c = p("".join(["./", outdir, ".c"]))
             file.move(c, p("".join(["./", outdir, "/", c])))
+            
+        except FileNotFoundError:
+            pass
         
     except NameError:
         raise ModuleError("setuptools and Cython must be installed. Try pip install setuptools Cython or pip install beetroot[cython].")
