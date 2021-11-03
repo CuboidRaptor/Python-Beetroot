@@ -23,6 +23,7 @@ import os
 import ctypes
 import shutil
 import subprocess
+import re
     
 try:
     import PIL
@@ -67,6 +68,7 @@ from .mem import *
 from .yt import *
 from .hashl import *
 from .text import *
+from .betterstring import *
 
 #Constants
 gen = mrandom.SystemRandom()
@@ -228,6 +230,7 @@ def reline(str_):
     return str(str_).replace("\\n", "\n").replace("\\t", "\t").replace("\\r", "\r").replace("\\a", "\a").replace("\\b", "\b")
 
 def pixelgrab(i_x, i_y):
+    """Grabs colour of pixel at (i_x, i_y)"""
     try:
         import PIL.ImageGrab
         return PIL.ImageGrab.grab().load()[int(i_x), int(i_y)]
@@ -239,6 +242,7 @@ def pixelgrab(i_x, i_y):
         raise InvalidTypeError("Arguement \"i_x\" and \"i_y\" must be ints or floats")
     
 def mousepixelgrab():
+    """Grabs colour of pixel at mouse-pointer"""
     try:
         import PIL.ImageGrab
         import pyautogui
@@ -266,6 +270,7 @@ def beetroot():
     return 69420
 
 def totally_not_a_rickroll():
+    """Definitely absolutely 100% totally completely not a rickroll"""
     for i in range(0, 100):
         rickrolled = True
         

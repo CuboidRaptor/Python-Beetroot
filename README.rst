@@ -110,13 +110,13 @@ Hash stuff:
 Miscellaneous stuff:
 ====================
 
+- beetroot.betterstring(string) ; I made my own special kind of String, cuz why not. Also it supports regex by default.
+
 - beetroot.objtype(obj) ; python type(), but better
 
 - beetroot.test() ; Literally just a hello world program.
 
 - beetroot.quicksort(arr) ; Quicksort, which in most cases is slightly faster than Python3's default Timsort.
-
-- beetroot.lsep(string, seperator) ; basically .split() but it removes empty or all-whitespace strings from output.
 
 - beetroot.execfile(file) ; Execute .py script
 

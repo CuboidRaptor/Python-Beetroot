@@ -69,3 +69,5 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.3.15 ; me stahp yoose os.system() and yoose subprocess.call() insted
 
 - 1.1.3.16 ; Improvements to cython()
+
+- 1.1.4 ; Added betterstring data type thingy
