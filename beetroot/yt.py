@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 try:
     import youtube_dl
@@ -163,11 +164,11 @@ class y:
                 except Exception as error:
                     raise FFmpegError("FFmpeg must be installed. There may be uncertainty, the original stack trace was \"" + str(error) + "\".")
                 
-                result = os.system(f"ffmpeg -i \"" + os.path.abspath(r".\\\\" + fname + r".webm") + "\" \"" + os.path.abspath(r".\\\\" + fname + "." + exten) + "\" -hide_banner -loglevel error")
+                result = subprocess.call(f"ffmpeg -i \"" + os.path.abspath(r".\\\\" + fname + r".webm") + "\" \"" + os.path.abspath(r".\\\\" + fname + "." + exten) + "\" -hide_banner -loglevel error")
                 os.remove(rf".\\{fname}.webm")
                 
                 if result != 0:
-                    raise FFmpegError("FFmpeg must be installed. There may be uncertainty, os.system() failed.")
+                    raise FFmpegError("FFmpeg must be installed. There may be uncertainty, subprocess.call() failed.")
                 
         except NameError as e:
             raise ModuleError("youtube-dl must be installed. Use pip install youtube-dl or pip install beetroot[yt].")

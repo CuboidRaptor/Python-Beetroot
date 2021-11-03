@@ -22,6 +22,7 @@ import datetime
 import os
 import ctypes
 import shutil
+import subprocess
     
 try:
     import PIL
@@ -89,7 +90,7 @@ except (ModuleNotFoundError, ImportError):
     raise ModuleNotFoundError("setuptools and Cython must be installed. Try pip install setuptools Cython or pip install beetroot[cython].")
         """)
         
-        os.system("python " + os.path.abspath("setup.py") + " build_ext --inplace")
+        subprocess.call("python " + os.path.abspath("setup.py") + " build_ext --inplace")
         
         shutil.rmtree(os.path.abspath("build"))
         
