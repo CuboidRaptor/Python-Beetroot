@@ -11,7 +11,7 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 try:
-    from nltk import pos_tag
+    from nltk import pos_tag, word_tokenize
     
 except (ModuleNotFoundError, ImportError):
     pass
@@ -21,8 +21,6 @@ import random
 from .exception import *
 
 gen = random.SystemRandom()
-
-
 
 class teg:
     def __init__(self):
@@ -73,7 +71,7 @@ class teg:
         
     def rouxls(self, sentence):
         try:
-            yee = pos_tag(sentence.split(" "))
+            yee = pos_tag(word_tokenize(sentence))
             
             out = []
             for i in range(0, len(yee)):
@@ -161,6 +159,7 @@ class teg:
                 out[i] = self._objrepl(out[i], "amest", "am")
                 out[i] = self._objrepl(out[i], "ameth", "am")
                 out[i] = self._objrepl(out[i], "asse", "arse")
+                out[i] = self._objrepl(out[i], "real", "reale")
                     
             out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
             

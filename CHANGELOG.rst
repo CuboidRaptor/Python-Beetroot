@@ -63,5 +63,5 @@ Version number \= 1.Major.Minor.Patch
 
 - 1.1.3.13 ; Made Rouxls text engine better and changed cython()
 
-- 1.1.3.14 ; Added text.spamton(), it kinda sucks tho. Also if you play Deltarune you know who that is.
+- 1.1.3.14 ; Added text.spamton(), it kinda sucks tho. Also if you play Deltarune you know who that is. Also changed text.rouxls()
   YES [[Kris]]!! GOOD JOB!!!! BUT WHY SETTLE FOR [this] [[LittleSponge]] WHEN YOU CAN BUY [SPAMTON G. SPAMTON]'s [[[STUFF]]???!?!!?
