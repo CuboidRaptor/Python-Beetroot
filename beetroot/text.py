@@ -245,15 +245,31 @@ class teg:
             raise ModuleError("nltk must be installed to use beetroot.text.spamton(). Try pip install nltk or pip install beetroot[text].")
             
     def greek(self, text):
-        greekalpha = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζ")
+        greekalpha = list(str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζ"))
         
-        text = list(str(text))
+        text = list(self._objreplic(self._objreplic(str(text), "greek", "Ellihnika"), "english", "Agglika"))
+        #print(text)
         for i in range(0, len(text)):
             try:
-                spos = greekalpha.index(ord(text[i]))
-                text[i] = greekaplha[spos + 52]
+                spos = greekalpha.index(text[i])
+                text[i] = greekalpha[spos + 52]
                 
-            except ValueError:
+            except (ValueError, IndexError):
+                pass
+            
+        return "".join(text)
+    
+    def russian(self, text):
+        rusalpha = list(str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯфисвуапршолдьтщзйкыегмцчняABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯфисвуапршолдьтщзйкыегмцчня"))
+        
+        text = list(self._objreplic(self._objreplic(str(text), "russian", "Heccrqq"), "english", "Ayukqqcrqq"))
+        #print(text)
+        for i in range(0, len(text)):
+            try:
+                spos = rusalpha.index(text[i])
+                text[i] = rusalpha[spos + 52]
+                
+            except (ValueError, IndexError):
                 pass
             
         return "".join(text)

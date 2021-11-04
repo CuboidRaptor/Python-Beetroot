@@ -70,4 +70,5 @@ Version number \= 1.Major.Minor.Patch
 
 - 1.1.3.16 ; Improvements to cython()
 
-- 1.1.4 ; Added text.greek()
+- 1.1.4 ; Added text.greek() and text.russian(). Note that this isn't an actual translator, and just swaps the characters.
+  This means that if you use text.greek(), Greek people still won't understand what you say.
