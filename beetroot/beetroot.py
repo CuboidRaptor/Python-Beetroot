@@ -68,7 +68,6 @@ from .mem import *
 from .yt import *
 from .hashl import *
 from .text import *
-from .betterstring import *
 
 #Constants
 gen = mrandom.SystemRandom()

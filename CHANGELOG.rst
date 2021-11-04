@@ -70,4 +70,4 @@ Version number \= 1.Major.Minor.Patch
 
 - 1.1.3.16 ; Improvements to cython()
 
-- 1.1.4 ; Added betterstring data type thingy
+- 1.1.4 ; Added text.greek()

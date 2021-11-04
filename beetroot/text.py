@@ -244,5 +244,19 @@ class teg:
         except NameError:
             raise ModuleError("nltk must be installed to use beetroot.text.spamton(). Try pip install nltk or pip install beetroot[text].")
             
+    def greek(self, text):
+        greekalpha = list("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζ")
+        
+        text = list(str(text))
+        for i in range(0, len(text)):
+            try:
+                spos = greekalpha.index(ord(text[i]))
+                text[i] = greekaplha[spos + 52]
+                
+            except ValueError:
+                pass
+            
+        return "".join(text)
+                    
 text = teg()
 del teg
