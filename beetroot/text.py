@@ -192,7 +192,7 @@ class teg:
                         elif yee[i][1] == "NNPS":
                             nnpsn = [
                                 "LIGHT neRs",
-                                "DARK nERs",
+                                "DARK neRs",
                                 "[Friends]",
                                 "[[Hearts]]"
                             ]
@@ -209,8 +209,9 @@ class teg:
                         elif yee[i][1] == "NNP":
                             nnpn = [
                                 "Kris",
-                                "Salesman1997"
-                                "Little Sponge"
+                                "Salesman1997",
+                                "Little Sponge",
+                                "[[Hyperlink Blocked]]"
                             ]
                             dumb2 = random.choice(nnpn)
                             dumb2_1 = random.randint(0, 1)
