@@ -274,6 +274,9 @@ class teg:
                 pass
             
         return "".join(text)
+    
+    def reverse(self, text):
+        return str(text)[::-1]
                     
 text = teg()
 del teg

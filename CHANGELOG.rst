@@ -73,3 +73,5 @@ Version number \= 1.Major.Minor.Patch
 - 1.1.4 ; Added text.greek() and text.russian(). Note that this isn't an actual translator, and just swaps the characters.
   This means that if you use text.greek(), Greek people still won't understand what you say.
   I also improved the text.spamton() function.
+  
+- 1.1.4.1 ; Added text.reverse, reverses text, so "Hello, world!" becomes "!dlrow ,olleH".
