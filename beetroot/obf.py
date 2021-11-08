@@ -6,6 +6,8 @@ from .exception import *
 from .objtype import *
 
 class ob:
+    """Obfuscation class, it kinda sucks, for good python
+    obfuscation, use beetroot.cython()."""
     def strobfuscate(self, str_):
         """Minorly obfuscates a string. While it is unreadable,
         don't expect this to stand up to anyone with a bit

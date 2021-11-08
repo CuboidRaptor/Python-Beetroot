@@ -142,6 +142,10 @@ Miscellaneous stuff:
 
 - beetroot.cython() ; Generates a cython extension and cleans up afterwards.
 
+- beetroot.printn() ; Prints an object without a trailing newline at the end.
+
+- beetroot.getch() ; Input, but it only waits for one character.
+
 Memory functions and stuff:
 ===========================
 
@@ -166,6 +170,17 @@ Text manipulation stuff:
   default value is 1
   
 - beetroot.text.rouxls(sentence) ; Rouxls-ify text so it sounds stupid.
+
+Compression class:
+==================
+
+- beetroot.comp.strcompress(str_) ; Compress a string using hybrid zlib/lzma
+
+- beetroot.comp.strdecompress(str_) ; Reverses beetroot.comp.strcompress().
+
+- beetroot.comp.bytecompress(b) ; Compress a bytestring using hybrid zlib/lzma
+
+- beetroot.comp.bytedecompress(b) ; Reverses beetroot.comp.bytecompress().
 
 Amazing functions that should be called whenever possible
 =========================================================

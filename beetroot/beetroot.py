@@ -57,9 +57,15 @@ try:
 except (ModuleNotFoundError, ImportError):
     pass
 
+try:
+    import keyboard
+    
+except (ModuleNotFoundError, ImportError):
+    pass
+
 from pathlib import Path as p
 
-from .metadata import *
+from .metadata import __version__, __author__, __authoremail__, __url__
 from .random import *
 from .stopwatch import *
 from .file import *
@@ -70,10 +76,14 @@ from .mem import *
 from .yt import *
 from .hashl import *
 from .text import *
+from .comp import *
 
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(32767)
+
+mdata = file.load("\\".join(__file__.split("\\")[:-1] + ["metadata.py"]))
+exec(mdata)
 
 def cython(filepath):
     """Builds a cython extension thingy."""
@@ -119,10 +129,43 @@ except (ModuleNotFoundError, ImportError):
         except FileNotFoundError:
             pass
         
+        return 0
+        
     except NameError:
-        raise ModuleError("setuptools and Cython must be installed. Try pip install setuptools Cython or pip install beetroot[cython].")
+        raise ModuleError("setuptools and Cython must be installed. Try `pip install setuptools Cython` or `pip install beetroot[cython]`.")
+
+def printn(str_=""):
+    """Prints a string without a trailing newline"""
+    if objtype(str_) == "bytes":
+        print(str_.decode("iso-8859-1"), end="", flush=True)
+        
+    else:
+        print(str(str_), end="", flush=True)
+        
+    return 0
+
+def getch(str_=""):
+    """input() but it only waits for one character."""
+    try:
+        printn(str_)
+        alphabet = [chr(i) for i in range(97, 123)]
+        
+        while True:
+            for letter in alphabet:
+                if keyboard.is_pressed(letter):
+                    print()
+                    return letter
+                
+                for num in range(0, 10):
+                    if keyboard.is_pressed(str(num)):
+                        print()
+                        return str(num)
+    
+    except NameError:
+        raise ModuleError("keyboard must be installed. Try `pip install keyboard` or `pip install beetroot[keyboard]`.")
 
 def isAdmin():
+    """Checks if python program has administrator prviliges."""
     if platform.system() == "Windows":
         try:
             return ctypes.windll.shell32.IsUserAnAdmin()
@@ -134,6 +177,7 @@ def isAdmin():
         raise OSError("beetroot.isAdmin() only works for windows.")
 
 def admin():
+    """Requests UAC Admin on Windows"""
     if platform.system() == "Windows":
         ctypes.windll.shell32.ShellExecuteW(
             None, 'runas', sys.executable, ' '.join(sys.argv), None, None

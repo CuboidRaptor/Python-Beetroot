@@ -75,3 +75,6 @@ Version number \= 1.Major.Minor.Patch
   I also improved the text.spamton() function.
   
 - 1.1.4.1 ; Added text.reverse, reverses text, so "Hello, world!" becomes "!dlrow ,olleH".
+
+- 1.1.5 ; Added printn() and getch(), also fixed bug where metadata attributes refused to show, and added comp class for
+  various compression methods, all using hybrid zlib/lzma.

@@ -34,3 +34,6 @@ class FFmpegError(Exception):
 
 class StupidProgrammerError(Exception):
     pass
+
+class StringError(Exception):
+    pass

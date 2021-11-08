@@ -91,6 +91,9 @@ setup(
             "Cython>=0.29.24",
             "setuptools>=58.3.0"
         ],
+        "keyboard": [
+            "keyboard>=0.13.5"
+        ],
         "all": [
             "pyttsx3>=2.90",
             "pillow>=8.4.0",
@@ -102,7 +105,8 @@ setup(
             "zalgo-text>=0.6",
             "Cython>=0.29.24",
             "setuptools>=58.3.0",
-            "nltk>=3.6.5"
+            "nltk>=3.6.5",
+            "keyboard>=0.13.5"
         ]
     }
 )
