@@ -186,6 +186,13 @@ Compression class:
 
 - beetroot.comp.bytedecompress(b) ; Reverses beetroot.comp.bytecompress().
 
+PICKLES.
+========
+
+- beetroot.pkl.pkl(pickle, file_path_to_output_delicious_pickle) ; pass data and it gets turned into a big green pickle.
+
+- beetroot.pkl.unpkl(file_path_to_load_delicious_pickle_from) ; load pickle from pickle to eat pickle loaded from pickle.
+
 Amazing functions that should be called whenever possible
 =========================================================
 

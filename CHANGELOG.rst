@@ -78,3 +78,5 @@ Version number \= 1.Major.Minor.Patch
 
 - 1.1.5 ; Added printn() and getch(), also fixed bug where metadata attributes refused to show, and added comp class for
   various compression methods, all using hybrid zlib/lzma.
+  
+- 1.1.5.1 ; Changes to documentation and added pkl.pkl() and pkl.unpkl().
