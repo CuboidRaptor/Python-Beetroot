@@ -5,7 +5,7 @@ To install from pip, do `pip install beetroot` to install the bare minimum or us
 
 To upgrade from pip, do `pip install --upgrade beetroot`
 
-Run install.bat to install from source if you're on windows, and on \*nix with Bash installed you can run install.sh.<br>
+Run `install.bat` to install from source if you're on windows, and on \*nix with Bash installed you can run `install.sh`.<br>
 
 Else, just open the command prompt on your OS and type `python setup.py install`.<br>
 
