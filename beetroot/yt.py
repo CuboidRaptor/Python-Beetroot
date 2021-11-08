@@ -35,7 +35,8 @@ class y:
         one video (for example, extended version, 1hr, 8hrs, 10hrs)
         overtakes the original in search.
         If this happens, you may accidentally download the 10hr version
-        of some music and DoS yourself."""
+        of some music and DoS yourself. If this happens,
+        just delete the .part file in the current directory."""
         try:
             results = YoutubeSearch(f"{term}", max_results=1).to_dict()
             results = results[0]
