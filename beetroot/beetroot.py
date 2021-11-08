@@ -24,6 +24,8 @@ import ctypes
 import shutil
 import subprocess
 import re
+import zlib
+import lzma
     
 try:
     import PIL
