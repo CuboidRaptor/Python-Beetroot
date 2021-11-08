@@ -37,6 +37,10 @@ Different extras installation thingies:
 
 - beetroot[ram]
 
+- beetroot[keyboard]
+
+- beetroot[cython]
+
 Functions and uses:
 ===================
 
