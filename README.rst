@@ -174,9 +174,9 @@ Text manipulation stuff:
 Compression class:
 ==================
 
-- beetroot.comp.strcompress(str_) ; Compress a string using hybrid zlib/lzma
+- beetroot.comp.strcompress(string) ; Compress a string using hybrid zlib/lzma
 
-- beetroot.comp.strdecompress(str_) ; Reverses beetroot.comp.strcompress().
+- beetroot.comp.strdecompress(string) ; Reverses beetroot.comp.strcompress().
 
 - beetroot.comp.bytecompress(b) ; Compress a bytestring using hybrid zlib/lzma
 
