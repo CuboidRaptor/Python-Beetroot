@@ -88,3 +88,4 @@ Version number \= 1.Major.Minor.Patch
   Changed names of classes for easier debugging (for the users, not me)
   Used kwargs in file.jdump()
   Merged file.bdump() with file.dump()
+  Added annotations
