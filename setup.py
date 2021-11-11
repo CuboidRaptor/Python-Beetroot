@@ -52,16 +52,17 @@ def readme():
         return str(f.read())
 
 #Setting up...
+yee = ga()
 setup(
     name="Beetroot",
-    version=ga()[0],
+    version=yee[0],
     packages=[
         "beetroot"
     ],
     description="A General Purpose Utility package for Python 3",
-    url=ga()[3],
-    author=ga()[1],
-    author_email=ga()[2],
+    url=yee[3],
+    author=yee[1],
+    author_email=yee[2],
     license="GNU GPLv3",
     install_requires=[
     ],
@@ -85,7 +86,8 @@ setup(
         "text": [
             "upsidedown>=0.4",
             "zalgo-text>=0.6",
-            "nltk>=3.6.5"
+            "nltk>=3.6.5",
+            "base65536>=0.1.1"
         ],
         "cython": [
             "Cython>=0.29.24",
@@ -106,7 +108,8 @@ setup(
             "Cython>=0.29.24",
             "setuptools>=58.3.0",
             "nltk>=3.6.5",
-            "keyboard>=0.13.5"
+            "keyboard>=0.13.5",
+            "base65536>=0.1.1"
         ]
     }
 )

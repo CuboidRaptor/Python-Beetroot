@@ -4,7 +4,7 @@ from .exception import *
 
 gen = mrandom.SystemRandom()
 
-class rand:
+class random:
     """Random class"""
     def randint(self, s, e):
         """Generates a (maybe) cryptographically secure number using random.SystemRandom.randint()"""
@@ -19,5 +19,4 @@ class rand:
         mrandom.seed(seed)
         return mrandom.randint(s, e)
 
-random = rand()
-del rand
+random = random()

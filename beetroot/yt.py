@@ -26,7 +26,7 @@ class logger(object):
     def error(self, msg):
         print(msg)
 
-class y:
+class yt:
     """YT Trash yay"""
     def search(self, term):
         """Searches a term on youtube and returns first link.
@@ -173,5 +173,5 @@ class y:
                 
         except NameError as e:
             raise ModuleError("youtube-dl must be installed. Use pip install youtube-dl or pip install beetroot[yt].")
-yt = y()
-del y
+        
+yt = yt()

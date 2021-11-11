@@ -16,7 +16,7 @@ from .objtype import objtype
 
 from pathlib import Path as p
 
-class fil:
+class file:
     """File Manipulation"""
     def move(self, start, end):
         """Moves files"""
@@ -52,35 +52,27 @@ class fil:
     
     def dump(self, fi, data):
         """Dumps data to a file"""
-        with open(p(fi), "w", encoding="iso-8859-1") as f:
-            f.write(data)
-            f.close()
-            
-        return 0
-
-    def bdump(self, fi, data):
-        """Dumps binary (non-text) data to a file"""
-        with open(p(fi), "wb", encoding="iso-8859-1") as f:
-            try:
-                inp = data.encode("iso-8859-1")
-                f.write(inp)
+        if objtype(data) == "bytes":
+            with open(p(fi), "wb", encoding="iso-8859-1") as f:
+                f.write(data)
+                f.close()
                 
-            except AttributeError:
-                try:
-                    inp = data.decode("iso-8859-1")
-                    inp = data.encode("iso-8859-1")
-                    f.write(inp)
-                    
-                except AttributeError:
-                    f.write(str(data).encode("iso-8859-1"))
+            return 0
+        
+        else:
+            with open(p(fi), "w", encoding="iso-8859-1") as f:
+                f.write(data)
+                f.close()
                 
-            f.close()
-            
-        return 0
+            return 0
     
-    def jdump(self, fi, data, pp=True):
+    def jdump(self, fi, data, **kwargs):
         """Dumps a dict into a .json file in JSON format
         with or without pretty print."""
+        pp = kwargs.get(
+            "pp",
+            True
+        )
         with open(p(fi), "w", encoding="iso-8859-1") as f:
             if objtype(pp) != "bool":
                 f.close()
@@ -112,5 +104,4 @@ class fil:
         with open(p(fi), "r", encoding="iso-8859-1") as f:
             return json.loads(f.read())
 
-file = fil()
-del fil
+file = file()

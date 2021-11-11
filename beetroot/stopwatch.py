@@ -2,7 +2,7 @@ import time
 
 from .exception import *
 
-class sw:
+class stopwatch:
     """Stopwatch thingy"""
     def __init__(self):
         self.st = 0
@@ -18,5 +18,4 @@ class sw:
         self.et = time.time()
         return round((self.et - self.st) * 1000)
 
-stopwatch = sw()
-del sw
+stopwatch = stopwatch()

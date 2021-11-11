@@ -47,13 +47,9 @@ Functions and uses:
 Bad Obfuscation Stuff:
 ======================
 
-- beetroot.obf.strobfuscate(string) ; Minorly obfuscates strings, this is definitely not secure, don't rely on this being irreversible or secure.
+- beetroot.obf.obfuscate(string) ; Minorly obfuscates objects, this is definitely not secure, don't rely on this being irreversible or secure. If you want to obfuscate Python 3 code, use beetroot.cython()
 
-- beetroot.obf.strunobfuscate(string) ; Deobfuscates strings made by beetroot.strobfuscate()
-
-- beetroot.obf.byteobfuscate(bytestring) ; Obfuscates bytestrings, this isn't secure either.
-
-- beetroot.obf.byteunobfuscate(bytestring) ; Unobfuscates bytestrings created by beetroot.byteobfuscate()
+- beetroot.obf.unobfuscate(string) ; Deobfuscates objects made by beetroot.strobfuscate()
 
 Random stuff:
 =============
@@ -78,9 +74,7 @@ File Manipulation stuff:
 
 - beetroot.file.delete(file_to_delete, force=<bool>) ; Deletes files
 
-- beetroot.file.dump(file, data) ; Dumps data to file as string
-
-- beetroot.file.bdump(file, data) ; Dumps data to file as bytestring (doesn't work too well)
+- beetroot.file.dump(file, data) ; Dumps data to file as string or bytestring
 
 - beetroot.file.jdump(file, data, pp=<bool>) ; Dumps data
 
@@ -104,17 +98,13 @@ TTS stuff:
 Hash stuff:
 ===========
 
-- beetroot.hashl.strhash(text, secure=<bool>) ; Hashes a string or non-bytestring that can be converted to string.
-
-- beetroot.hashl.bytehash(text, secure=<bool>) ; Hashes a bytestring.
+- beetroot.hashl.hashf(text, secure=<bool>) ; Hashes an object.
 
 - beetroot.hashl.dehash(hash) ; Dehashes a hash, this totally works and is definitely possible and is absolutely not a
   dumb joke that I'm making...
 
 Miscellaneous stuff:
 ====================
-
-- beetroot.betterstring(string) ; I made my own special kind of String, cuz why not. Also it supports regex by default.
 
 - beetroot.objtype(obj) ; python type(), but better
 
@@ -144,7 +134,8 @@ Miscellaneous stuff:
 
 - beetroot.admin() ; Requests UAC elevation on Windows.
 
-- beetroot.cython() ; Generates a cython extension and cleans up afterwards.
+- beetroot.cython() ; Generates a cython extension and cleans up afterwards. Requires python installed on PATH to use.
+  Or whatever the Unix equivalent of PATH is.
 
 - beetroot.printn() ; Prints an object without a trailing newline at the end.
 
@@ -178,13 +169,9 @@ Text manipulation stuff:
 Compression class:
 ==================
 
-- beetroot.comp.strcompress(string) ; Compress a string using hybrid zlib/lzma
+- beetroot.comp.compress(string) ; Compress an object using hybrid zlib/lzma
 
-- beetroot.comp.strdecompress(string) ; Reverses beetroot.comp.strcompress().
-
-- beetroot.comp.bytecompress(b) ; Compress a bytestring using hybrid zlib/lzma
-
-- beetroot.comp.bytedecompress(b) ; Reverses beetroot.comp.bytecompress().
+- beetroot.comp.decompress(string) ; Reverses beetroot.comp.compress().
 
 PICKLES.
 ========

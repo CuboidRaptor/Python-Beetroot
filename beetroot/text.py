@@ -5,7 +5,7 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 try:
-    from zalgo_text import zalgo as zalg
+    from zalgo_texta import zalgo as zalg
     
 except (ModuleNotFoundError, ImportError):
     pass
@@ -16,13 +16,20 @@ try:
 except (ModuleNotFoundError, ImportError):
     pass
 
+try:
+    import base65536
+    
+except (ModuleNotFoundError, ImportError):
+    pass
+
 import random
 
 from .exception import *
+from .objtype import objtype
 
 gen = random.SystemRandom()
 
-class teg:
+class text:
     def __init__(self):
         try:
             self.zal = zalg.zalgo()
@@ -43,16 +50,16 @@ class teg:
         out = str(out).replace(a.upper(), b)
         return out
         
-    def udown(self, intext):
-        """Generates upside-down text"""
+    def udown(self, intexta):
+        """Generates upside-down texta"""
         try:
-            return upsidedown.transform(str(intext))
+            return upsidedown.transform(str(intexta))
         
         except NameError:
             raise ModuleError("Upsidedown must be installed. Try pip install upsidedown or pip install beetroot[text].")
         
-    def zalgo(self, intext, **kwargs):
-        """Generates Zalgo text"""
+    def zalgo(self, intexta, **kwargs):
+        """Generates Zalgo texta"""
         craziness = float(
             kwargs.get(
                 "crazy",
@@ -64,10 +71,10 @@ class teg:
             self.zal.numAccentsDown = (round(craziness), round(craziness * 10))
             self.zal.numAccentsMiddle = (round(craziness), round(craziness * 10))
             self.zal.maxAccentsPerLetter = round(craziness * 40)
-            return self.zal.zalgofy(str(intext))
+            return self.zal.zalgofy(str(intexta))
         
         except NameError:
-            raise ModuleError("Zalgo_text must be installed. Try pip install zalgo-text or pip install beetroot[text].")
+            raise ModuleError("Zalgo_texta must be installed. Try pip install zalgo-texta or pip install beetroot[text].")
         
     def rouxls(self, sentence):
         try:
@@ -169,7 +176,7 @@ class teg:
             return out
         
         except NameError:
-            raise ModuleError("nltk must be installed to use beetroot.text.rouxls(). Try pip install nltk or pip install beetroot[text].")
+            raise ModuleError("nltk must be installed to use beetroot.texta.rouxls(). Try pip install nltk or pip install beetroot[text].")
             
     def spamton(self, sentence):
         try:
@@ -243,40 +250,61 @@ class teg:
             return out
             
         except NameError:
-            raise ModuleError("nltk must be installed to use beetroot.text.spamton(). Try pip install nltk or pip install beetroot[text].")
+            raise ModuleError("nltk must be installed to use beetroot.texta.spamton(). Try pip install nltk or pip install beetroot[text].")
             
-    def greek(self, text):
+    def greek(self, texta):
         greekalpha = list(str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζ"))
         
-        text = list(self._objreplic(self._objreplic(str(text), "greek", "Ellihnika"), "english", "Agglika"))
-        #print(text)
-        for i in range(0, len(text)):
+        texta = list(self._objreplic(self._objreplic(str(texta), "greek", "Ellihnika"), "english", "Agglika"))
+        #print(texta)
+        for i in range(0, len(texta)):
             try:
-                spos = greekalpha.index(text[i])
-                text[i] = greekalpha[spos + 52]
+                spos = greekalpha.index(texta[i])
+                texta[i] = greekalpha[spos + 52]
                 
             except (ValueError, IndexError):
                 pass
             
-        return "".join(text)
+        return "".join(texta)
     
-    def russian(self, text):
+    def russian(self, texta):
         rusalpha = list(str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯфисвуапршолдьтщзйкыегмцчняABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯфисвуапршолдьтщзйкыегмцчня"))
         
-        text = list(self._objreplic(self._objreplic(str(text), "russian", "Heccrqq"), "english", "Ayukqqcrqq"))
-        #print(text)
-        for i in range(0, len(text)):
+        texta = list(self._objreplic(self._objreplic(str(texta), "russian", "Heccrqq"), "english", "Ayukqqcrqq"))
+        #print(texta)
+        for i in range(0, len(texta)):
             try:
-                spos = rusalpha.index(text[i])
-                text[i] = rusalpha[spos + 52]
+                spos = rusalpha.index(texta[i])
+                texta[i] = rusalpha[spos + 52]
                 
             except (ValueError, IndexError):
                 pass
             
-        return "".join(text)
+        return "".join(texta)
     
-    def reverse(self, text):
-        return str(text)[::-1]
+    def reverse(self, texta):
+        return str(texta)[::-1]
+    
+    def b65536encode(self, texta):
+        try:
+            if objtype(texta) == "bytes":
+                return base65536.encode(texta).encode("utf-32")
+            
+            else:
+                return base65536.encode(str(texta).encode("utf-8"))
+        
+        except NameError:
+            raise ModuleError("base65536 must be installed to use beetroot.texta.strb65536encode(), try `pip install base65536` or `pip install beetroot[text]`.")
+        
+    def b65536decode(self, texta):
+        try:
+            if objtype(texta) == "bytes":
+                return base65536.decode(texta.decode("utf-32"))
+            
+            else:
+                return base65536.decode(texta).decode("utf-8")
+        
+        except NameError:
+            raise ModuleError("base65536 must be installed to use beetroot.texta.strb65536decode(), try `pip install base65536` or `pip install beetroot[text]`.")
                     
-text = teg()
-del teg
+text = text()

@@ -80,3 +80,11 @@ Version number \= 1.Major.Minor.Patch
   various compression methods, all using hybrid zlib/lzma.
   
 - 1.1.5.1 ; Changes to documentation and added pkl.pkl() and pkl.unpkl().
+
+- 1.1.6 ; Added text.b65536encode() and text.b65536decode().
+  Also removed hashl.bytehash() and merged it into hashl.hashf().
+  Merged obf byte functions into string functions, creating generic ones.
+  Merged byte function from comp.
+  Changed names of classes for easier debugging (for the users, not me)
+  Used kwargs in file.jdump()
+  Merged file.bdump() with file.dump()

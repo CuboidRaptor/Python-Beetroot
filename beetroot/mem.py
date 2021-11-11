@@ -7,7 +7,7 @@ except:
 from .exception import *
 from .objtype import *
 
-class m:
+class mem:
     """Memory shtuff"""
     def mem(self):
         """Returns total, used and available memory."""
@@ -26,5 +26,5 @@ class m:
         
         except NameError:
             raise ModuleError("psutil must be installed to use beetroot.mem.swapmem(). Use pip install psutil or pip install beetroot[ram].")
-mem = m()
-del m
+        
+mem = mem()

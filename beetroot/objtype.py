@@ -1,3 +1,4 @@
+#Dependency function of like almost every class
 from .exception import *
 
 def objtype(obj):

@@ -7,7 +7,7 @@ except (ModuleNotFoundError, ImportError):
 from .exception import *
 from .objtype import objtype
 
-class ptx:
+class tts:
     """tts yay"""
     def __init__(self):
         try:
@@ -71,5 +71,4 @@ class ptx:
         except ValueError:
             raise InvalidTypeError("Argument \"volume\" must be int or float")
 
-tts = ptx()
-del ptx
+tts = tts()

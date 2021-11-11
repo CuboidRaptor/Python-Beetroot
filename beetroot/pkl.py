@@ -8,7 +8,7 @@ except (ModuleNotFoundError, ImportError):
 
 from .exception import *
 
-class crispy_pickle:
+class pkl:
     def pkl(self, obj, fpath=os.path.abspath(r".\\pkl.pkl")):
         with open(fpath, "wb") as f:
             pickle.dump(obj, f)
@@ -22,5 +22,4 @@ class crispy_pickle:
             f.close()
             return out
         
-pkl = crispy_pickle()
-del crispy_pickle
+pkl = pkl()
