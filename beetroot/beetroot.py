@@ -78,13 +78,11 @@ from .hashl import *
 from .text import *
 from .comp import *
 from .pkl import *
+from .math import *
 
 #Constants
 gen = mrandom.SystemRandom()
 sys.setrecursionlimit(32767)
-
-mdata = file.load("\\".join(__file__.split("\\")[:-1] + ["metadata.py"]))
-exec(mdata)
 
 def cython(filepath: "filepath to .py or .pyx file") -> "Cython File":
     """Builds a cython extension thingy."""
@@ -194,7 +192,7 @@ def test() -> "Hello, world!":
     print("Hello, world!")
     return 0
 
-def remove(str_"a string", ting:"also a string"):
+def remove(str_:"a string", ting:"also a string"):
     """Removes all occurences of "ting" in str_"""
     return str_.replace(str(ting), "")
 
@@ -225,7 +223,12 @@ def taskkill(tasque):
 def crash() -> "Crashes python or smth idk":
     """This causes python to cra- cra- cra- cras- cra- crash."""
     try:
-        taskkill(os.path.basename(sys.executable).replace(".EXE", ".exe"))
+        sys.setrecursionlimit(1<<30)
+        
+        f = lambda a : f(a)
+        f(f)
+        
+        sys.setrecursionlimit(1000)
                 
     except NameError:
         raise ModuleError("psutil must be installed to use beetroot.crash(). Use pip install psutil or pip install beetroot[ram].")

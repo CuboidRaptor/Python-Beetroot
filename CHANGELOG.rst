@@ -89,3 +89,6 @@ Version number \= 1.Major.Minor.Patch
   Used kwargs in file.jdump()
   Merged file.bdump() with file.dump()
   Added annotations
+  Added lambda math functions
+  Added math class
+  Updated crash() to use bugs instead of taskkill()

@@ -38,5 +38,5 @@ class StupidProgrammerError(Exception):
 class StringError(Exception):
     pass
 
-class InvalidFileError(Exception):
+class NumberError(Exception):
     pass

@@ -173,6 +173,19 @@ Compression class:
 
 - beetroot.comp.decompress(string) ; Reverses beetroot.comp.compress().
 
+M A T H .
+=========
+
+- beetroot.math.increment(n) ; Increments n.
+
+- beetroot.math.double(n) ; Doubles n.
+
+- beetroot.math.square(n) ; Squares n.
+
+- beetroot.math.sqrt(n) ; Square roots n.
+
+- beetroot.math.factorial(n) ; Calculates the factorial of a number.
+
 PICKLES.
 ========
 
