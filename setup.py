@@ -66,6 +66,7 @@ setup(
     license="GNU GPLv3",
     install_requires=[
     ],
+    python_requires=">=3.6",
     long_description=readme(),
     long_description_content_type="text/x-rst",
     extras_require={

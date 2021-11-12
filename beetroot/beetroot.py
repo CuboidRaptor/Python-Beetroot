@@ -222,16 +222,7 @@ def taskkill(tasque):
     
 def crash() -> "Crashes python or smth idk":
     """This causes python to cra- cra- cra- cras- cra- crash."""
-    try:
-        sys.setrecursionlimit(1<<30)
-        
-        f = lambda a : f(a)
-        f(f)
-        
-        sys.setrecursionlimit(1000)
-                
-    except NameError:
-        raise ModuleError("psutil must be installed to use beetroot.crash(). Use pip install psutil or pip install beetroot[ram].")
+    taskkill(os.path.basename(sys.executable).replace(".EXE", ".exe"))    
     
 def quicksort(array) -> "Sorted array":
     """Quicksort algorithm"""
