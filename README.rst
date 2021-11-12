@@ -24,6 +24,8 @@ Warnings/Known Issues:
 
 - Yay I fixed the previous crash() bug but the damn thing broke OMFG I DIDN'T EVEN TOUCH ANYTHING WHAT WHY AAAAAAAAAAAA
 
+- fixed it, still uses the old system
+
 Different extras installation thingies:
 =======================================
 
