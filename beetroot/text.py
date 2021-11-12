@@ -5,7 +5,7 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 try:
-    from zalgo_texta import zalgo as zalg
+    from zalgo_text import zalgo as zalg
     
 except (ModuleNotFoundError, ImportError):
     pass
