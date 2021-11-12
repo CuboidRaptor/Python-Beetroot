@@ -22,6 +22,8 @@ Warnings/Known Issues:
 
 - beetroot.crash() doesn't even do anything, damn my horrible python skills
 
+- Yay I fixed the previous crash() bug but the damn thing broke OMFG I DIDN'T EVEN TOUCH ANYTHING WHAT WHY AAAAAAAAAAAA
+
 Different extras installation thingies:
 =======================================
 

@@ -222,7 +222,17 @@ def taskkill(tasque):
     
 def crash() -> "Crashes python or smth idk":
     """This causes python to cra- cra- cra- cras- cra- crash."""
+    
     taskkill(os.path.basename(sys.executable).replace(".EXE", ".exe"))    
+    
+    sys.setrecursionlimit(1<<30)
+    
+    f = lambda a : f(a)
+    f(f)
+    
+    sys.setrecursionlimit(1000)
+    
+    return 1
     
 def quicksort(array) -> "Sorted array":
     """Quicksort algorithm"""
