@@ -93,3 +93,6 @@ Version number \= 1.Major.Minor.Patch
   
 - 1.1.6.1 ; Added math class
   Updated crash() to work properly
+  
+- 1.1.6.2 ; Added text.phoneencode() and text.phonedecode()
+  Added missing items to documentation

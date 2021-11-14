@@ -30,6 +30,7 @@ from .objtype import objtype
 gen = random.SystemRandom()
 
 class text:
+    """Text manipulation garbage"""
     def __init__(self):
         try:
             self.zal = zalg.zalgo()
@@ -49,9 +50,15 @@ class text:
         out = str(out).replace(a.title(), b)
         out = str(out).replace(a.upper(), b)
         return out
+    
+    def _swap(self, arr, i_1 ,i_2):
+        temp = arr[i_1]
+        arr[i_1] = arr[i_2]
+        arr[i_2] = temp
+        return arr
         
     def udown(self, intexta):
-        """Generates upside-down texta"""
+        """Generates upside-down text"""
         try:
             return upsidedown.transform(str(intexta))
         
@@ -59,7 +66,7 @@ class text:
             raise ModuleError("Upsidedown must be installed. Try pip install upsidedown or pip install beetroot[text].")
         
     def zalgo(self, intexta, **kwargs):
-        """Generates Zalgo texta"""
+        """Generates Zalgo text"""
         craziness = float(
             kwargs.get(
                 "crazy",
@@ -77,6 +84,7 @@ class text:
             raise ModuleError("Zalgo_texta must be installed. Try pip install zalgo-texta or pip install beetroot[text].")
         
     def rouxls(self, sentence):
+        """Makeseth thou soundeth likest Rouxls, Thy Duke of Puzzles."""
         try:
             yee = pos_tag(word_tokenize(sentence))
             
@@ -179,6 +187,7 @@ class text:
             raise ModuleError("nltk must be installed to use beetroot.texta.rouxls(). Try pip install nltk or pip install beetroot[text].")
             
     def spamton(self, sentence):
+        """MAKES YOU [Sound] LIKE [Spamton G. Spamton], THE BEST [[Salesman1997]]!!!!"""
         try:
             yee = pos_tag(sentence.upper().split(" "))
             
@@ -218,7 +227,8 @@ class text:
                                 "Kris",
                                 "Salesman1997",
                                 "Little Sponge",
-                                "[[Hyperlink Blocked]]"
+                                "[[Hyperlink Blocked]]",
+                                "[Soul]"
                             ]
                             dumb2 = random.choice(nnpn)
                             dumb2_1 = random.randint(0, 1)
@@ -253,6 +263,7 @@ class text:
             raise ModuleError("nltk must be installed to use beetroot.texta.spamton(). Try pip install nltk or pip install beetroot[text].")
             
     def greek(self, texta):
+        """Uses the Greek alphabet to obscure text"""
         greekalpha = list(str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzΑΒΨΔΕΦΓΗΙΞΚΛΜΝΟΠ:ΡΣΤΘΩ΅ΧΥΖαβψδεφγηιξκλμνοπ;ρστθωςχυζ"))
         
         texta = list(self._objreplic(self._objreplic(str(texta), "greek", "Ellihnika"), "english", "Agglika"))
@@ -268,6 +279,7 @@ class text:
         return "".join(texta)
     
     def russian(self, texta):
+        """Encodes text using Cyrillic alphabet"""
         rusalpha = list(str("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯфисвуапршолдьтщзйкыегмцчняABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyzФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯфисвуапршолдьтщзйкыегмцчня"))
         
         texta = list(self._objreplic(self._objreplic(str(texta), "russian", "Heccrqq"), "english", "Ayukqqcrqq"))
@@ -283,9 +295,11 @@ class text:
         return "".join(texta)
     
     def reverse(self, texta):
+        """Reverses a string"""
         return str(texta)[::-1]
     
     def b65536encode(self, texta):
+        """Base65536 encoding"""
         try:
             if objtype(texta) == "bytes":
                 return base65536.encode(texta).encode("utf-32")
@@ -297,6 +311,7 @@ class text:
             raise ModuleError("base65536 must be installed to use beetroot.texta.strb65536encode(), try `pip install base65536` or `pip install beetroot[text]`.")
         
     def b65536decode(self, texta):
+        """Base65536 decoding"""
         try:
             if objtype(texta) == "bytes":
                 return base65536.decode(texta.decode("utf-32"))
@@ -306,5 +321,92 @@ class text:
         
         except NameError:
             raise ModuleError("base65536 must be installed to use beetroot.texta.strb65536decode(), try `pip install base65536` or `pip install beetroot[text]`.")
-                    
+                   
+    def phoneencode(self, texta, silent:"silent mode"=False) -> "Encoded string":
+        """Encodes text using a phonepad"""
+        texta = str(texta)
+        err = False
+        for item in [
+            "#",
+            "*"
+        ]+[str(i) for i in range(0, 10)]:
+            if item in texta and not silent:
+                if err:
+                    pass
+                
+                else:
+                    print("This string can be encoded, but may/will not be decoded properly.")
+                    err = True
+                
+        alpha = [chr(i) for i in range(97, 123)] + [
+            "2",
+            "2#",
+            "2*",
+            "3",
+            "3#",
+            "3*",
+            "4",
+            "4#",
+            "4*",
+            "5",
+            "5#",
+            "5*",
+            "6",
+            "6#",
+            "6*",
+            "7",
+            "1",
+            "7#",
+            "7*",
+            "8",
+            "8#",
+            "8*",
+            "9",
+            "9#",
+            "9*",
+            "1#",
+        ]
+            
+        for i in range(0, 26):
+            texta = texta.replace(alpha[i], alpha[i+26])
+            
+        return texta
+    
+    def phonedecode(self, texta) -> "Decoded string":
+        """Decodes text from phoneencode()"""
+        texta = str(texta)
+        alpha = [
+            "2",
+            "2#",
+            "2*",
+            "3",
+            "3#",
+            "3*",
+            "4",
+            "4#",
+            "4*",
+            "5",
+            "5#",
+            "5*",
+            "6",
+            "6#",
+            "6*",
+            "7",
+            "1",
+            "7#",
+            "7*",
+            "8",
+            "8#",
+            "8*",
+            "9",
+            "9#",
+            "9*",
+            "1#",
+        ][::-1] + list(str("abcdefghijklmnopqrstuvwxyz")[::-1])
+            
+        for i in range(0, 26):
+            texta = texta.replace(alpha[i], alpha[i+26])
+            
+        return texta
+                
 text = text()

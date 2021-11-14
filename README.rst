@@ -170,6 +170,22 @@ Text manipulation stuff:
   
 - beetroot.text.rouxls(sentence) ; Rouxls-ify text so it sounds stupid.
 
+- beetroot.text.spamton(text) ; Spamtonify text so you sound like [[Spamton G. Spamton]]
+
+- beetroot.text.greek(text) ; Replaces English alphabet with Greek alphabet.
+
+- beetroot.text.russian(text) ; Replaces English alphabet with Cyrillic alphabet.
+
+- beetroot.text.reverse(text) ; Self-explanatory. Reverses text.
+
+- beetroot.text.b65536encode(text) ; Encodes text into Base65536.
+
+- beetroot.text.base65536decode(text) ; Decodes Base65536.
+
+- beetroot.text.phoneencode(text) ; Encodes text using a cellphone keypad
+
+- beetroot.text.phonedecode(text) ; Reverses beetroot.text.phoneencode()
+
 Compression class:
 ==================
 
