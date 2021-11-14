@@ -138,8 +138,9 @@ Miscellaneous stuff:
 
 - beetroot.admin() ; Requests UAC elevation on Windows.
 
-- beetroot.cython() ; Generates a cython extension and cleans up afterwards. Requires python installed on PATH to use.
+- beetroot.cython(file, pypath=<path>) ; Generates a cython extension and cleans up afterwards. Requires python installed on PATH to use.
   Or whatever the Unix equivalent of PATH is.
+  Uses pypath to find your python installation, or you can not include it and it uses sys.executable instead.
 
 - beetroot.printn() ; Prints an object without a trailing newline at the end.
 
