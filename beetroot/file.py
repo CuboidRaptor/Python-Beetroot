@@ -103,5 +103,21 @@ class file:
         """Reads data from JSON files."""
         with open(p(fi), "r", encoding="iso-8859-1") as f:
             return json.loads(f.read())
+        
+    def mkdir(self, path):
+        try:
+            os.mkdir(path)
+            return 0
+            
+        except FileExistsError:
+            return 1
+        
+    def rmdir(self, path):
+        try:
+            shutil.rmtree(path)
+            return 0
+        
+        except FileNotFoundError:
+            return 1
 
 file = file()
