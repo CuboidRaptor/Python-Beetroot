@@ -187,6 +187,10 @@ Text manipulation stuff:
 
 - beetroot.text.phonedecode(text) ; Reverses beetroot.text.phoneencode()
 
+- beetroot.text.dotify(text) ; Dotifies text, so "hi there" becomes "H.I. T.H.E.R.E."
+
+- beetroot.text.spaceify(text) ; Spaceifies text, so "hi there" becomes "h i   t h e r e"
+
 Compression class:
 ==================
 

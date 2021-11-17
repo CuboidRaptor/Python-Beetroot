@@ -100,3 +100,5 @@ Version number \= 1.Major.Minor.Patch
   
 - 1.1.6.3 ; Fixed bugs in beetroot.cython()
   Added file.mkdir() and file.rmdir()
+  
+- 1.1.6.4 ; Added text.dotify() and text.spaceify()

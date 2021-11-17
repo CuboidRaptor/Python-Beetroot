@@ -408,5 +408,11 @@ class text:
             texta = texta.replace(alpha[i], alpha[i+26])
             
         return texta
-                
+    
+    def dotify(self, texta:"a string") -> "A dotified string":
+        return ".".join(list(texta.upper()) + [""]).replace(". .", ". ").replace(".\n.", ".\n").replace(".\t.", ".\t")
+          
+    def spaceify(self, texta:"any string") -> "A spaceified string":
+        return " ".join(list(texta)).replace(" \n ", "\n").replace(" \t ", "\t")
+          
 text = text()
