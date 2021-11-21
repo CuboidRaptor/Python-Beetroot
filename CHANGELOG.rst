@@ -102,3 +102,5 @@ Version number \= 1.Major.Minor.Patch
   Added file.mkdir() and file.rmdir()
   
 - 1.1.6.4 ; Added text.dotify() and text.spaceify()
+
+- 1.1.6.5 ; Added recursion() context manager. Also added suppress() and speed().

@@ -64,6 +64,8 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 from pathlib import Path as p
+from functools import cache, wraps
+from contextlib import contextmanager, redirect_stderr, redirect_stdout
 
 from .metadata import __version__, __author__, __authoremail__, __url__
 from .random import *
@@ -79,10 +81,44 @@ from .text import *
 from .comp import *
 from .pkl import *
 from .math import *
+from .static import typed
 
 #Constants
 gen = mrandom.SystemRandom()
-sys.setrecursionlimit(32767)
+
+class recursion:
+    """A recursion context manager.
+    Be careful when using this, settings a recursionlimit
+    too high can literally crash python. To use, do
+    with beetroot.recursion(<some recursion limit here>):
+        <do something here>
+        
+    Warning, you can cause Python to segfault if recursion limit
+    is set too high.
+    """
+    def __init__(self, limit):
+        self.limit = limit
+        self.old_limit = sys.getrecursionlimit()
+        
+    def __enter__(self):
+        self.old_limit = sys.getrecursionlimit()
+        sys.setrecursionlimit(self.limit)
+        
+    def __exit__(self, type, value, tb):
+        sys.setrecursionlimit(self.old_limit)
+        
+def speed(func):
+    try:
+        func = cache(typed(func))
+        
+        @wraps(func)
+        def out(*args, **kwargs):
+            func(*args, **kwargs)
+            
+        return out
+    
+    except NameError:
+        raise ModuleError("Numba and NumPy must be installed to use beetroot.speed(). Try `pip install numpy numba` or `pip install beetroot[speed]`")
 
 def cython(filepath:"filepath to .py or .pyx file", **kwargs) -> "Cython File":
     """Builds a cython extension thingy."""
@@ -242,12 +278,9 @@ def crash() -> "Crashes python or smth idk":
     
     taskkill(os.path.basename(sys.executable).replace(".EXE", ".exe"))    
     
-    sys.setrecursionlimit(1<<30)
-    
-    f = lambda a : f(a)
-    f(f)
-    
-    sys.setrecursionlimit(1000)
+    with recursion(1<<30):
+        f = lambda a : f(a)
+        f(f)
     
     return 1
     

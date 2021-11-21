@@ -45,6 +45,8 @@ Different extras installation thingies:
 
 - beetroot[cython]
 
+- beetroot[speed]
+
 Functions and uses:
 ===================
 
@@ -145,6 +147,16 @@ Miscellaneous stuff:
 - beetroot.printn() ; Prints an object without a trailing newline at the end.
 
 - beetroot.getch() ; Input, but it only waits for one character.
+
+- beetroot.recursion() ; A context manager that lets you temporarily set your recursion depth. Use
+  with beetroot.recursion(<some recursion limit here>):
+      <do something here>
+  Your recursion limit will be reset after.
+  
+- beetroot.suppress() ; A suppression context manager, use it with the "with" keyword like beetroot.recursion(). This will
+  temporarily suppres stdout, preventing anything from being printed to console.
+  
+- beetroot.speed() ; Use as a decorator, memoizes and Cython compiles code to **MASSIVELY** speed up code. I think.
 
 Memory functions and stuff:
 ===========================

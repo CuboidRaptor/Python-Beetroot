@@ -97,6 +97,9 @@ setup(
         "keyboard": [
             "keyboard>=0.13.5"
         ],
+        "speed": [
+            "Cython>=0.29.24"
+        ],
         "all": [
             "pyttsx3>=2.90",
             "pillow>=8.4.0",
