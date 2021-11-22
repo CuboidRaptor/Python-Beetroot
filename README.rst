@@ -158,6 +158,8 @@ Miscellaneous stuff:
   
 - beetroot.speed() ; Use as a decorator, memoizes and Cython compiles code to **MASSIVELY** speed up code. I think.
 
+- beetroot.retargs() ; Returns a list of all arguments of function.
+
 Memory functions and stuff:
 ===========================
 

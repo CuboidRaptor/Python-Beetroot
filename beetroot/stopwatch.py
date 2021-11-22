@@ -17,5 +17,3 @@ class stopwatch:
         """Stops the stopwatch and return the elapsed time in ms"""
         self.et = time.time()
         return round((self.et - self.st) * 1000)
-
-stopwatch = stopwatch()

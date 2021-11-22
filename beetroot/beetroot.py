@@ -64,8 +64,9 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 from pathlib import Path as p
-from functools import cache, wraps
+from functools import cache, lru_cache, wraps
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
+from inspect import signature, Signature
 
 from .metadata import __version__, __author__, __authoremail__, __url__
 from .random import *
@@ -107,18 +108,21 @@ class recursion:
     def __exit__(self, type, value, tb):
         sys.setrecursionlimit(self.old_limit)
         
-def speed(func):
-    try:
-        func = cache(typed(func))
+def retargs(func):
+    """Return all args in function in a list."""
+    return list(map(str, str(signature(func))[1:-1].split(", ")))
         
-        @wraps(func)
-        def out(*args, **kwargs):
-            func(*args, **kwargs)
-            
-        return out
+def speed(func):
+    """Memoization and Cython compiling for python functions.
+    Do not use on random functions, the caching will render
+    them useless."""
+    func = lru_cache(maxsize=None, typed=True)(typed(func))
     
-    except NameError:
-        raise ModuleError("Numba and NumPy must be installed to use beetroot.speed(). Try `pip install numpy numba` or `pip install beetroot[speed]`")
+    @wraps(func)
+    def out(*args, **kwargs):
+        return func(*args, **kwargs)
+        
+    return out
 
 def cython(filepath:"filepath to .py or .pyx file", **kwargs) -> "Cython File":
     """Builds a cython extension thingy."""
