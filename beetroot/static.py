@@ -69,14 +69,7 @@ def _get_outer_variables(obj):
 
 
 def typed(obj):
-    """Compiles a function or class with cython.
-    Use annotations for static type declarations. Example:
-        import statically
-        @statically.typed
-        def add_two(x: int) -> int:
-            two: int = 2
-            return x + two
-    """
+    """Compiles a function or class with cython."""
     try:
         with suppress():
             if not _can_cython_inline():

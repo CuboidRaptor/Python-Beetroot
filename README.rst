@@ -150,7 +150,7 @@ Miscellaneous stuff:
 
 - beetroot.recursion() ; A context manager that lets you temporarily set your recursion depth. Use
   with beetroot.recursion(<some recursion limit here>):
-      <do something here>
+  <do something here>
   Your recursion limit will be reset after.
   
 - beetroot.suppress() ; A suppression context manager, use it with the "with" keyword like beetroot.recursion(). This will
