@@ -156,7 +156,8 @@ Miscellaneous stuff:
 - beetroot.suppress() ; A suppression context manager, use it with the "with" keyword like beetroot.recursion(). This will
   temporarily suppres stdout, preventing anything from being printed to console.
   
-- beetroot.speed() ; Use as a decorator, memoizes and Cython compiles code to **MASSIVELY** speed up code. I think.
+- beetroot.speed() ; Use as a decorator, memoizes and Cython compiles code to **MASSIVELY** speed up code. I think. Do not use
+  with random functions, it will screw them up.
 
 - beetroot.retargs() ; Returns a list of all arguments of function.
 
