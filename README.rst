@@ -154,10 +154,11 @@ Miscellaneous stuff:
   Your recursion limit will be reset after.
   
 - beetroot.suppress() ; A suppression context manager, use it with the "with" keyword like beetroot.recursion(). This will
-  temporarily suppres stdout, preventing anything from being printed to console.
+  temporarily suppres stdout and stderr, preventing anything from being printed to console, even with sys.stderr.write.
+  This will, however, not silence error messages, although that's probably a good thing.
   
-- beetroot.speed() ; Use as a decorator, memoizes and Cython compiles code to **MASSIVELY** speed up code. I think. Do not use
-  with random functions, it will screw them up.
+- beetroot.speed() ; Use as a decorator, memoizes and Cython compiles code to **MASSIVELY** speed up code. I think. If you are using
+  this with random functions, use the nocache=True argument.
 
 - beetroot.retargs() ; Returns a list of all arguments of function.
 

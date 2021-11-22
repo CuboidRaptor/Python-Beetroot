@@ -40,3 +40,6 @@ class StringError(Exception):
 
 class NumberError(Exception):
     pass
+
+class FunctionError(Exception):
+    pass

@@ -112,17 +112,44 @@ def retargs(func):
     """Return all args in function in a list."""
     return list(map(str, str(signature(func))[1:-1].split(", ")))
         
-def speed(func):
+def speed(f=None, **kwargs):
     """Memoization and Cython compiling for python functions.
-    Do not use on random functions, the caching will render
-    them useless."""
-    func = lru_cache(maxsize=None, typed=True)(typed(func))
+    If you are using this for a random function, pass the nocache=True argument."""
+    if not callable(f) and f != None:
+        raise FunctionError("\"f\" must be callable.")
     
-    @wraps(func)
-    def out(*args, **kwargs):
-        return func(*args, **kwargs)
+    maxsize = kwargs.get(
+        "maxsize",
+        None
+    )
+    typ = bool(
+        kwargs.get(
+            "typed",
+            True
+        )
+    )
+    nocache = bool(
+        kwargs.get(
+            "nocache",
+            False
+        )
+    )
+    def inner(func):
+        func = typed(func)
+        if not nocache:
+            func = lru_cache(maxsize=maxsize, typed=typ)(func)
         
-    return out
+        @wraps(func)
+        def out(*args, **kwargs):
+            return func(*args, **kwargs)
+            
+        return out
+    
+    if callable(f):
+        return inner(f)
+    
+    else:
+        return inner
 
 def cython(filepath:"filepath to .py or .pyx file", **kwargs) -> "Cython File":
     """Builds a cython extension thingy."""
