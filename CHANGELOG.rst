@@ -153,3 +153,4 @@ Version number \= 1.Major.Minor.Patch
   | Heavily modified printn() to use args
   | Changed taskkill()
   | Added errprint() and errprintn().
+  | Added nocython argument to speed() in case people can't install Cython

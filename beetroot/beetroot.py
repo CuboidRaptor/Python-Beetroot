@@ -140,8 +140,16 @@ def speed(f=None, **kwargs):
             False
         )
     )
+    nocython = bool(
+        kwargs.get(
+            "nocython",
+            False
+        )
+    )
     def inner(func):
-        func = typed(func)
+        if not nocython:
+            func = typed(func)
+            
         if not nocache:
             func = lru_cache(maxsize=maxsize, typed=typ)(func)
         
