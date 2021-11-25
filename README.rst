@@ -138,7 +138,8 @@ Miscellaneous stuff:
 
 - beetroot.siteize(str) ; Makes text into site names, for example "hello there" becomes "www.HelloThere.com"
 
-- beetroot.taskkill(task) ; I see a task and I **E A T** it. Pass tasks to it through the "task" argument.
+- beetroot.taskkill(task, killamount=1) ; I see a task and I **E A T** it. Pass tasks to it through the "task" argument.
+  killamount argument determines how many instances will be killed. Use None for all.
 
 - beetroot.crash() ; Crashes pyth-
 
@@ -165,6 +166,14 @@ Miscellaneous stuff:
   this with random functions, use the nocache=True argument.
 
 - beetroot.retargs() ; Returns a list of all arguments of function.
+
+- beetroot.locate() ; Throws an error, allows you to locate your beetroot installation.
+
+- beetroot.strlist() ; Makes every single item in a list a string, with str() or .decode(), with proper bytestring handling.
+
+- beetroot.errprint() ; Prints stuff to stderr.
+
+- beetroot.errprintn() ; Same as beetroot.errprint(), but it doesn't print a trailing newline.
 
 Memory functions and stuff:
 ===========================

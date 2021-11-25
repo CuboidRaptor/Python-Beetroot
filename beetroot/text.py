@@ -51,12 +51,6 @@ class text:
         out = str(out).replace(a.upper(), b)
         return out
     
-    def _swap(self, arr, i_1 ,i_2):
-        temp = arr[i_1]
-        arr[i_1] = arr[i_2]
-        arr[i_2] = temp
-        return arr
-        
     def udown(self, intexta):
         """Generates upside-down text"""
         try:
@@ -70,7 +64,7 @@ class text:
         craziness = float(
             kwargs.get(
                 "crazy",
-                1
+                1.0
             )
         )
         try:
@@ -81,10 +75,10 @@ class text:
             return self.zal.zalgofy(str(intexta))
         
         except NameError:
-            raise ModuleError("Zalgo_texta must be installed. Try pip install zalgo-texta or pip install beetroot[text].")
+            raise ModuleError("Zalgo_text must be installed. Try pip install zalgo-text or pip install beetroot[text].")
         
     def rouxls(self, sentence):
-        """Makeseth thou soundeth likest Rouxls, Thy Duke of Puzzles."""
+        """Makeseth thou soundeth likest Rouxls, Thy Duketh of Puzzles."""
         try:
             yee = pos_tag(word_tokenize(sentence))
             

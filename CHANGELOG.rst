@@ -151,4 +151,5 @@ Version number \= 1.Major.Minor.Patch
   | Added swap()
   | Bugfixes to quicksort()
   | Heavily modified printn() to use args
-  |
+  | Changed taskkill()
+  | Added errprint() and errprintn().

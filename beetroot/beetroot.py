@@ -26,6 +26,12 @@ import subprocess
 import re
 import zlib
 import lzma
+
+try:
+    import numpy as np
+    
+except (ModuleNotFoundError, ImportError):
+    pass
     
 try:
     import PIL
@@ -279,6 +285,10 @@ def test() -> "Hello, world!":
     print("Hello, world!")
     return 0
 
+def locate():
+    """I literally made this cuz I was tired of looking for my python folder."""
+    assert 1 > 2
+
 def remove(str_:"a string", ting:"also a string"):
     """Removes all occurences of "ting" in str_"""
     return str_.replace(str(ting), "")
@@ -297,12 +307,25 @@ def siteize(str_:"a string"):
     b = remove("".join(b).title(), " ")
     return "".join(["www.", b, ".com"])
     
-def taskkill(tasque):
+def taskkill(tasque, **kwargs):
     """Kills a task by name with psutil."""
     try:
+        ka = int(
+            kwargs.get(
+                "killamount",
+                None
+            )
+        )
         for proc in psutil.process_iter():
             if proc.name() == tasque:
                 proc.kill()
+                if ka == None:
+                    pass
+                
+                else:
+                    ka -= 1
+                    if ka <= 0:
+                        return 0
                 
     except NameError:
         raise ModuleError("psutil must be installed to use beetroot.taskkill(). Use pip install psutil or pip install beetroot[ram].")
@@ -321,27 +344,28 @@ def crash() -> "Crashes python or smth idk":
 def quicksort(array:"Unsorted array") -> "Sorted array":
     """Quicksort algorithm"""
     try:
-        less = []
-        equal = []
-        greater = []
+        with recursion(1500):
+            less = []
+            equal = []
+            greater = []
 
-        if len(array) > 1:
-            pivot = array[0]
+            if len(array) > 1:
+                pivot = array[0]
+                
+                for x in array:
+                    if x < pivot:
+                        less.append(x)
+                        
+                    elif x == pivot:
+                        equal.append(x)
+                        
+                    elif x > pivot:
+                        greater.append(x)
+                        
+                return quicksort(less) + equal + quicksort(greater)
             
-            for x in array:
-                if x < pivot:
-                    less.append(x)
-                    
-                elif x == pivot:
-                    equal.append(x)
-                    
-                elif x > pivot:
-                    greater.append(x)
-                    
-            return quicksort(less) + equal + quicksort(greater)
-        
-        else:
-            return array
+            else:
+                return array
         
     except TypeError:
         raise InvalidTypeError(f"Cannot sort type {objtype(array)}.")
@@ -386,8 +410,21 @@ def swap(array, ia, ib):
     array[ia], array[ib] = array[ib], array[ia]
     return array
 
+def strlist(args):
+    for i in range(0, len(args)):
+        if objtype(args[i]) == "bytes":
+            args[i] = args[i].decode("iso-8859-1")
+            
+        else:
+            args[i] = str(args[i])
+            
+    return args
+
 def errprint(*args):
-    pass
+    sys.stderr.write(" ".join(strlist(list(args))) + "\n")
+    
+def errprintn(*args):
+    sys.stderr.write(" ".join(strlist(list(args))))
 
 def execfile(file:"a filepath to a .py file"):
     """Executes a python .py script"""

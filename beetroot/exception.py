@@ -43,3 +43,6 @@ class NumberError(Exception):
 
 class FunctionError(Exception):
     pass
+
+class wait_wot(Exception):
+    pass
