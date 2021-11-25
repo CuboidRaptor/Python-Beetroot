@@ -120,6 +120,8 @@ Miscellaneous stuff:
 
 - beetroot.cyclesort(arr) ; Significantly slower than beetroot.quicksort(), but uses less memory.
 
+- beetroot.swap(array, index_1, index_2) ; Swaps 2 items in list.
+
 - beetroot.execfile(file) ; Execute .py script
 
 - beetroot.systemstats() ; Returns [Username, OS, OS version, OS architecture, computer nodename, IP address, MAC address]

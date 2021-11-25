@@ -217,13 +217,16 @@ except (ModuleNotFoundError, ImportError):
     except NameError:
         raise ModuleError("setuptools and Cython must be installed. Try `pip install setuptools Cython` or `pip install beetroot[cython]`.")
 
-def printn(str_:"string to print"=""):
+def printn(*args):
     """Prints a string without a trailing newline"""
-    if objtype(str_) == "bytes":
-        print(str_.decode("iso-8859-1"), end="", flush=True)
-        
-    else:
-        print(str(str_), end="", flush=True)
+    for i in range(0, len(args)):
+        if objtype(args[i]) == "bytes":
+            args[i] = str(args[i].decode("iso-8859-1"))
+            
+        else:
+            args[i] = str(args[i])
+            
+    print(" ".join(args))
         
     return 0
 
@@ -315,62 +318,76 @@ def crash() -> "Crashes python or smth idk":
     
     return 1
     
-def quicksort(array) -> "Sorted array":
+def quicksort(array:"Unsorted array") -> "Sorted array":
     """Quicksort algorithm"""
+    try:
+        less = []
+        equal = []
+        greater = []
 
-    less = []
-    equal = []
-    greater = []
-
-    if len(array) > 1:
-        pivot = array[0]
+        if len(array) > 1:
+            pivot = array[0]
+            
+            for x in array:
+                if x < pivot:
+                    less.append(x)
+                    
+                elif x == pivot:
+                    equal.append(x)
+                    
+                elif x > pivot:
+                    greater.append(x)
+                    
+            return quicksort(less) + equal + quicksort(greater)
         
-        for x in array:
-            if x < pivot:
-                less.append(x)
-                
-            elif x == pivot:
-                equal.append(x)
-                
-            elif x > pivot:
-                greater.append(x)
-                
-        return quicksort(less) + equal + quicksort(greater)
-    
-    else:
-        return array
+        else:
+            return array
+        
+    except TypeError:
+        raise InvalidTypeError(f"Cannot sort type {objtype(array)}.")
     
 def cyclesort(array:"Unsorted Array") -> "Sorted Array":
     """Cyclesort, much slower than quicksort but uses less RAM"""
-    for cycleStart in range(0, len(array) - 1):
-        item = array[cycleStart]
-        pos = cycleStart
-        
-        for i in range(cycleStart + 1, len(array)):
-            if array[i] < item:
-                pos += 1
-            
-        if pos == cycleStart:
-            continue
-        
-        while item == array[pos]:
-            pos += 1
-         
-        array[pos], item = item, array[pos]
-      
-        while pos != cycleStart:
+    try:
+        for cycleStart in range(0, len(array) - 1):
+            item = array[cycleStart]
             pos = cycleStart
-         
+            
             for i in range(cycleStart + 1, len(array)):
                 if array[i] < item:
                     pos += 1
-               
+                
+            if pos == cycleStart:
+                continue
+            
             while item == array[pos]:
                 pos += 1
-            
+             
             array[pos], item = item, array[pos]
-         
+          
+            while pos != cycleStart:
+                pos = cycleStart
+             
+                for i in range(cycleStart + 1, len(array)):
+                    if array[i] < item:
+                        pos += 1
+                   
+                while item == array[pos]:
+                    pos += 1
+                
+                array[pos], item = item, array[pos]
+             
+        return array
+    
+    except TypeError:
+        raise InvalidTypeError(f"Cannot sort type {objtype(array)}.")
+
+def swap(array, ia, ib):
+    array[ia], array[ib] = array[ib], array[ia]
     return array
+
+def errprint(*args):
+    pass
 
 def execfile(file:"a filepath to a .py file"):
     """Executes a python .py script"""

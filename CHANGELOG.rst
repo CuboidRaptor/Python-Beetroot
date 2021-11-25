@@ -47,6 +47,7 @@ Version number \= 1.Major.Minor.Patch
   |
 
 - | 1.1.3 ; Added text class, text.udown() and text.zalgo()
+  | Added swap()
   |
   
 - | 1.1.3.1 ; Upgraded text.zalgo(), uses zalgo-text so it doesn't look stupid now. Also added argument "crazy" to adjust craziness level of zalgo text
@@ -147,4 +148,7 @@ Version number \= 1.Major.Minor.Patch
   | Used instances for stopwatch().
   
 - | 1.1.7.1 ; Added cyclesort()
+  | Added swap()
+  | Bugfixes to quicksort()
+  | Heavily modified printn() to use args
   |
