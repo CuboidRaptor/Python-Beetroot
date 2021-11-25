@@ -418,6 +418,9 @@ def swap(array, ia, ib):
     array[ia], array[ib] = array[ib], array[ia]
     return array
 
+def isSorted(array):
+    all(a <= b for a, b in zip(array, array[1:]))
+
 def strlist(args):
     for i in range(0, len(args)):
         if objtype(args[i]) == "bytes":

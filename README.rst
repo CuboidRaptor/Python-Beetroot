@@ -175,6 +175,8 @@ Miscellaneous stuff:
 
 - beetroot.errprintn() ; Same as beetroot.errprint(), but it doesn't print a trailing newline.
 
+- beetroot.isSorted() ; Checks if a list is sorted without actually sorting it.
+
 Memory functions and stuff:
 ===========================
 
