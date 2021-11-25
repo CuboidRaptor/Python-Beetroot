@@ -118,6 +118,8 @@ Miscellaneous stuff:
 
 - beetroot.quicksort(arr) ; Quicksort, which in most cases is slightly faster than Python3's default Timsort.
 
+- beetroot.cyclesort(arr) ; Significantly slower than beetroot.quicksort(), but uses less memory.
+
 - beetroot.execfile(file) ; Execute .py script
 
 - beetroot.systemstats() ; Returns [Username, OS, OS version, OS architecture, computer nodename, IP address, MAC address]

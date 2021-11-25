@@ -145,3 +145,6 @@ Version number \= 1.Major.Minor.Patch
 - | 1.1.7 ; Added recursion() context manager. Also added suppress() and speed().
   | Added retargs().
   | Used instances for stopwatch().
+  
+- | 1.1.7.1 ; Added cyclesort()
+  |
