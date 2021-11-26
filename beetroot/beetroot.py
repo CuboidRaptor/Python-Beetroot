@@ -431,8 +431,14 @@ def strlist(args):
             
     return args
 
-def errprint(*args):
-    sys.stderr.write(" ".join(strlist(list(args))) + "\n")
+def errprint(*args, **kwargs):
+    end = str(
+        kwargs.get(
+            "end",
+            "\n"
+        )
+    )
+    sys.stderr.write(" ".join(strlist(list(args))) + end)
     
 def errprintn(*args):
     sys.stderr.write(" ".join(strlist(list(args))))
