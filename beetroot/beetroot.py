@@ -73,6 +73,7 @@ from pathlib import Path as p
 from functools import cache, lru_cache, wraps
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from inspect import signature, Signature
+from decimal import Decimal
 
 from .metadata import __version__, __author__, __authoremail__, __url__
 from .random import *
@@ -486,7 +487,11 @@ def mousepixelgrab():
 
     except (ModuleNotFoundError, ImportError):
         raise ModuleError("PIL and pyautogui most be installed to use beetroot.mousepixelgrab(). Try pip install pillow pyautogui.")
-    
+
+def b_round(n, a=0):
+    """Better rounding. More accurate."""
+    return float(round(Decimal(str(n)), a))
+
 def beetroot() -> "BEETROOT":
     """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""
     while True:

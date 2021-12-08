@@ -177,6 +177,8 @@ Miscellaneous stuff:
 
 - beetroot.isSorted() ; Checks if a list is sorted without actually sorting it.
 
+- beetroot.b_round(n, a) ; Rounds "n" to "a" decimal digits. Much more accurate than python's default round()
+
 Memory functions and stuff:
 ===========================
 
