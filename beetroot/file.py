@@ -73,16 +73,20 @@ class file:
             "pp",
             True
         )
+        ea = kwargs.get(
+            "ensure_ascii",
+            False
+        )
         with open(p(fi), "w", encoding="iso-8859-1") as f:
             if objtype(pp) != "bool":
                 f.close()
                 raise InvalidPPBool("Argument \"pp\" must be bool")
             
             if pp:
-                json.dump(data, f, indent=4)
+                json.dump(data, f, indent=4, ensure_ascii=ea)
                 
             elif not pp:
-                json.dump(data, f)
+                json.dump(data, f, ensure_ascii=ea)
                 
             else:
                 raise UnknownError("¯\_(ツ)_/¯")
