@@ -153,6 +153,8 @@ Miscellaneous stuff:
 
 - beetroot.getch() ; Input, but it only waits for one character.
 
+- beetroot.delchar() ; Deletes the last character from stdout
+
 - beetroot.recursion() ; A context manager that lets you temporarily set your recursion depth. Use
   with beetroot.recursion(<some recursion limit here>):
   <do something here>
