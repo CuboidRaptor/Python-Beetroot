@@ -155,6 +155,9 @@ Version number \= 1.Major.Minor.Patch
   | Added errprint() and errprintn().
   | Added nocython argument to speed() in case people can't install Cython
   | Added isSorted()
+  |
+  
+- | 1.1.7.2 ; 
   | Added b_round()
   | Added ensure_ascii option to file.jdump() and set to False, should prevent stupid non-Unicode problems
   | Added delchar()
