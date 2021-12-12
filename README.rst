@@ -226,6 +226,8 @@ Text manipulation stuff:
 
 - beetroot.text.spaceify(text) ; Spaceifies text, so "hi there" becomes "h i   t h e r e"
 
+- beetroot.text.dc_weirdify(text) ; Applies a random number of random discord MD effects to each char, making your string look weird in Discord.
+
 Compression class:
 ==================
 

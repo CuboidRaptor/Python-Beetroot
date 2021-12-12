@@ -1,3 +1,6 @@
+import re
+import random
+
 try:
     import upsidedown  
     
@@ -34,6 +37,7 @@ class text:
     def __init__(self):
         try:
             self.zal = zalg.zalgo()
+            self.remeff = re.compile(r"(?<!\\)(\*|_|~|\||`)")
             
         except NameError:
             pass
@@ -408,5 +412,36 @@ class text:
           
     def spaceify(self, texta:"any string") -> "A spaceified string":
         return " ".join(list(texta)).replace(" \n ", "\n").replace(" \t ", "\t")
+          
+    def dc_weirdify(self, texta:str) -> "A Discord weirdified string":
+        texta = self.remeff.sub("", texta).replace("\\", "")
+        out = []
+        for i in range(0, len(texta)):
+            if not texta[i].isspace():
+                temp = texta[i]
+                if random.randint(1, 100) < 15:
+                    temp = f"`{temp}`"
+                    
+                if random.randint(1, 100) < 25:
+                    temp = f"*{temp}*"
+                    
+                if random.randint(1, 100) < 25:
+                    temp = f"**{temp}**"
+                    
+                if random.randint(1, 100) < 50:
+                    temp = f"__{temp}__"
+                    
+                if random.randint(1, 100) < 50:
+                    temp = f"~~{temp}~~"
+                    
+                if random.randint(1, 100) < 10:
+                    temp = f"||{temp}||"
+                                        
+                out.append(temp)
+                
+            else:
+                out.append(texta[i])
+                
+        return chr(8291).join(out)
           
 text = text()
