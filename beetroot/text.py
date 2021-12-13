@@ -39,6 +39,8 @@ class text:
             self.zal = zalg.zalgo()
             self.remeff = re.compile(r"(?<!\\)(\*|_|~|\||`)")
             
+            self.blank = chr(8291)
+            
         except NameError:
             pass
         
@@ -442,6 +444,6 @@ class text:
             else:
                 out.append(texta[i])
                 
-        return chr(8291).join(out)
+        return self.blank.join(out)
           
 text = text()

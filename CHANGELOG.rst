@@ -162,4 +162,5 @@ Version number \= 1.Major.Minor.Patch
   | Added ensure_ascii option to file.jdump() and set to False, should prevent stupid non-Unicode problems
   | Added delchar()
   | Added text.dc_weirdify()
+  | Added text.blank
   |

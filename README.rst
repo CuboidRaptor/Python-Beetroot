@@ -228,6 +228,8 @@ Text manipulation stuff:
 
 - beetroot.text.dc_weirdify(text) ; Applies a random number of random discord MD effects to each char, making your string look weird in Discord.
 
+- beetroot.text.blank ; A blank invisible zero-width char for your zero-width needs.
+
 Compression class:
 ==================
 
