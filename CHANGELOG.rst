@@ -163,4 +163,4 @@ Version number \= 1.Major.Minor.Patch
   | Added delchar()
   | Added text.dc_weirdify()
   | Added text.blank
-  |
+  | Better formatted code

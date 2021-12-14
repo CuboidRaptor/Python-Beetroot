@@ -285,7 +285,12 @@ def admin():
     """Requests UAC Admin on Windows"""
     if platform.system() == "Windows":
         ctypes.windll.shell32.ShellExecuteW(
-            None, 'runas', sys.executable, ' '.join(sys.argv), None, None
+            None,
+            'runas',
+            sys.executable,
+            ' '.join(sys.argv),
+            None,
+            None
         )
         
         return isAdmin()
@@ -458,7 +463,15 @@ def execfile(file:"a filepath to a .py file"):
 
 def systemstats():
     """Returns info about system and hardware"""
-    return [getpass.getuser(), platform.system(), platform.version(), platform.machine(), platform.node(), socket.gethostbyname(socket.gethostname()), ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()]
+    return [
+        getpass.getuser(),
+        platform.system(),
+        platform.version(),
+        platform.machine(),
+        platform.node(),
+        socket.gethostbyname(socket.gethostname()),
+        ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()
+    ]
 
 def unline(str_:"a string"):
     """Makes multi-line strings single-line"""
