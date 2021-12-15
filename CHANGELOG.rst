@@ -164,3 +164,7 @@ Version number \= 1.Major.Minor.Patch
   | Added text.dc_weirdify()
   | Added text.blank
   | Better formatted code
+  |
+  
+- | 1.1.7.3 ; Moved b_round() to math
+  | Also used args and kwargs for math

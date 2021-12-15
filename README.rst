@@ -179,8 +179,6 @@ Miscellaneous stuff:
 
 - beetroot.isSorted() ; Checks if a list is sorted without actually sorting it.
 
-- beetroot.b_round(n, a) ; Rounds "n" to "a" decimal digits. Much more accurate than python's default round()
-
 Memory functions and stuff:
 ===========================
 
@@ -249,6 +247,8 @@ M A T H .
 - beetroot.math.sqrt(n) ; Square roots n.
 
 - beetroot.math.factorial(n) ; Calculates the factorial of a number.
+
+- beetroot.b_round(n, a) ; Rounds "n" to "a" decimal digits. Much more accurate than python's default round()
 
 PICKLES.
 ========
