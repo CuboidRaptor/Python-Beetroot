@@ -38,6 +38,7 @@ class text:
         try:
             self.zal = zalg.zalgo()
             self.remeff = re.compile(r"(?<!\\)(\*|_|~|\||`)")
+            self.symreg = re.compile(r"(\*|_|~|\||`)")
             
             self.blank = chr(8291)
             
@@ -421,6 +422,7 @@ class text:
         for i in range(0, len(texta)):
             if not texta[i].isspace():
                 temp = texta[i]
+                temp = self.symreg.sub(self.blank + r"\1" + self.blank, temp)
                 if random.randint(1, 100) < 15:
                     temp = f"`{temp}`"
                     
