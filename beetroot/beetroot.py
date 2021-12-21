@@ -331,13 +331,13 @@ def taskkill(tasque, **kwargs):
         ka = int(
             kwargs.get(
                 "killamount",
-                None
+                -1
             )
         )
         for proc in psutil.process_iter():
             if proc.name() == tasque:
                 proc.kill()
-                if ka == None:
+                if ka == -1:
                     pass
                 
                 else:
