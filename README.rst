@@ -250,7 +250,7 @@ M A T H .
 
 - beetroot.math.factorial(n) ; Calculates the factorial of a number.
 
-- beetroot.b_round(n, a) ; Rounds "n" to "a" decimal digits. Much more accurate than python's default round()
+- beetroot.b_round(n, a) ; Rounds "n" to "a" decimal digits. Much more accurate than python's default round() (i think, i hope)
 
 PICKLES.
 ========
