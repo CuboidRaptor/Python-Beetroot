@@ -78,10 +78,9 @@ class progBar:
             return 0
             
         if self.cur < self.end:
-            for i in range(0, self.end-self.cur):
+            for i in range(0, (self.end-self.cur)+1):
                 sys.stdout.write("\b \b")
                 
-            sys.stdout.write("\b \b")
             sys.stdout.write("#")
             self.cur += 1
             
