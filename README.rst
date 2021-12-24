@@ -179,6 +179,8 @@ Miscellaneous stuff:
 
 - beetroot.isSorted() ; Checks if a list is sorted without actually sorting it.
 
+- beetroot.progBar(<length of bar>) ; Makes a Progress bar. use "inf" for infinity length progress bar. Don't print output while progress bar is loading.
+
 Memory functions and stuff:
 ===========================
 

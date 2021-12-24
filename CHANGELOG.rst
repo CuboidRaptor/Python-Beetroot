@@ -170,3 +170,5 @@ Version number \= 1.Major.Minor.Patch
   | Also used args and kwargs for math
   | Updated text.dc_weirdify() to work better
   | Bugfix to taskkill(), and by extension, crash()
+  | Added progBar()
+  |
