@@ -235,6 +235,7 @@ except (ModuleNotFoundError, ImportError):
 def printn(*args):
     """Prints a string without a trailing newline"""
     for i in range(0, len(args)):
+        args = list(args)
         if objtype(args[i]) == "bytes":
             args[i] = str(args[i].decode("iso-8859-1"))
             

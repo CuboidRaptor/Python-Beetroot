@@ -172,4 +172,5 @@ Version number \= 1.Major.Minor.Patch
   | Bugfix to taskkill(), and by extension, crash()
   | Added progBar()
   | Added change char option to delchar()
-  |
+  | Bugfix to printn()
+  | 
