@@ -265,9 +265,9 @@ def getch(str_:"string to print before getch()ing"="") -> "Single Char":
     except NameError:
         raise ModuleError("keyboard must be installed. Try `pip install keyboard` or `pip install beetroot[keyboard]`.")
 
-def delchar():
+def delchar(char=" "):
     """Deletes char from stdout"""
-    sys.stdout.write("\b \b")
+    sys.stdout.write(f"\b{char}\b")
 
 def isAdmin() -> "UAC Admin perms in Windows":
     """Checks if python program has administrator prviliges."""

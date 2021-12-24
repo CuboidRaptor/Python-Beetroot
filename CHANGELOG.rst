@@ -171,4 +171,5 @@ Version number \= 1.Major.Minor.Patch
   | Updated text.dc_weirdify() to work better
   | Bugfix to taskkill(), and by extension, crash()
   | Added progBar()
+  | Added change char option to delchar()
   |
