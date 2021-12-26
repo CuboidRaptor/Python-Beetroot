@@ -173,4 +173,6 @@ Version number \= 1.Major.Minor.Patch
   | Added progBar()
   | Added change char option to delchar()
   | Bugfix to printn()
+  | Bugfixes to getch()
+  | Added Public IP Address to systemstats()
   | 

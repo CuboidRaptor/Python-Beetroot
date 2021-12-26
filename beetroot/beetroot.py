@@ -26,6 +26,7 @@ import subprocess
 import re
 import zlib
 import lzma
+import requests
 
 try:
     import numpy as np
@@ -69,11 +70,22 @@ try:
 except (ModuleNotFoundError, ImportError):
     pass
 
+try:
+    import ujson as json
+    
+except (ModuleNotFoundError, ImportError):
+    try:
+        import simplejson as json
+        
+    except (ModuleNotFoundError, ImportError):
+        import json
+
 from pathlib import Path as p
 from functools import cache, lru_cache, wraps
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from inspect import signature, Signature
 from decimal import Decimal
+from io import StringIO as sio
 
 from .metadata import __version__, __author__, __authoremail__, __url__
 from .random import *
@@ -242,7 +254,7 @@ def printn(*args):
         else:
             args[i] = str(args[i])
             
-    print(" ".join(args))
+    print(" ".join(args), end="", flush=True)
         
     return 0
 
@@ -252,16 +264,71 @@ def getch(str_:"string to print before getch()ing"="") -> "Single Char":
         printn(str_)
         alphabet = [chr(i) for i in range(97, 123)]
         
+        lett = {
+            "1": "!",
+            "2": "@",
+            "3": "#",
+            "4": "$",
+            "5": "%",
+            "6": "^",
+            "7": "&",
+            "8": "*",
+            "9": "(",
+            "0": ")"
+        }
+        syms = list("-=[]\\;',./")
+        dictsym = {
+            "-": "_",
+            "=": "+",
+            "[": "{",
+            "]": "}",
+            "\\": "|",
+            ";": ":",
+            "'": "\"",
+            ",": "<",
+            ".": ">",
+            "/": "?"
+        }
+        cchars = {
+            "tab": "\t",
+            "enter": "\n"
+        }
+        
         while True:
-            for letter in alphabet:
-                if keyboard.is_pressed(letter):
-                    print()
-                    return letter
-                
+            if (not keyboard.is_pressed("ctrl")) or (not keyboard.is_pressed("alt")):
+                for letter in alphabet:
+                    if keyboard.is_pressed(letter):
+                        print()
+                        if keyboard.is_pressed("shift"):
+                            return letter.upper()
+                        
+                        else:
+                            return letter
+                    
                 for num in range(0, 10):
                     if keyboard.is_pressed(str(num)):
                         print()
-                        return str(num)
+                        if keyboard.is_pressed("shift"):
+                            for item in lett:
+                                if str(num) == item:
+                                    return lett[item]
+                                
+                        else:
+                            return str(num)
+                        
+                for sym in syms:
+                    if keyboard.is_pressed(sym):
+                        if keyboard.is_pressed("shift"):
+                            for item in dictsym:
+                                if sym == item:
+                                    return dictsym[item]
+                                
+                        else:
+                            return sym
+                        
+                for char in cchars:
+                    if keyboard.is_pressed(char):
+                        return cchars[char]
     
     except NameError:
         raise ModuleError("keyboard must be installed. Try `pip install keyboard` or `pip install beetroot[keyboard]`.")
@@ -464,6 +531,7 @@ def execfile(file:"a filepath to a .py file"):
 
 def systemstats():
     """Returns info about system and hardware"""
+    yee = requests.get("https://ipinfo.io/json", verify=True)
     return [
         getpass.getuser(),
         platform.system(),
@@ -471,6 +539,7 @@ def systemstats():
         platform.machine(),
         platform.node(),
         socket.gethostbyname(socket.gethostname()),
+        yee.json()["ip"] if yee.status_code == 200 else "err",
         ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()
     ]
 

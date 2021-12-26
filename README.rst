@@ -124,7 +124,7 @@ Miscellaneous stuff:
 
 - beetroot.execfile(file) ; Execute .py script
 
-- beetroot.systemstats() ; Returns [Username, OS, OS version, OS architecture, computer nodename, IP address, MAC address]
+- beetroot.systemstats() ; Returns [Username, OS, OS version, OS architecture, computer nodename, Local IP address, Public IP Address, MAC address]
 
 - beetroot.unline(string) ; Makes a multi-line string a single-line string
 
