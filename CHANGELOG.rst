@@ -175,4 +175,6 @@ Version number \= 1.Major.Minor.Patch
   | Bugfix to printn()
   | Bugfixes to getch()
   | Added Public IP Address to systemstats()
+  | Deprecated systemstats(), use sys_stats instead
+  | Added screen_size
   | 

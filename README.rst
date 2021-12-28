@@ -124,7 +124,7 @@ Miscellaneous stuff:
 
 - beetroot.execfile(file) ; Execute .py script
 
-- beetroot.systemstats() ; Returns [Username, OS, OS version, OS architecture, computer nodename, Local IP address, Public IP Address, MAC address]
+- beetroot.sys_stats ; A variable that contains [Username, OS name, OS version, OS architecture, computer nodename, Local IP address, Public IP Address, MAC address]
 
 - beetroot.unline(string) ; Makes a multi-line string a single-line string
 
@@ -180,6 +180,8 @@ Miscellaneous stuff:
 - beetroot.isSorted() ; Checks if a list is sorted without actually sorting it.
 
 - beetroot.progBar(<length of bar>) ; Makes a Progress bar. use "inf" for infinity length progress bar. Don't print output while progress bar is loading.
+
+- beetroot.screen_size ; Returns dimensions of screen.
 
 Memory functions and stuff:
 ===========================

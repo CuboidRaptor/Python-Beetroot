@@ -105,6 +105,42 @@ from .static import typed
 
 #Constants
 gen = mrandom.SystemRandom()
+ss_req = requests.get("https://ipinfo.io/json", verify=True)
+sys_stats = [
+    getpass.getuser(),
+    platform.system(),
+    platform.version(),
+    platform.machine(),
+    platform.node(),
+    socket.gethostbyname(socket.gethostname()),
+    ss_req.json()["ip"] if ss_req.status_code == 200 else "err",
+    ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()
+]
+import tkinter
+with suppress():
+    root = tkinter.Tk()
+    width = root.winfo_screenwidth()
+    height = root.winfo_screenheight()
+    root.destroy()
+    
+screen_size = (width, height)
+try:
+    del root
+    
+except NameError:
+    pass
+
+try:
+    del width
+    
+except NameError:
+    pass
+
+try:
+    del height
+    
+except NameError:
+    pass
 
 class recursion:
     """A recursion context manager.
@@ -532,6 +568,7 @@ def execfile(file:"a filepath to a .py file"):
 def systemstats():
     """Returns info about system and hardware"""
     yee = requests.get("https://ipinfo.io/json", verify=True)
+    errprint("beetroot.systemstats() is deprecated. Use beetroot.sys_stats instead.")
     return [
         getpass.getuser(),
         platform.system(),
