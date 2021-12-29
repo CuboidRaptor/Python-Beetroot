@@ -182,4 +182,4 @@ Version number \= 1.Major.Minor.Patch
 - | 1.1.7.4;
   | Refactored imports to give slight importing speed boost
   | Removed systemstats()
-  | 
+  | Removed useless imports (wait those exist? (*f--k*))

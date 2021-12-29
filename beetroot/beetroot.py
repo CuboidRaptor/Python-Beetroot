@@ -27,21 +27,9 @@ import re
 import zlib
 import lzma
 import requests
-
-try:
-    import numpy as np
-    
-except (ModuleNotFoundError, ImportError):
-    pass
     
 try:
     import PIL
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
-try:
-    import pyautogui
     
 except (ModuleNotFoundError, ImportError):
     pass
@@ -54,12 +42,6 @@ except (ModuleNotFoundError, ImportError):
 
 try:
     from setuptools import setup
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
-try:
-    from Cython.Build import cythonize
     
 except (ModuleNotFoundError, ImportError):
     pass
@@ -85,7 +67,6 @@ from functools import cache, lru_cache, wraps
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from inspect import signature, Signature
 from decimal import Decimal
-from io import StringIO as sio
 
 from .metadata import __version__, __author__, __authoremail__, __url__
 from .random import *
