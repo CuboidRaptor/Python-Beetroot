@@ -177,4 +177,9 @@ Version number \= 1.Major.Minor.Patch
   | Added Public IP Address to systemstats()
   | Deprecated systemstats(), use sys_stats instead
   | Added screen_size
+  | 
+  
+- | 1.1.7.4;
   | Refactored imports to give slight importing speed boost
+  | Removed systemstats()
+  | 

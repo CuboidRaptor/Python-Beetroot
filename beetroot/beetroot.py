@@ -565,21 +565,6 @@ def execfile(file:"a filepath to a .py file"):
         
     return 0
 
-def systemstats():
-    """Returns info about system and hardware"""
-    yee = requests.get("https://ipinfo.io/json", verify=True)
-    errprint("beetroot.systemstats() is deprecated. Use beetroot.sys_stats instead.")
-    return [
-        getpass.getuser(),
-        platform.system(),
-        platform.version(),
-        platform.machine(),
-        platform.node(),
-        socket.gethostbyname(socket.gethostname()),
-        yee.json()["ip"] if yee.status_code == 200 else "err",
-        ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()
-    ]
-
 def unline(str_:"a string"):
     """Makes multi-line strings single-line"""
     return str(str_).replace("\n", "\\n").replace("\t", "\\t").replace("\r", "\\r").replace("\a", "\\a").replace("\b", "\\b")
