@@ -1,10 +1,10 @@
-import time
-
 from .exception import *
 
 class stopwatch:
     """Stopwatch thingy"""
     def __init__(self):
+        import time
+        
         self.st = 0
         self.et = 0
         

@@ -1,9 +1,3 @@
-try:
-    import pyttsx3
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
 from .exception import *
 from .objtype import objtype
 

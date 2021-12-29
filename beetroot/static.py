@@ -1,5 +1,5 @@
 """Thanks to Alan Cristhian for this code, I couldn't
-install statically correctly cuz pip was sh*ting itself
+install statically correctly cuz pip was s--ting itself
 but I copied your code here with minor modifications. Thanks."""
 
 import inspect

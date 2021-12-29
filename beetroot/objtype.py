@@ -4,9 +4,6 @@ but now I have other global functions and nowhere to put them,
 and changing the name would've been too hard with my
 one billion files."""
 
-import os
-import sys
-
 from .exception import *
 
 def objtype(obj):
@@ -16,10 +13,16 @@ class suppress(object):
     """Forcibly suppress stdout and stderr, however
     errors and stack traces will still show"""
     def __init__(self):
+        import os
+        import sys
+        
         self.old_stdout = sys.stdout
         self.old_stderr = sys.stderr
         
     def __enter__(self):
+        import os
+        import sys
+        
         self.outnull_file = open(os.devnull, 'w')
         self.errnull_file = open(os.devnull, 'w')
 
@@ -39,7 +42,10 @@ class suppress(object):
         sys.stderr = self.errnull_file  
         return self
 
-    def __exit__(self, *args, **kwargs):        
+    def __exit__(self, *args, **kwargs):
+        import os
+        import sys
+        
         sys.stdout = self.old_stdout
         sys.stderr = self.old_stderr
 
@@ -55,6 +61,9 @@ class suppress(object):
 class progBar:
     """Progress bar. Don't print output between progressing/"""
     def __init__(self, num):
+        import os
+        import sys
+        
         self.cur = 0
         self.end = num
         sys.stdout.write("[")
@@ -69,6 +78,9 @@ class progBar:
         sys.stdout.write("]")
         
     def progress(self):
+        import os
+        import sys
+        
         if self.end == "inf":
             sys.stdout.write("\b \b")
             sys.stdout.write("#")
