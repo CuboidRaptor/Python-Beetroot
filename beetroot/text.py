@@ -14,12 +14,6 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 try:
-    from nltk import pos_tag, word_tokenize
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
-try:
     import base65536
     
 except (ModuleNotFoundError, ImportError):
@@ -87,37 +81,67 @@ class text:
     def rouxls(self, sentence):
         """Makeseth thou soundeth likest Rouxls, Thy Duketh of Puzzles."""
         try:
-            yee = pos_tag(word_tokenize(sentence))
+            from nltk import pos_tag, word_tokenize
             
-            out = []
-            for i in range(0, len(yee)):
-                if yee[i][1].startswith("NN") or yee[i][1].startswith("VB"):
-                    dumb = random.randint(1, 100)
-                    if dumb <= 40:
-                        if yee[i][0].endswith("a") or yee[i][0].endswith("e") or yee[i][0].endswith("i") or yee[i][0].endswith("o") or yee[i][0].endswith("u"):
-                            out.append("".join([str(yee[i][0]), "th"]))
-                            
-                        elif yee[i][0].endswith("s"):
-                            if yee[i][0].endswith("es"):
-                                out.append("".join([str(yee[i][0]), "t"]))
-                                
-                            else:
-                                out.append("".join([str(yee[i][0]), "e"]))
-                            
-                        elif yee[i][0].endswith("y"):
-                            out.append("".join([str(yee[i][0])[:-1], "ie"]))
+        except (ModuleNotFoundError, ImportError):
+            raise ModuleError("nltk must be installed to use beetroot.text.rouxls(). Try pip install nltk or pip install beetroot[text].")
+        
+        yee = pos_tag(word_tokenize(sentence))
+        
+        out = []
+        for i in range(0, len(yee)):
+            if yee[i][1].startswith("NN") or yee[i][1].startswith("VB"):
+                dumb = random.randint(1, 100)
+                if dumb <= 40:
+                    if yee[i][0].endswith("a") or yee[i][0].endswith("e") or yee[i][0].endswith("i") or yee[i][0].endswith("o") or yee[i][0].endswith("u"):
+                        out.append("".join([str(yee[i][0]), "th"]))
+                        
+                    elif yee[i][0].endswith("s"):
+                        if yee[i][0].endswith("es"):
+                            out.append("".join([str(yee[i][0]), "t"]))
                             
                         else:
-                            out.append("".join([str(yee[i][0]), "eth"]))
+                            out.append("".join([str(yee[i][0]), "e"]))
                         
-                    elif dumb > 40 and dumb <= 80:
+                    elif yee[i][0].endswith("y"):
+                        out.append("".join([str(yee[i][0])[:-1], "ie"]))
+                        
+                    else:
+                        out.append("".join([str(yee[i][0]), "eth"]))
+                    
+                elif dumb > 40 and dumb <= 80:
+                    if yee[i][0].endswith("a") or yee[i][0].endswith("e") or yee[i][0].endswith("i") or yee[i][0].endswith("o") or yee[i][0].endswith("u"):
+                        out.append("".join([str(yee[i][0]), "st"]))
+                        
+                    elif yee[i][0].endswith("s"):
+                        if yee[i][0].endswith("es"):
+                            out.append("".join([str(yee[i][0]), "t"]))
+                            
+                        else:
+                            out.append("".join([str(yee[i][0]), "e"]))
+                        
+                    elif yee[i][0].endswith("y"):
+                        out.append("".join([str(yee[i][0])[:-1], "ie"]))
+                        
+                    else:
+                        out.append("".join([str(yee[i][0]), "est"]))
+
+                elif dumb > 80 and dumb <= 90:
+                    if yee[i][1].startswith("NN"):
+                        if yee[i][0].endswith("e"):
+                            out.append(str(yee[i][0]))
+                            
+                        else:
+                            out.append("".join([str(yee[i][0]), "e"]))
+                        
+                    else:
                         if yee[i][0].endswith("a") or yee[i][0].endswith("e") or yee[i][0].endswith("i") or yee[i][0].endswith("o") or yee[i][0].endswith("u"):
-                            out.append("".join([str(yee[i][0]), "st"]))
+                            out.append("".join([str(yee[i][0]), "t"]))
                             
                         elif yee[i][0].endswith("s"):
                             if yee[i][0].endswith("es"):
-                                out.append("".join([str(yee[i][0]), "t"]))
-                                
+                                out.append("".join([str(yee[i][0]), "st"]))
+                            
                             else:
                                 out.append("".join([str(yee[i][0]), "e"]))
                             
@@ -127,141 +151,115 @@ class text:
                         else:
                             out.append("".join([str(yee[i][0]), "est"]))
 
-                    elif dumb > 80 and dumb <= 90:
-                        if yee[i][1].startswith("NN"):
-                            if yee[i][0].endswith("e"):
-                                out.append(str(yee[i][0]))
-                                
-                            else:
-                                out.append("".join([str(yee[i][0]), "e"]))
-                            
-                        else:
-                            if yee[i][0].endswith("a") or yee[i][0].endswith("e") or yee[i][0].endswith("i") or yee[i][0].endswith("o") or yee[i][0].endswith("u"):
-                                out.append("".join([str(yee[i][0]), "t"]))
-                                
-                            elif yee[i][0].endswith("s"):
-                                if yee[i][0].endswith("es"):
-                                    out.append("".join([str(yee[i][0]), "st"]))
-                                
-                                else:
-                                    out.append("".join([str(yee[i][0]), "e"]))
-                                
-                            elif yee[i][0].endswith("y"):
-                                out.append("".join([str(yee[i][0])[:-1], "ie"]))
-                                
-                            else:
-                                out.append("".join([str(yee[i][0]), "est"]))
-
-                    else:
-                        out.append(str(yee[i][0]))
-                        
                 else:
                     out.append(str(yee[i][0]))
                     
-            for i in range(0, len(out)):
-                out[i] = self._objrepl(out[i], "you", "thou")
-                out[i] = self._objrepl(out[i], "your", "thine")
-                out[i] = self._objrepl(out[i], "have", "haste")
-                out[i] = self._objrepl(out[i], "ahest", "ah")
-                out[i] = self._objrepl(out[i], "aheth", "ah")
-                out[i] = self._objrepl(out[i], "ahe", "ah")
-                out[i] = self._objrepl(out[i], "ise", "is")
-                out[i] = self._objrepl(out[i], "rouxls", "Rouxls, The Duketh of Puzzles")
-                out[i] = self._objrepl(out[i], "rouxlse", "Rouxls, The Duketh of Puzzles")
-                out[i] = self._objrepl(out[i], "Rouxls, The Duketh of Puzzlese", "Rouxls, The Duketh of Puzzles")
-                out[i] = self._objrepl(out[i], "the", "thy")
-                out[i] = self._objrepl(out[i], "thyre", "there")
-                out[i] = self._objrepl(out[i], "thour", "your")
-                out[i] = self._objrepl(out[i], "amest", "am")
-                out[i] = self._objrepl(out[i], "ameth", "am")
-                out[i] = self._objrepl(out[i], "asse", "arse")
-                out[i] = self._objrepl(out[i], "real", "reale")
-                    
-            out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
-            
-            out = self._objrepl(out, "shuteth up", "shutteth. yon. uppeth.")
-            out = self._objrepl(out, "shutest up", "shutteth. yon. uppeth.")
-            
-            return out
+            else:
+                out.append(str(yee[i][0]))
+                
+        for i in range(0, len(out)):
+            out[i] = self._objrepl(out[i], "you", "thou")
+            out[i] = self._objrepl(out[i], "your", "thine")
+            out[i] = self._objrepl(out[i], "have", "haste")
+            out[i] = self._objrepl(out[i], "ahest", "ah")
+            out[i] = self._objrepl(out[i], "aheth", "ah")
+            out[i] = self._objrepl(out[i], "ahe", "ah")
+            out[i] = self._objrepl(out[i], "ise", "is")
+            out[i] = self._objrepl(out[i], "rouxls", "Rouxls, The Duketh of Puzzles")
+            out[i] = self._objrepl(out[i], "rouxlse", "Rouxls, The Duketh of Puzzles")
+            out[i] = self._objrepl(out[i], "Rouxls, The Duketh of Puzzlese", "Rouxls, The Duketh of Puzzles")
+            out[i] = self._objrepl(out[i], "the", "thy")
+            out[i] = self._objrepl(out[i], "thyre", "there")
+            out[i] = self._objrepl(out[i], "thour", "your")
+            out[i] = self._objrepl(out[i], "amest", "am")
+            out[i] = self._objrepl(out[i], "ameth", "am")
+            out[i] = self._objrepl(out[i], "asse", "arse")
+            out[i] = self._objrepl(out[i], "real", "reale")
+                
+        out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
         
-        except NameError:
-            raise ModuleError("nltk must be installed to use beetroot.texta.rouxls(). Try pip install nltk or pip install beetroot[text].")
+        out = self._objrepl(out, "shuteth up", "shutteth. yon. uppeth.")
+        out = self._objrepl(out, "shutest up", "shutteth. yon. uppeth.")
+        
+        return out
             
     def spamton(self, sentence):
         """MAKES YOU [Sound] LIKE [Spamton G. Spamton], THE BEST [[Salesman1997]]!!!!"""
         try:
-            yee = pos_tag(sentence.upper().split(" "))
+            from nltk import pos_tag, word_tokenize
             
-            out = []
-            for i in range(0, len(yee)):
-                if yee[i][1].startswith("NN") or yee[i][1].startswith("VB"):
-                    dumb = random.randint(1, 100)
-                    if dumb <= 30:
-                        out.append("".join(["[", str(yee[i][0]).lower().title(), "]"]))
+        except (ModuleNotFoundError, ImportError):
+            raise ModuleError("nltk must be installed to use beetroot.text.spamton(). Try pip install nltk or pip install beetroot[text].")
+        
+        yee = pos_tag(sentence.upper().split(" "))
+        
+        out = []
+        for i in range(0, len(yee)):
+            if yee[i][1].startswith("NN") or yee[i][1].startswith("VB"):
+                dumb = random.randint(1, 100)
+                if dumb <= 30:
+                    out.append("".join(["[", str(yee[i][0]).lower().title(), "]"]))
 
-                    elif dumb > 30 and dumb <= 40:
-                        out.append("".join(["[[", str(yee[i][0]).lower().title(), "]]"]))
+                elif dumb > 30 and dumb <= 40:
+                    out.append("".join(["[[", str(yee[i][0]).lower().title(), "]]"]))
+                    
+                elif dumb > 40 and dumb <= 60:
+                    if yee[i][1] == "NN" or yee[i][1] == "NNS":
+                        out.append("[[Hyperlink Blocked]]")
                         
-                    elif dumb > 40 and dumb <= 60:
-                        if yee[i][1] == "NN" or yee[i][1] == "NNS":
-                            out.append("[[Hyperlink Blocked]]")
+                    elif yee[i][1] == "NNPS":
+                        nnpsn = [
+                            "LIGHT neRs",
+                            "DARK neRs",
+                            "[Friends]",
+                            "[[Hearts]]"
+                        ]
+                        dumb3 = random.choice(nnpsn)
+                        dumb3_1 = random.randint(0, 1)
+                        if dumb3_1 == 0:
+                            dumb3 = "".join(["[", dumb3, "]"])
                             
-                        elif yee[i][1] == "NNPS":
-                            nnpsn = [
-                                "LIGHT neRs",
-                                "DARK neRs",
-                                "[Friends]",
-                                "[[Hearts]]"
-                            ]
-                            dumb3 = random.choice(nnpsn)
-                            dumb3_1 = random.randint(0, 1)
-                            if dumb3_1 == 0:
-                                dumb3 = "".join(["[", dumb3, "]"])
-                                
-                            else:
-                                dumb3 = "".join(["[[", dumb3, "]]"])
-                                
-                            out.append(dumb3)
-                            
-                        elif yee[i][1] == "NNP":
-                            nnpn = [
-                                "Kris",
-                                "Salesman1997",
-                                "Little Sponge",
-                                "[[Hyperlink Blocked]]",
-                                "[Soul]"
-                            ]
-                            dumb2 = random.choice(nnpn)
-                            dumb2_1 = random.randint(0, 1)
-                            if dumb2_1 == 0:
-                                dumb2 = "".join(["[", dumb2, "]"])
-                                
-                            else:
-                                dumb2 = "".join(["[[", dumb2, "]]"])
-                                
-                            out.append(dumb2)
-                        
                         else:
-                            out.append(str(yee[i][0]))
+                            dumb3 = "".join(["[[", dumb3, "]]"])
+                            
+                        out.append(dumb3)
                         
+                    elif yee[i][1] == "NNP":
+                        nnpn = [
+                            "Kris",
+                            "Salesman1997",
+                            "Little Sponge",
+                            "[[Hyperlink Blocked]]",
+                            "[Soul]"
+                        ]
+                        dumb2 = random.choice(nnpn)
+                        dumb2_1 = random.randint(0, 1)
+                        if dumb2_1 == 0:
+                            dumb2 = "".join(["[", dumb2, "]"])
+                            
+                        else:
+                            dumb2 = "".join(["[[", dumb2, "]]"])
+                            
+                        out.append(dumb2)
+                    
                     else:
                         out.append(str(yee[i][0]))
-                        
+                    
                 else:
                     out.append(str(yee[i][0]))
                     
-            for i in range(0, len(out)):
-                out[i] = self._objreplic(out[i], "spamton", "[Spamton G. Spamton]")
-                out[i] = self._objreplic(out[i], "strings", "Silly Strings")
-                out[i] = self._objreplic(out[i], "soul", "HeartShapedObject")
-                out[i] = self._objrepl(out[i], "special", "specil")
+            else:
+                out.append(str(yee[i][0]))
                 
-            out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
+        for i in range(0, len(out)):
+            out[i] = self._objreplic(out[i], "spamton", "[Spamton G. Spamton]")
+            out[i] = self._objreplic(out[i], "strings", "Silly Strings")
+            out[i] = self._objreplic(out[i], "soul", "HeartShapedObject")
+            out[i] = self._objrepl(out[i], "special", "specil")
             
-            return out
-            
-        except NameError:
-            raise ModuleError("nltk must be installed to use beetroot.texta.spamton(). Try pip install nltk or pip install beetroot[text].")
+        out = " ".join(out).replace(" '", "'").replace(" .", ".").replace(" ,", ",").replace(" !", "!").replace(" ?", "?")
+        
+        return out
             
     def greek(self, texta):
         """Uses the Greek alphabet to obscure text"""
