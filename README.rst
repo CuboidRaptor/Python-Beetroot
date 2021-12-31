@@ -183,6 +183,8 @@ Miscellaneous stuff:
 
 - beetroot.screen_size ; Returns dimensions of screen.
 
+- beetroot.maxint ; Maximum size of integer that fits in a C function (i.e things like sys.setrecursionlimit()).
+
 Memory functions and stuff:
 ===========================
 

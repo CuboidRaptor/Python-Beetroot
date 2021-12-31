@@ -183,3 +183,5 @@ Version number \= 1.Major.Minor.Patch
   | Refactored imports to give slight importing speed boost
   | Removed systemstats()
   | Removed useless imports (wait those exist? (*f--k*))
+  | Added maxint
+  | 

@@ -35,12 +35,6 @@ except (ModuleNotFoundError, ImportError):
     pass
 
 try:
-    import psutil
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
-try:
     from setuptools import setup
     
 except (ModuleNotFoundError, ImportError):
@@ -85,6 +79,7 @@ from .math import *
 from .static import typed
 
 #Constants
+maxint = (1<<(struct.Struct('i').size * 8 - 1)) - 1
 gen = mrandom.SystemRandom()
 ss_req = requests.get("https://ipinfo.io/json", verify=True)
 sys_stats = [
@@ -413,26 +408,28 @@ def siteize(str_:"a string"):
 def taskkill(tasque, **kwargs):
     """Kills a task by name with psutil."""
     try:
-        ka = int(
-            kwargs.get(
-                "killamount",
-                -1
-            )
-        )
-        for proc in psutil.process_iter():
-            if proc.name() == tasque:
-                proc.kill()
-                if ka == -1:
-                    pass
-                
-                else:
-                    ka -= 1
-                    if ka <= 0:
-                        return 0
-                
-    except NameError:
+        import psutil
+        
+    except (ModuleNotFoundError, ImportError):
         raise ModuleError("psutil must be installed to use beetroot.taskkill(). Use pip install psutil or pip install beetroot[ram].")
-    
+
+    ka = int(
+        kwargs.get(
+            "killamount",
+            -1
+        )
+    )
+    for proc in psutil.process_iter():
+        if proc.name() == tasque:
+            proc.kill()
+            if ka == -1:
+                pass
+            
+            else:
+                ka -= 1
+                if ka <= 0:
+                    return 0
+                
 def crash() -> "Crashes python or smth idk":
     """This causes python to cra- cra- cra- cras- cra- crash."""
     
