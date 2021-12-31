@@ -16,11 +16,8 @@ import platform
 import getpass
 import socket
 import uuid
-import hashlib
-import webbrowser
 import datetime
 import os
-import ctypes
 import shutil
 import subprocess
 import re
@@ -351,6 +348,9 @@ def delchar(char=" "):
 
 def isAdmin() -> "UAC Admin perms in Windows":
     """Checks if python program has administrator prviliges."""
+    
+    import ctypes
+    
     if platform.system() == "Windows":
         try:
             return ctypes.windll.shell32.IsUserAnAdmin()
@@ -363,6 +363,9 @@ def isAdmin() -> "UAC Admin perms in Windows":
 
 def admin():
     """Requests UAC Admin on Windows"""
+    
+    import ctypes
+    
     if platform.system() == "Windows":
         ctypes.windll.shell32.ShellExecuteW(
             None,
@@ -593,6 +596,9 @@ def beetroot() -> "BEETROOT":
 
 def totally_not_a_rickroll() -> "definitely not a rickroll >:)":
     """Definitely absolutely 100% totally completely not a rickroll"""
+    
+    import webbrowser
+    
     for i in range(0, 100):
         rickrolled = True
         
