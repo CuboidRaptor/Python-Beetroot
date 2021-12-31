@@ -49,9 +49,6 @@ class math:
         elif n > 0:
             return mmath.gamma(n + 1)
         
-        elif n < 0:
-            return -mmath.gamma((-n) + 1)
-        
     def b_round(self, n, a=0, *args, **kwargs):
         """Better rounding. More accurate."""
         return float(round(Decimal(str(n)), a, *args, **kwargs))

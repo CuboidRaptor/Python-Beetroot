@@ -186,4 +186,4 @@ Version number \= 1.Major.Minor.Patch
   | Added maxint
   | Implemented fix for weird nonsense being printed to stderr when importing
   | Fixed problem with that fix, may still have weird windows popping up and then vanishing on some systems.
-  | 
+  | Fixed dumb math bug (bcuz I don't understand math 'cuz I'm dumb)
