@@ -184,4 +184,6 @@ Version number \= 1.Major.Minor.Patch
   | Removed systemstats()
   | Removed useless imports (wait those exist? (*f--k*))
   | Added maxint
+  | Implemented fix for weird nonsense being printed to stderr when importing
+  | Fixed problem with that fix, may still have weird windows popping up and then vanishing on some systems.
   | 
