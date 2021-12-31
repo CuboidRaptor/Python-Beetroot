@@ -58,6 +58,7 @@ from functools import cache, lru_cache, wraps
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from inspect import signature, Signature
 from decimal import Decimal
+from struct import Struct
 
 from .metadata import __version__, __author__, __authoremail__, __url__
 from .random import *
@@ -76,7 +77,7 @@ from .math import *
 from .static import typed
 
 #Constants
-maxint = (1<<(struct.Struct('i').size * 8 - 1)) - 1
+maxint = (1<<(Struct('i').size * 8 - 1)) - 1
 gen = mrandom.SystemRandom()
 ss_req = requests.get("https://ipinfo.io/json", verify=True)
 sys_stats = [
@@ -97,23 +98,6 @@ with suppress():
     root.destroy()
     
 screen_size = (width, height)
-try:
-    del root
-    
-except NameError:
-    pass
-
-try:
-    del width
-    
-except NameError:
-    pass
-
-try:
-    del height
-    
-except NameError:
-    pass
 
 class recursion:
     """A recursion context manager.
