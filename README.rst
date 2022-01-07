@@ -142,6 +142,7 @@ Miscellaneous stuff:
   killamount argument determines how many instances will be killed. Use None for all.
 
 - beetroot.crash() ; Crashes pyth-
+  Basically sends python SIGKILL.
 
 - beetroot.admin() ; Requests UAC elevation on Windows.
 
@@ -184,6 +185,8 @@ Miscellaneous stuff:
 - beetroot.screen_size ; Returns dimensions of screen.
 
 - beetroot.maxint ; Maximum size of integer that fits in a C function (i.e things like sys.setrecursionlimit()).
+
+- beetroot.segfault() ; FOrces python to segfault.
 
 Memory functions and stuff:
 ===========================

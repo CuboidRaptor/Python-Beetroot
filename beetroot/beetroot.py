@@ -128,6 +128,14 @@ class recursion:
     def __exit__(self, type, value, tb):
         sys.setrecursionlimit(self.old_limit)
         
+#def GC():
+    #"""Literally deletes EVERY variable in your program"""
+    #global todel; todel = []; [(exec(f"todel.append(\"{item}\")", globals()) if (not item.endswith("__")) and (not item.startswith("__")) else 1) for item in globals()]; [exec(f"del {item}", globals()) for item in todel]
+    
+def segfault():
+    """Forces python to segfault"""
+    import sys; sys.setrecursionlimit(maxint); f = lambda a: f(a); f(f)
+    
 def retargs(func):
     """Return all args in function in a list."""
     return list(map(str, str(signature(func))[1:-1].split(", ")))
