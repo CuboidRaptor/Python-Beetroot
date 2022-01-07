@@ -54,7 +54,6 @@ except (ModuleNotFoundError, ImportError):
         import json
 
 from pathlib import Path as p
-from functools import cache, lru_cache, wraps
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
 from inspect import signature, Signature
 from decimal import Decimal
@@ -143,6 +142,9 @@ def retargs(func):
 def speed(f=None, **kwargs):
     """Memoization and Cython compiling for python functions.
     If you are using this for a random function, pass the nocache=True argument."""
+    
+    from functools import cache, lru_cache, wraps
+    
     if not callable(f) and f != None:
         raise FunctionError("\"f\" must be callable.")
     
