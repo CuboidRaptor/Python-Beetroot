@@ -3,7 +3,7 @@ import os
 from .exception import *
 
 class pkl:
-    def pkl(self, obj, fpath=os.path.abspath(r".\\pkl.pkl")):
+    def pkl(self, fpath, obj):
         try:
             import cPickle as pickle
             
@@ -16,7 +16,7 @@ class pkl:
             
         return 0
     
-    def unpkl(self, fpath=os.path.abspath(".\\pkl.pkl")):
+    def unpkl(self, fpath):
         try:
             import cPickle as pickle
             

@@ -188,4 +188,5 @@ Version number \= 1.Major.Minor.Patch
   | Fixed problem with that fix, may still have weird windows popping up and then vanishing on some systems.
   | Fixed dumb math bug (bcuz I don't understand math 'cuz I'm dumb)
   | Added segfault()
+  | Reversed pkl.pkl() and pkl.unpkl() args so file goes first, then data. Also removed optional filename because I was getting a headache.
   | 
