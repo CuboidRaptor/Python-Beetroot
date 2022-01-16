@@ -189,4 +189,6 @@ Version number \= 1.Major.Minor.Patch
   | Fixed dumb math bug (bcuz I don't understand math 'cuz I'm dumb)
   | Added segfault()
   | Reversed pkl.pkl() and pkl.unpkl() args so file goes first, then data. Also removed optional filename because I was getting a headache.
+  | Removes beetroot() cuz it was kinda pointless ngl
+  | Made module convertable to string, absolutely useless but funny. No, it's not even funny.
   | 

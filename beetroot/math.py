@@ -1,9 +1,17 @@
 import math as mmath
 
+from decimal import Decimal as d
+
 from .exception import *
 from .objtype import objtype
 
 class math:
+    def __init__(self):
+        self.mole = self.prec(self.prec(6.023) * self.prec(10) ** self.prec(23))
+        
+    def prec(self, n):
+        return d(str(n))
+    
     def increment(self, n):
         try:
             return n + 1
@@ -51,6 +59,6 @@ class math:
         
     def b_round(self, n, a=0, *args, **kwargs):
         """Better rounding. More accurate."""
-        return float(round(Decimal(str(n)), a, *args, **kwargs))
+        return float(round(self.prec(n), a, *args, **kwargs))
         
 math = math()

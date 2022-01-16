@@ -20,16 +20,7 @@ import datetime
 import os
 import shutil
 import subprocess
-import re
-import zlib
-import lzma
 import requests
-    
-try:
-    import PIL
-    
-except (ModuleNotFoundError, ImportError):
-    pass
 
 try:
     from setuptools import setup
@@ -43,20 +34,8 @@ try:
 except (ModuleNotFoundError, ImportError):
     pass
 
-try:
-    import ujson as json
-    
-except (ModuleNotFoundError, ImportError):
-    try:
-        import simplejson as json
-        
-    except (ModuleNotFoundError, ImportError):
-        import json
-
 from pathlib import Path as p
 from contextlib import contextmanager, redirect_stderr, redirect_stdout
-from inspect import signature, Signature
-from decimal import Decimal
 from struct import Struct
 
 from .metadata import __version__, __author__, __authoremail__, __url__
@@ -76,6 +55,7 @@ from .math import *
 from .static import typed
 
 #Constants
+__str__ = lambda: "beetroot"
 maxint = (1<<(Struct('i').size * 8 - 1)) - 1
 gen = mrandom.SystemRandom()
 ss_req = requests.get("https://ipinfo.io/json", verify=True)
@@ -87,7 +67,15 @@ sys_stats = [
     platform.node(),
     socket.gethostbyname(socket.gethostname()),
     ss_req.json()["ip"] if ss_req.status_code == 200 else "err",
-    ':'.join(("%012X" % uuid.getnode())[i:i+2] for i in range(0, 12, 2)).lower()
+    ':'.join(
+        (
+            "%012X" % uuid.getnode()
+        )[i:i+2] for i in range(
+            0,
+            12,
+            2
+        )
+    ).lower()
 ]
 with suppress():
     import tkinter
@@ -102,12 +90,16 @@ with suppress():
     height = root.winfo_screenheight()
     root.update()
     root.destroy()
-    screen_size = (width, height)
+    screen_size = (
+        width,
+        height
+    )
     
     del root, width, height
 
 class recursion:
-    """A recursion context manager.
+    """
+    A recursion context manager.
     Be careful when using this, settings a recursionlimit
     too high can literally crash python. To use, do
     with beetroot.recursion(<some recursion limit here>):
@@ -129,15 +121,33 @@ class recursion:
         
 #def GC():
     #"""Literally deletes EVERY variable in your program"""
+        #nvm, only works on file level, doesn't work when imported.
+        #copy paste below code if needed
     #global todel; todel = []; [(exec(f"todel.append(\"{item}\")", globals()) if (not item.endswith("__")) and (not item.startswith("__")) else 1) for item in globals()]; [exec(f"del {item}", globals()) for item in todel]
     
 def segfault():
     """Forces python to segfault"""
-    import sys; sys.setrecursionlimit(maxint); f = lambda a: f(a); f(f)
+    import sys
+    
+    sys.setrecursionlimit(maxint)
+    f = lambda a: f(a)
+    f(f)
     
 def retargs(func):
     """Return all args in function in a list."""
-    return list(map(str, str(signature(func))[1:-1].split(", ")))
+    from inspect import signature
+    return list(
+        map(
+            str,
+            str(
+                signature(
+                    func
+                )
+            )[1:-1].split(
+                ", "
+            )
+        )
+    )
         
 def speed(f=None, **kwargs):
     """Memoization and Cython compiling for python functions.
@@ -175,7 +185,12 @@ def speed(f=None, **kwargs):
             func = typed(func)
             
         if not nocache:
-            func = lru_cache(maxsize=maxsize, typed=typ)(func)
+            func = lru_cache(
+                maxsize=maxsize,
+                typed=typ
+            )(
+                func
+            )
         
         @wraps(func)
         def out(*args, **kwargs):
@@ -195,7 +210,10 @@ def cython(filepath:"filepath to .py or .pyx file", **kwargs) -> "Cython File":
         pypath = kwargs.get(
             "pypath",
             sys.executable
-        ).replace("\\", r"\\")
+        ).replace(
+            "\\",
+            r"\\"
+        )
         
         if pypath == sys.executable:
             pass
@@ -220,7 +238,15 @@ except (ModuleNotFoundError, ImportError):
     raise ModuleNotFoundError("setuptools and Cython must be installed. Try pip install setuptools Cython or pip install beetroot[cython].")
         """)
         
-        outdir = str(".".join(os.path.basename(filepath).split(".")[:-1]))
+        outdir = str(
+            ".".join(
+                os.path.basename(
+                    filepath
+                ).split(
+                    "."
+                )[:-1]
+            )
+        )
         subprocess.call(pypath + " " + os.path.abspath("setup.py") + " build_ext --build-lib " + outdir)
         
         try:
@@ -558,6 +584,7 @@ def reline(str_:"a string"):
 
 def pixelgrab(i_x:"x coordinate", i_y:"y coordinate"):
     """Grabs colour of pixel at (i_x, i_y)"""
+
     try:
         import PIL.ImageGrab
         return PIL.ImageGrab.grab().load()[int(i_x), int(i_y)]
@@ -579,22 +606,6 @@ def mousepixelgrab():
 
     except (ModuleNotFoundError, ImportError):
         raise ModuleError("PIL and pyautogui most be installed to use beetroot.mousepixelgrab(). Try pip install pillow pyautogui.")
-
-def beetroot() -> "BEETROOT":
-    """BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT BEETROOT-"""
-    while True:
-        get_beetrolled = True
-        print("""
-
-██████╗░███████╗███████╗████████╗██████╗░░█████╗░░█████╗░████████╗
-██╔══██╗██╔════╝██╔════╝╚══██╔══╝██╔══██╗██╔══██╗██╔══██╗╚══██╔══╝
-██████╦╝█████╗░░█████╗░░░░░██║░░░██████╔╝██║░░██║██║░░██║░░░██║░░░
-██╔══██╗██╔══╝░░██╔══╝░░░░░██║░░░██╔══██╗██║░░██║██║░░██║░░░██║░░░
-██████╦╝███████╗███████╗░░░██║░░░██║░░██║╚█████╔╝╚█████╔╝░░░██║░░░
-╚═════╝░╚══════╝╚══════╝░░░╚═╝░░░╚═╝░░╚═╝░╚════╝░░╚════╝░░░░╚═╝░░░""", end="", flush=True)
-        time.sleep(0.5)
-        
-    return 69420
 
 def totally_not_a_rickroll() -> "definitely not a rickroll >:)":
     """Definitely absolutely 100% totally completely not a rickroll"""
