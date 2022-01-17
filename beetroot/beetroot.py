@@ -56,9 +56,18 @@ from .static import typed
 
 #Constants
 __str__ = lambda: "beetroot"
-maxint = (1<<(Struct('i').size * 8 - 1)) - 1
-gen = mrandom.SystemRandom()
-ss_req = requests.get("https://ipinfo.io/json", verify=True)
+maxint = (
+    1<<(
+        Struct(
+            'i'
+        ).size * 8 - 1
+    )
+) - 1
+
+ss_req = requests.get(
+    "https://ipinfo.io/json",
+    verify=True
+)
 sys_stats = [
     getpass.getuser(),
     platform.system(),
@@ -86,16 +95,14 @@ with suppress():
     except:
         pass
     
-    width = root.winfo_screenwidth()
-    height = root.winfo_screenheight()
+    screen_size = (
+        root.winfo_screenwidth(),
+        root.winfo_screenheight()
+    )
     root.update()
     root.destroy()
-    screen_size = (
-        width,
-        height
-    )
     
-    del root, width, height
+    del root
 
 class recursion:
     """
@@ -121,9 +128,9 @@ class recursion:
         
 #def GC():
     #"""Literally deletes EVERY variable in your program"""
-        #nvm, only works on file level, doesn't work when imported.
-        #copy paste below code if needed
-    #global todel; todel = []; [(exec(f"todel.append(\"{item}\")", globals()) if (not item.endswith("__")) and (not item.startswith("__")) else 1) for item in globals()]; [exec(f"del {item}", globals()) for item in todel]
+    #nvm, only works on file level, doesn't work when imported.
+    #copy paste below code if needed
+    #global todel; todel = []; [(exec(f"todel.append(\"{item}\")", globals()) if (not item.startswith("__")) else 1) for item in globals()]; [exec(f"del {item}", globals()) for item in todel]
     
 def segfault():
     """Forces python to segfault"""

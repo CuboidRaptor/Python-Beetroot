@@ -1,7 +1,5 @@
 from .exception import *
 
-gen = mrandom.SystemRandom()
-
 class random:
     """Random class"""
     def randint(self, s, e):
@@ -9,7 +7,8 @@ class random:
         
         import random as mrandom #Imported as mrandom to prevent conflicts
         
-        global gen
+        gen = mrandom.SystemRandom()
+        
         return gen.randint(s, e)
 
     def srandint(self, seed, s, e):
