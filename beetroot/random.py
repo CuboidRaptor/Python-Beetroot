@@ -1,5 +1,3 @@
-import random as mrandom #Imported as mrandom to prevent conflicts
-
 from .exception import *
 
 gen = mrandom.SystemRandom()
@@ -8,6 +6,9 @@ class random:
     """Random class"""
     def randint(self, s, e):
         """Generates a (maybe) cryptographically secure number using random.SystemRandom.randint()"""
+        
+        import random as mrandom #Imported as mrandom to prevent conflicts
+        
         global gen
         return gen.randint(s, e)
 
@@ -16,6 +17,9 @@ class random:
         Note, this function is not cryptographically secure because of the fact
         that it has to be seeded, If you would
         like it to be secure, use beetroot.random.randint() instead."""
+        
+        import random as mrandom #Imported as mrandom to prevent conflicts
+        
         mrandom.seed(seed)
         return mrandom.randint(s, e)
 

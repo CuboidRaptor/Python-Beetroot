@@ -1,9 +1,11 @@
-import os
-
 from .exception import *
 
 class pkl:
     def pkl(self, fpath, obj):
+        """Pickles an object into a .pkl."""
+        
+        import os
+        
         try:
             import cPickle as pickle
             
@@ -17,6 +19,10 @@ class pkl:
         return 0
     
     def unpkl(self, fpath):
+        """Unpickles data from a .pkl file."""
+        
+        import os
+        
         try:
             import cPickle as pickle
             

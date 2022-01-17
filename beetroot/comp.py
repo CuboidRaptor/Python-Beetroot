@@ -1,6 +1,3 @@
-import zlib
-import sys
-
 from .exception import *
 from .objtype import objtype
 
@@ -9,6 +6,8 @@ class comp:
         """Compresses a strings with hybrid zlib/lzma"""
         
         import lzma
+        import zlib
+        import sys
         
         if objtype(str_) == "bytes":
             a = str_.decode("iso-8859-1")
@@ -29,6 +28,8 @@ class comp:
         """Decompresses a strings with hybrid zlib/lzma"""
         
         import lzma
+        import zlib
+        import sys
         
         if objtype(str_) == "bytes":
             str_ = str_.decode("iso-8859-1")

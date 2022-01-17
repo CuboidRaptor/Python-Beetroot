@@ -7,7 +7,15 @@ from .objtype import objtype
 
 class math:
     def __init__(self):
-        self.mole = self.prec(self.prec(6.023) * self.prec(10) ** self.prec(23))
+        self.mole = self.prec(
+            self.prec(
+                6.023
+            ) * self.prec(
+                10
+            ) ** self.prec(
+                23
+            )
+        )
         
     def prec(self, n):
         return d(str(n))

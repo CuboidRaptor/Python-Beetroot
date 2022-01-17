@@ -113,7 +113,7 @@ class file:
             os.mkdir(path)
             return 0
             
-        except FileExistsError:
+        except (FileExistsError, PermissionError):
             return 1
         
     def rmdir(self, path):
@@ -121,7 +121,15 @@ class file:
             shutil.rmtree(path)
             return 0
         
-        except FileNotFoundError:
+        except (FileNotFoundError, PermissionError):
+            return 1
+        
+    def copydir(self, path, path2):
+        try:
+            shutil.copytree(path, path2)
+            return 0
+        
+        except (FileNotFoundError, PermissionError):
             return 1
 
 file = file()

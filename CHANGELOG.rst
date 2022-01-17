@@ -4,9 +4,12 @@ Changelog
 
 Version number \= 1.Major.Minor.Patch
 
-- | 1.1 ; I added Chatbot, and then removed it, because it's a steaming heap of trash. I also added the changelog that you're reading. Also added README.rst to PyPI page.
+- | 1.1 ; I added Chatbot, and then removed it, because it's a steaming heap of trash. I also added the changelog that you're reading.
+  | Also added README.rst to PyPI page.
   |
-- | 1.1.1 ; Reorganized files and classes and made changes to documentation. Also added totally_not_a_rickroll() and pixelgrab(), and also mousepixelgrab().
+  
+- | 1.1.1 ; Reorganized files and classes and made changes to documentation.
+  |Also added totally_not_a_rickroll() and pixelgrab(), and also mousepixelgrab().
   |
 
 - | 1.1.1.1 ; Minor bugfix to strhash()
@@ -82,7 +85,7 @@ Version number \= 1.Major.Minor.Patch
   |
   
 - | 1.1.3.11 ; Changed text.rouxls() to make it more Rouxls-like.
-  | I agree-eth, this shalt be knownest as thy greatest worketh in thy historie of thy darkners
+  | I agree-eth, this shalt be knownest as thy greatest worketh in thy historie of thy darkners.
   |
   
 - | 1.1.3.12 ; Removed lsep(), as I found .split() does kinda the same thing and so this function is literally useless
@@ -191,4 +194,6 @@ Version number \= 1.Major.Minor.Patch
   | Reversed pkl.pkl() and pkl.unpkl() args so file goes first, then data. Also removed optional filename because I was getting a headache.
   | Removes beetroot() cuz it was kinda pointless ngl
   | Made module convertable to string, absolutely useless but funny. No, it's not even funny.
+  | Fixed imports slightly
+  | Added more to docstrings and docs in general
   | 

@@ -1,24 +1,3 @@
-import re
-import random
-
-try:
-    import upsidedown  
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
-try:
-    from zalgo_text import zalgo as zalg
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
-try:
-    import base65536
-    
-except (ModuleNotFoundError, ImportError):
-    pass
-
 import random
 
 from .exception import *
@@ -30,6 +9,8 @@ class text:
     """Text manipulation garbage"""
     def __init__(self):
         try:
+            import re
+            
             self.zal = zalg.zalgo()
             self.remeff = re.compile(r"(?<!\\)(\*|_|~|\||`)")
             self.symreg = re.compile(r"(\*|_|~|\||`)")
@@ -54,29 +35,35 @@ class text:
     
     def udown(self, intexta):
         """Generates upside-down text"""
-        try:
-            return upsidedown.transform(str(intexta))
         
-        except NameError:
+        try:
+            import upsidedown  
+            
+        except (ModuleNotFoundError, ImportError):
             raise ModuleError("Upsidedown must be installed. Try pip install upsidedown or pip install beetroot[text].")
+
+        return upsidedown.transform(str(intexta))
         
     def zalgo(self, intexta, **kwargs):
         """Generates Zalgo text"""
+        
+        try:
+            from zalgo_text import zalgo as zalg
+            
+        except (ModuleNotFoundError, ImportError):
+            raise ModuleError("Zalgo_text must be installed. Try `pip install zalgo-text` or `pip install beetroot[text]`.")
+
         craziness = float(
             kwargs.get(
                 "crazy",
                 1.0
             )
         )
-        try:
-            self.zal.numAccentsUp = (round(craziness), round(craziness * 10))
-            self.zal.numAccentsDown = (round(craziness), round(craziness * 10))
-            self.zal.numAccentsMiddle = (round(craziness), round(craziness * 10))
-            self.zal.maxAccentsPerLetter = round(craziness * 40)
-            return self.zal.zalgofy(str(intexta))
-        
-        except NameError:
-            raise ModuleError("Zalgo_text must be installed. Try pip install zalgo-text or pip install beetroot[text].")
+        self.zal.numAccentsUp = (round(craziness), round(craziness * 10))
+        self.zal.numAccentsDown = (round(craziness), round(craziness * 10))
+        self.zal.numAccentsMiddle = (round(craziness), round(craziness * 10))
+        self.zal.maxAccentsPerLetter = round(craziness * 40)
+        return self.zal.zalgofy(str(intexta))
         
     def rouxls(self, sentence):
         """Makeseth thou soundeth likest Rouxls, Thy Duketh of Puzzles."""
@@ -299,27 +286,33 @@ class text:
     
     def b65536encode(self, texta):
         """Base65536 encoding"""
-        try:
-            if objtype(texta) == "bytes":
-                return base65536.encode(texta).encode("utf-32")
-            
-            else:
-                return base65536.encode(str(texta).encode("utf-8"))
         
-        except NameError:
-            raise ModuleError("base65536 must be installed to use beetroot.texta.strb65536encode(), try `pip install base65536` or `pip install beetroot[text]`.")
+        try:
+            import base65536
+            
+        except (ModuleNotFoundError, ImportError):
+            raise ModuleError("base65536 must be installed to use beetroot.text.strb65536encode(), try `pip install base65536` or `pip install beetroot[text]`.")
+
+        if objtype(texta) == "bytes":
+            return base65536.encode(texta).encode("utf-32")
+        
+        else:
+            return base65536.encode(str(texta).encode("utf-8"))
         
     def b65536decode(self, texta):
         """Base65536 decoding"""
-        try:
-            if objtype(texta) == "bytes":
-                return base65536.decode(texta.decode("utf-32"))
-            
-            else:
-                return base65536.decode(texta).decode("utf-8")
         
-        except NameError:
-            raise ModuleError("base65536 must be installed to use beetroot.texta.strb65536decode(), try `pip install base65536` or `pip install beetroot[text]`.")
+        try:
+            import base65536
+            
+        except (ModuleNotFoundError, ImportError):
+            raise ModuleError("base65536 must be installed to use beetroot.text.strb65536decode(), try `pip install base65536` or `pip install beetroot[text]`.")
+            
+        if objtype(texta) == "bytes":
+            return base65536.decode(texta.decode("utf-32"))
+        
+        else:
+            return base65536.decode(texta).decode("utf-8")
                    
     def phoneencode(self, texta, silent:"silent mode"=False) -> "Encoded string":
         """Encodes text using a phonepad"""
