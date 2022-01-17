@@ -196,4 +196,6 @@ Version number \= 1.Major.Minor.Patch
   | Made module convertable to string, absolutely useless but funny. No, it's not even funny.
   | Fixed imports slightly
   | Added more to docstrings and docs in general
-  | Added func()
+  | Added func() and analyze()
+  | Fixed dumb bug with retrieving Public IP
+  | 

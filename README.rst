@@ -190,6 +190,8 @@ Miscellaneous stuff:
 
 - beetroot.func() ; Takes an object and creates a function that returns that object.
 
+- beetroot.analyze() ; Analyzes a function, returns a score based on it's randomness by checking collisions.
+
 Memory functions and stuff:
 ===========================
 

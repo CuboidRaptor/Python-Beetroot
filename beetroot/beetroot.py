@@ -68,6 +68,12 @@ ss_req = requests.get(
     "https://ipinfo.io/json",
     verify=True
 )
+try:
+    reee = ss_req.json()["ip"] if ss_req.status_code == 200 else "err"
+    
+except requests.exceptions.ConnectTimeout:
+    reee = "err"
+    
 sys_stats = [
     getpass.getuser(),
     platform.system(),
@@ -75,7 +81,7 @@ sys_stats = [
     platform.machine(),
     platform.node(),
     socket.gethostbyname(socket.gethostname()),
-    ss_req.json()["ip"] if ss_req.status_code == 200 else "err",
+    reee,
     ':'.join(
         (
             "%012X" % uuid.getnode()
@@ -159,6 +165,44 @@ def retargs(func):
 def func(obj):
     """Converts an object into a function."""
     return lambda: obj
+
+def analyze(f):
+    """Analyzes a function to check how random it is.
+    Should take 2 arguments for the range.
+    """
+    if callable(f):
+        yay = []
+        a, b = 0, 10000
+        
+        for i in range(
+            int(
+                round(
+                    math.sqrt(a)
+                )
+            ),
+            int(
+                round(
+                    math.sqrt(b)
+                )
+            )
+        ):
+            dum = f(a, b)
+            yay.append(dum)
+            print(dum)
+            
+        whee = Counter(yay)
+        whee = [whee[item] for item in whee]
+        whee = sum(whee) - len(whee)
+        whee = 1 / (whee + 1)
+        
+        return int(
+            round(
+                100 * whee
+            )
+        )
+    
+    else:
+        raise InvalidTypeError("You must input a function to beetroot.analyze().")
         
 def speed(f=None, **kwargs):
     """Memoization and Cython compiling for python functions.
