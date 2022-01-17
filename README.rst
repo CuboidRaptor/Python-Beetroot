@@ -186,7 +186,9 @@ Miscellaneous stuff:
 
 - beetroot.maxint ; Maximum size of integer that fits in a C function (i.e things like sys.setrecursionlimit()).
 
-- beetroot.segfault() ; FOrces python to segfault.
+- beetroot.segfault() ; Forces python to segfault.
+
+- beetroot.func() ; Takes an object and creates a function that returns that object.
 
 Memory functions and stuff:
 ===========================

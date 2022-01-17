@@ -155,6 +155,10 @@ def retargs(func):
             )
         )
     )
+
+def func(obj):
+    """Converts an object into a function."""
+    return lambda: obj
         
 def speed(f=None, **kwargs):
     """Memoization and Cython compiling for python functions.
