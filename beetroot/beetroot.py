@@ -193,13 +193,11 @@ def analyze(f):
             
         whee = Counter(yay)
         whee = [whee[item] for item in whee]
-        whee = sum(whee) - len(whee)
-        whee = 1 / (whee + 1)
+        whee = 1 / ((sum(whee) - len(whee)) + 1)
         
-        return int(
-            round(
-                100 * whee
-            )
+        return round(
+            100 * whee,
+            2
         )
     
     else:
