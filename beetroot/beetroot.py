@@ -64,11 +64,12 @@ maxint = (
     )
 ) - 1
 
-ss_req = requests.get(
-    "https://ipinfo.io/json",
-    verify=True
-)
 try:
+    ss_req = requests.get(
+        "https://ipinfo.io/json",
+        verify=True
+    )
+    
     reee = ss_req.json()["ip"] if ss_req.status_code == 200 else "err"
     
 except requests.exceptions.ConnectTimeout:
