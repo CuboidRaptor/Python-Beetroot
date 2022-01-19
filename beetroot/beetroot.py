@@ -158,9 +158,10 @@ def tree(size):
         out += "".join(["*" for j in range(0, a)]).center(b) + "\n"
         a += 2
         
-    out += "*".center(b)
+    for i in range(0, int(mmath.ceil(size / 20))):
+        out += "*".center(b) + "\n"
     
-    return out
+    return out[:-1]
     
 def retargs(func):
     """Return all args in function in a list."""
@@ -186,6 +187,9 @@ def analyze(f):
     """Analyzes a function to check how random it is.
     Should take 2 arguments for the range.
     """
+    
+    import math as mmath
+    
     if callable(f):
         yay = []
         a, b = 0, 10000
@@ -193,12 +197,12 @@ def analyze(f):
         for i in range(
             int(
                 round(
-                    math.sqrt(a)
+                    mmath.sqrt(a)
                 )
             ),
             int(
                 round(
-                    math.sqrt(b)
+                    mmath.sqrt(b)
                 )
             )
         ):
