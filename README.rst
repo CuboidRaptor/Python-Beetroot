@@ -188,11 +188,14 @@ Miscellaneous stuff:
 
 - beetroot.maxint ; Maximum size of integer that fits in a C function (i.e things like sys.setrecursionlimit()).
 
-- beetroot.segfault() ; Forces python to segfault.
+- beetroot.segfault() ; Forces python to segfault using a recursion bug.
 
 - beetroot.func() ; Takes an object and creates a function that returns that object.
 
 - beetroot.analyze() ; Analyzes a function, returns a score based on it's randomness by checking collisions.
+  WARNING: Not great, a literal incrementation function would be reported as very random. UAYOR.
+
+- beetroot.delayWrite(string, delay=<some number>, out=<stdout/stderr>) ; Writes stuff to stdout, one letter at a time.
 
 Memory functions and stuff:
 ===========================
@@ -239,7 +242,7 @@ Text manipulation stuff:
 
 - beetroot.text.spaceify(text) ; Spaceifies text, so "hi there" becomes "h i   t h e r e"
 
-- beetroot.text.dc_weirdify(text) ; Applies a random number of random discord MD effects to each char, making your string look weird in Discord.
+- beetroot.text.dc_weirdify(text) ; Applies a random number of random discord mini-MD effects to each char, making your string look weird in Discord or any service that supports mini-MarkDown.
 
 - beetroot.text.blank ; A blank invisible zero-width char for your zero-width needs.
 
@@ -272,7 +275,7 @@ M A T H .
 PICKLES.
 ========
 
-- beetroot.pkl.pkl(pickle, file_path_to_output_delicious_pickle) ; pass data and it gets turned into a big green pickle.
+- beetroot.pkl.pkl(file_path_to_output_delicious_pickle, pickle) ; pass data and it gets turned into a big green pickle.
 
 - beetroot.pkl.unpkl(file_path_to_load_delicious_pickle_from) ; load pickle from pickle to eat pickle loaded from pickle.
 

@@ -202,4 +202,4 @@ Version number \= 1.Major.Minor.Patch
   | Added out option to errprint().
   | Stopped making certain functions randomly return 0.
   | Added math.isPrime().
-  | 
+  | Added delayWrite()
