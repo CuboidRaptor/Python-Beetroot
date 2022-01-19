@@ -137,7 +137,8 @@ class recursion:
     #"""Literally deletes EVERY variable in your program"""
     #nvm, only works on file level, doesn't work when imported.
     #copy paste below code if needed
-    #global todel; todel = []; [(exec(f"todel.append(\"{item}\")", globals()) if (not item.startswith("__")) else 1) for item in globals()]; [exec(f"del {item}", globals()) for item in todel]
+    #Note: all variables starting on "__" will be spared the GC
+    #global todel;todel=[];[(exec(f"todel.append(\"{item}\")",globals())if(not item.startswith("__"))else 1)for item in globals()];[exec(f"del {item}",globals())for item in todel]
     
 def segfault():
     """Forces python to segfault"""
@@ -146,6 +147,20 @@ def segfault():
     sys.setrecursionlimit(maxint)
     f = lambda a: f(a)
     f(f)
+    
+def tree(size):
+    """Generates little text trees and returns them."""
+    a = 1
+    b = 2 * size - 1
+    out = ""
+    size = int(size)
+    for i in range(0, size):
+        out += "".join(["*" for j in range(0, a)]).center(b) + "\n"
+        a += 2
+        
+    out += "*".center(b)
+    
+    return out
     
 def retargs(func):
     """Return all args in function in a list."""

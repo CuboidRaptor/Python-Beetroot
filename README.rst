@@ -197,6 +197,8 @@ Miscellaneous stuff:
 
 - beetroot.delayWrite(string, delay=<some number>, out=<stdout/stderr>) ; Writes stuff to stdout, one letter at a time.
 
+- beetroot.tree(size) ; Builds a text tree and returns it. Inspired by code.golf.
+
 Memory functions and stuff:
 ===========================
 
