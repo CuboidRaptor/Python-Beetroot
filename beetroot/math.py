@@ -68,5 +68,17 @@ class math:
     def b_round(self, n, a=0, *args, **kwargs):
         """Better rounding. More accurate."""
         return float(round(self.prec(n), a, *args, **kwargs))
+    
+    def isPrime(self, n):
+        if n > 1:
+            for i in range(2, int(n / 2) + 1):
+                if n % i == 0:
+                    return False
+                
+            else:
+                return True
+            
+        else:
+            return False
         
 math = math()

@@ -174,6 +174,8 @@ Miscellaneous stuff:
 
 - beetroot.strlist() ; Makes every single item in a list a string, with str() or .decode(), with proper bytestring handling.
 
+- beetroot.maplist() ; Basically map() but it gives an *actual* list
+
 - beetroot.errprint() ; Prints stuff to stderr.
 
 - beetroot.errprintn() ; Same as beetroot.errprint(), but it doesn't print a trailing newline.
@@ -261,7 +263,11 @@ M A T H .
 
 - beetroot.math.factorial(n) ; Calculates the factorial of a number.
 
-- beetroot.b_round(n, a) ; Rounds "n" to "a" decimal digits. Much more accurate than python's default round() (i think, i hope)
+- beetroot.math.b_round(n, a) ; Rounds "n" to "a" decimal digits. Much more accurate than python's default round() (i think, i hope)
+
+- beetroot.math.prec(n) ; Converts to a Decimal, better for precision (bcuz floats r weird)
+
+- beetroot.math.isPrime(n) ; Checks if a number is prime. Returns a bool.
 
 PICKLES.
 ========
@@ -270,9 +276,7 @@ PICKLES.
 
 - beetroot.pkl.unpkl(file_path_to_load_delicious_pickle_from) ; load pickle from pickle to eat pickle loaded from pickle.
 
-Amazing functions that should be called whenever possible
-=========================================================
-
-- beetroot.beetroot() ; A great function that you should call whenever you can
+An amazing function that should be called whenever possible
+===========================================================
 
 - beetroot.totally_not_a_rickroll() ; Totally not a rickroll.

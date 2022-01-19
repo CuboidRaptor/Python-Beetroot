@@ -198,4 +198,8 @@ Version number \= 1.Major.Minor.Patch
   | Added more to docstrings and docs in general
   | Added func() and analyze()
   | Fixed dumb bug with retrieving Public IP
+  | Deprecated printn() and errprintn().
+  | Added out option to errprint().
+  | Stopped making certain functions randomly return 0.
+  | Added math.isPrime().
   | 

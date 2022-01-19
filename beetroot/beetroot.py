@@ -203,6 +203,33 @@ def analyze(f):
     else:
         raise InvalidTypeError("You must input a function to beetroot.analyze().")
         
+def delayWrite(*args, **kwargs):
+    """Writes things to stdout with a delay."""
+    
+    import time
+    
+    delay = float(
+        kwargs.get(
+            "delay",
+            0.1
+        )
+    )
+    out = kwargs.get(
+        "out",
+        sys.stdout
+    )
+    yay = "".join(
+        strlist(
+            args
+        )
+    )
+    
+    for i in range(0, len(yay)):
+        out.write(yay[i])
+        time.sleep(delay)
+        
+    out.write("\n")
+        
 def speed(f=None, **kwargs):
     """Memoization and Cython compiling for python functions.
     If you are using this for a random function, pass the nocache=True argument."""
@@ -330,13 +357,12 @@ except (ModuleNotFoundError, ImportError):
         except FileNotFoundError:
             pass
         
-        return 0
-        
     except NameError:
         raise ModuleError("setuptools and Cython must be installed. Try `pip install setuptools Cython` or `pip install beetroot[cython]`.")
 
 def printn(*args):
     """Prints a string without a trailing newline"""
+    errprint("This is deprecated. Use default print(end=\"\") instead.")
     for i in range(0, len(args)):
         args = list(args)
         if objtype(args[i]) == "bytes":
@@ -346,8 +372,6 @@ def printn(*args):
             args[i] = str(args[i])
             
     print(" ".join(args), end="", flush=True)
-        
-    return 0
 
 def getch(str_:"string to print before getch()ing"="") -> "Single Char":
     """input() but it only waits for one character."""
@@ -513,7 +537,7 @@ def taskkill(tasque, **kwargs):
             else:
                 ka -= 1
                 if ka <= 0:
-                    return 0
+                    return
                 
 def crash() -> "Crashes python or smth idk":
     """This causes python to cra- cra- cra- cras- cra- crash."""
@@ -592,13 +616,26 @@ def cyclesort(array:"Unsorted Array") -> "Sorted Array":
         raise InvalidTypeError(f"Cannot sort type {objtype(array)}.")
 
 def swap(array, ia, ib):
+    """Swap 2 items in a list."""
     array[ia], array[ib] = array[ib], array[ia]
     return array
 
 def isSorted(array):
+    """Checks if an array is sorted without actually sorting it."""
     all(a <= b for a, b in zip(array, array[1:]))
 
+def maplist(args, f=str):
+    """Wrapper function for map(). Returns a regular list instead of a map object."""
+            
+    return list(map(str, args))
+
 def strlist(args):
+    """Runs str() on all item in list.
+    Now that I think about it, I could'a used map(str, list)
+    but i'm an idiot and also lazy so here ya go.
+    ...
+    Wait, this can handle bytestrings. Yeah."""
+    args = list(args)
     for i in range(0, len(args)):
         if objtype(args[i]) == "bytes":
             args[i] = args[i].decode("iso-8859-1")
@@ -609,24 +646,53 @@ def strlist(args):
     return args
 
 def errprint(*args, **kwargs):
+    """Like print(), but outputs to stderr instead."""
     end = str(
         kwargs.get(
             "end",
             "\n"
         )
     )
-    sys.stderr.write(" ".join(strlist(list(args))) + end)
+    out = kwargs.get(
+        "out",
+        sys.stderr
+    )
+    out.write(
+        " ".join(
+            maplist(
+                list(
+                    args
+                ),
+                f=str
+            )
+        ) + end
+    )
     
 def errprintn(*args):
-    sys.stderr.write(" ".join(strlist(list(args))))
+    """Deprecated."""
+    errprint("This is deprecated. Use errprint(end=\"\") instead.")
+    end = str(
+        kwargs.get(
+            "end",
+            ""
+        )
+    )
+    sys.stderr.write(
+        " ".join(
+            maplist(
+                list(
+                    args
+                ),
+                f=str
+            )
+        ) + end
+    )
 
 def execfile(file:"a filepath to a .py file"):
     """Executes a python .py script"""
     with open(p(file), "r", encoding="iso-8859-1") as f:
         exec(f.read())
         f.close()
-        
-    return 0
 
 def unline(str_:"a string"):
     """Makes multi-line strings single-line"""
