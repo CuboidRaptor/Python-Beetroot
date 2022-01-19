@@ -204,3 +204,7 @@ Version number \= 1.Major.Minor.Patch
   | Added math.isPrime().
   | Added delayWrite()
   | Added tree()
+  
+- | 1.1.8;
+  | Removed printn() and errprintn().
+  | 

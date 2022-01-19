@@ -379,19 +379,6 @@ except (ModuleNotFoundError, ImportError):
     except NameError:
         raise ModuleError("setuptools and Cython must be installed. Try `pip install setuptools Cython` or `pip install beetroot[cython]`.")
 
-def printn(*args):
-    """Prints a string without a trailing newline"""
-    errprint("This is deprecated. Use default print(end=\"\") instead.")
-    for i in range(0, len(args)):
-        args = list(args)
-        if objtype(args[i]) == "bytes":
-            args[i] = str(args[i].decode("iso-8859-1"))
-            
-        else:
-            args[i] = str(args[i])
-            
-    print(" ".join(args), end="", flush=True)
-
 def getch(str_:"string to print before getch()ing"="") -> "Single Char":
     """input() but it only waits for one character."""
     try:
@@ -677,26 +664,6 @@ def errprint(*args, **kwargs):
         sys.stderr
     )
     out.write(
-        " ".join(
-            maplist(
-                list(
-                    args
-                ),
-                f=str
-            )
-        ) + end
-    )
-    
-def errprintn(*args):
-    """Deprecated."""
-    errprint("This is deprecated. Use errprint(end=\"\") instead.")
-    end = str(
-        kwargs.get(
-            "end",
-            ""
-        )
-    )
-    sys.stderr.write(
         " ".join(
             maplist(
                 list(

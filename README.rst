@@ -150,8 +150,6 @@ Miscellaneous stuff:
   Or whatever the Unix equivalent of PATH is.
   Uses pypath to find your python installation, or you can not include it and it uses sys.executable instead.
 
-- beetroot.printn() ; Prints an object without a trailing newline at the end.
-
 - beetroot.getch() ; Input, but it only waits for one character.
 
 - beetroot.delchar() ; Deletes the last character from stdout
@@ -177,8 +175,6 @@ Miscellaneous stuff:
 - beetroot.maplist() ; Basically map() but it gives an *actual* list
 
 - beetroot.errprint() ; Prints stuff to stderr.
-
-- beetroot.errprintn() ; Same as beetroot.errprint(), but it doesn't print a trailing newline.
 
 - beetroot.isSorted() ; Checks if a list is sorted without actually sorting it.
 
