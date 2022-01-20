@@ -370,8 +370,32 @@ except (ModuleNotFoundError, ImportError):
                     pass
                     
         try:
-            c = str(p("".join(["./", outdir, ".c"])))
-            file.move(c, str(p("".join(["./", outdir, "/", c]))))
+            c = str(
+                p(
+                    "".join(
+                        [
+                            "./",
+                            outdir,
+                            ".c"
+                        ]
+                    )
+                )
+            )
+            file.move(
+                c,
+                str(
+                    p(
+                        "".join(
+                            [
+                                "./",
+                                outdir,
+                                "/",
+                                c
+                            ]
+                        )
+                    )
+                )
+            )
             
         except FileNotFoundError:
             pass

@@ -204,8 +204,11 @@ Version number \= 1.Major.Minor.Patch
   | Added math.isPrime().
   | Added delayWrite()
   | Added tree()
+  | 
   
 - | 1.1.8;
   | Removed printn() and errprintn().
   | Improved beetroot.locate()
   | Added run functionality to cython()
+  | Improved code formatting in certain places
+  | 
