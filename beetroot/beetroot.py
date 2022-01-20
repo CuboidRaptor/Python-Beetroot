@@ -376,6 +376,9 @@ except (ModuleNotFoundError, ImportError):
         except FileNotFoundError:
             pass
         
+        with open(outdir + "/run.py", "w") as f:
+            f.write(f"import {outdir}")
+        
     except NameError:
         raise ModuleError("setuptools and Cython must be installed. Try `pip install setuptools Cython` or `pip install beetroot[cython]`.")
 
@@ -500,7 +503,8 @@ def test() -> "Hello, world!":
 
 def locate():
     """I literally made this cuz I was tired of looking for my python folder."""
-    assert 1 > 2
+    import site
+    print(site.getsitepackages()[-1])
 
 def remove(str_:"a string", ting:"also a string"):
     """Removes all occurences of "ting" in str_"""

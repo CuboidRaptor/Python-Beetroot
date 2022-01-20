@@ -207,4 +207,5 @@ Version number \= 1.Major.Minor.Patch
   
 - | 1.1.8;
   | Removed printn() and errprintn().
-  | 
+  | Improved beetroot.locate()
+  | Added run functionality to cython()
