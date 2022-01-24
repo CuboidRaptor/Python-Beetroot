@@ -330,7 +330,9 @@ try:
     
     setup(
         ext_modules=cythonize(
-            r"{os.path.abspath(str(filepath))}"
+            r"{os.path.abspath(str(filepath))}",
+            language="c",
+            language_level="3"
         )
     )
     
@@ -400,7 +402,7 @@ except (ModuleNotFoundError, ImportError):
         except FileNotFoundError:
             pass
         
-        with open(outdir + "/run.py", "w") as f:
+        with open("./" + outdir + "/run.py", "w") as f:
             f.write(f"import {outdir}")
         
     except NameError:
@@ -410,7 +412,7 @@ def getch(str_:"string to print before getch()ing"="") -> "Single Char":
     """input() but it only waits for one character."""
     try:
         printn(str_)
-        alphabet = [chr(i) for i in range(97, 123)]
+        alphabet = list(map(chr, range(97, 123)))
         
         lett = {
             "1": "!",

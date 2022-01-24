@@ -211,4 +211,4 @@ Version number \= 1.Major.Minor.Patch
   | Improved beetroot.locate()
   | Added run functionality to cython()
   | Improved code formatting in certain places
-  | 
+  | Fixed dumb Cython bug, does python 3 instead of python 2
