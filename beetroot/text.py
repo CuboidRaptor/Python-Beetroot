@@ -8,17 +8,19 @@ gen = random.SystemRandom()
 class text:
     """Text manipulation garbage"""
     def __init__(self):
+        import re
+        
         try:
-            import re
+            from zalgo_text import zalgo as zalg
             
-            self.zal = zalg.zalgo()
-            self.remeff = re.compile(r"(?<!\\)(\*|_|~|\||`)")
-            self.symreg = re.compile(r"(\*|_|~|\||`)")
-            
-            self.blank = chr(8291)
-            
-        except NameError:
+        except (ModuleNotFoundError, ImportError):
             pass
+            
+        self.zal = zalg.zalgo()
+        self.remeff = re.compile(r"(?<!\\)(\*|_|~|\||`)")
+        self.symreg = re.compile(r"(\*|_|~|\||`)")
+            
+        self.blank = chr(8291)
         
     def _objrepl(self, str_, a, b):
         """Function dependency of rouxls()"""

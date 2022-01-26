@@ -212,3 +212,5 @@ Version number \= 1.Major.Minor.Patch
   | Added run functionality to cython()
   | Improved code formatting in certain places
   | Fixed dumb Cython bug, does python 3 instead of python 2
+  | Fixed other dumb bug that disable the entire text class
+  |
