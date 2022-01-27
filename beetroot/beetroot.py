@@ -410,78 +410,81 @@ except (ModuleNotFoundError, ImportError):
 
 def getch(str_:"string to print before getch()ing"="") -> "Single Char":
     """input() but it only waits for one character."""
-    try:
-        printn(str_)
-        alphabet = list(map(chr, range(97, 123)))
-        
-        lett = {
-            "1": "!",
-            "2": "@",
-            "3": "#",
-            "4": "$",
-            "5": "%",
-            "6": "^",
-            "7": "&",
-            "8": "*",
-            "9": "(",
-            "0": ")"
-        }
-        syms = list("-=[]\\;',./")
-        dictsym = {
-            "-": "_",
-            "=": "+",
-            "[": "{",
-            "]": "}",
-            "\\": "|",
-            ";": ":",
-            "'": "\"",
-            ",": "<",
-            ".": ">",
-            "/": "?"
-        }
-        cchars = {
-            "tab": "\t",
-            "enter": "\n"
-        }
-        
-        while True:
-            if (not keyboard.is_pressed("ctrl")) or (not keyboard.is_pressed("alt")):
-                for letter in alphabet:
-                    if keyboard.is_pressed(letter):
-                        print()
-                        if keyboard.is_pressed("shift"):
-                            return letter.upper()
-                        
-                        else:
-                            return letter
-                    
-                for num in range(0, 10):
-                    if keyboard.is_pressed(str(num)):
-                        print()
-                        if keyboard.is_pressed("shift"):
-                            for item in lett:
-                                if str(num) == item:
-                                    return lett[item]
-                                
-                        else:
-                            return str(num)
-                        
-                for sym in syms:
-                    if keyboard.is_pressed(sym):
-                        if keyboard.is_pressed("shift"):
-                            for item in dictsym:
-                                if sym == item:
-                                    return dictsym[item]
-                                
-                        else:
-                            return sym
-                        
-                for char in cchars:
-                    if keyboard.is_pressed(char):
-                        return cchars[char]
     
-    except NameError:
+    try:
+        import keyboard
+        
+    except (ModuleNotFoundError, ImportError):
         raise ModuleError("keyboard must be installed. Try `pip install keyboard` or `pip install beetroot[keyboard]`.")
+    
+    print(str_, end="", flush=True)
+    alphabet = list(map(chr, range(97, 123)))
+    
+    lett = {
+        "1": "!",
+        "2": "@",
+        "3": "#",
+        "4": "$",
+        "5": "%",
+        "6": "^",
+        "7": "&",
+        "8": "*",
+        "9": "(",
+        "0": ")"
+    }
+    syms = list("-=[]\\;',./")
+    dictsym = {
+        "-": "_",
+        "=": "+",
+        "[": "{",
+        "]": "}",
+        "\\": "|",
+        ";": ":",
+        "'": "\"",
+        ",": "<",
+        ".": ">",
+        "/": "?"
+    }
+    cchars = {
+        "tab": "\t",
+        "enter": "\n"
+    }
+    
+    while True:
+        if (not keyboard.is_pressed("ctrl")) or (not keyboard.is_pressed("alt")):
+            for letter in alphabet:
+                if keyboard.is_pressed(letter):
+                    print()
+                    if keyboard.is_pressed("shift"):
+                        return letter.upper()
+                    
+                    else:
+                        return letter
+                
+            for num in range(0, 10):
+                if keyboard.is_pressed(str(num)):
+                    print()
+                    if keyboard.is_pressed("shift"):
+                        for item in lett:
+                            if str(num) == item:
+                                return lett[item]
+                            
+                    else:
+                        return str(num)
+                    
+            for sym in syms:
+                if keyboard.is_pressed(sym):
+                    if keyboard.is_pressed("shift"):
+                        for item in dictsym:
+                            if sym == item:
+                                return dictsym[item]
+                            
+                    else:
+                        return sym
+                    
+            for char in cchars:
+                if keyboard.is_pressed(char):
+                    return cchars[char]
 
 def delchar(char=" "):
     """Deletes char from stdout"""
