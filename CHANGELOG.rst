@@ -213,4 +213,6 @@ Version number \= 1.Major.Minor.Patch
   | Improved code formatting in certain places
   | Fixed dumb Cython bug, does python 3 instead of python 2
   | Fixed other dumb bug that disable the entire text class
-  | Fixed a different dumb bu where I refactored too excitedly and broke things in multiple places
+  | Fixed a different dumb bug where I refactored too excitedly and broke things in multiple places
+  | Added Defer()
+  | 

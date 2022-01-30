@@ -746,13 +746,112 @@ def mousepixelgrab():
     except (ModuleNotFoundError, ImportError):
         raise ModuleError("PIL and pyautogui most be installed to use beetroot.mousepixelgrab(). Try pip install pillow pyautogui.")
 
+class Defer(object):
+    def __init__(self, f=None):
+        import traceback
+        
+        self.tb = traceback
+        del traceback
+        
+        if f == None:
+            self.exits, self.args, self.kwargs = [], [], []
+            
+        elif callable(f):
+            self.function = f
+        
+        else:
+            raise TypeError("Defer requires a function")
+        
+    def __call__(self, *args, **kwargs):
+        
+        import sys
+        
+        exits, aargs, akwargs = [], [], []
+        
+        def ddefer(f, *args, **kwargs):
+            class DeferError(Exception):
+                pass
+            
+            if callable(f):
+                exits.append(f)
+                aargs.append(args)
+                akwargs.append(kwargs)
+                
+            else:
+                raise self.DeferError(f"Object {f} cannot be deferred.")
+        
+        err = False
+        try:
+            out = self.function(defer=ddefer, *args, **kwargs)
+        
+        except:
+           sys.stderr.write(self.tb.format_exc())
+           err = True
+            
+        for i in range(0, len(exits)):
+            exits[i](*aargs[i], **(akwargs[i]))
+        
+        if err:
+            sys.exit()
+        
+    def __enter__(self):
+        return self.fdefer
+    
+    def fdefer(self, f, *args, **kwargs):
+        if callable(f):
+            self.exits.append(f)
+            self.args.append(args)
+            self.kwargs.append(kwargs)
+            
+        else:
+            raise self.DeferError(f"Object {f} cannot be deferred.")
+
+    class DeferError(Exception):
+        pass
+    
+    def __exit__(self, type, value, traceback):
+        import sys
+        
+        trace = self.tb.format_exc()
+        err = False
+        
+        if not trace.startswith("None"):
+            sys.stderr.write(self.tb.format_exc())
+            err = True
+        
+        temp = self.exits[::-1]
+        for i in range(0, len(temp)):
+            try:
+                args, kwargs, curf = self.args[i], self.kwargs[i], temp[i]
+                
+                if args:
+                    if kwargs:
+                        curf(*args, **kwargs)
+                        
+                    else:
+                        curf(*args)
+                        
+                else:
+                    if kwargs:
+                        curf(**kwargs)
+                        
+                    else:
+                        curf()
+                
+            except:
+                sys.stderr.write(self.tb.format_exc())
+                err = True
+                
+        if err:
+            sys.exit()
+
 def totally_not_a_rickroll() -> "definitely not a rickroll >:)":
     """Definitely absolutely 100% totally completely not a rickroll"""
     
     import webbrowser
     
     for i in range(0, 100):
-        rickrolled = True
+        rikroolad = True
         
     webbrowser.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ", new=0)
     return "".join(["U JUST GOT RICKROLLED IN ", str(datetime.datetime.now().year)])

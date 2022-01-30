@@ -195,6 +195,34 @@ Miscellaneous stuff:
 
 - beetroot.tree(size) ; Builds a text tree and returns it. Inspired by code.golf.
 
+- | beetroot.Defer() ; Golang "defer" feature in python. Can be used many ways. Let's say you need to write "b" to "a.txt" and then print "Done".
+
+.. code:: python
+	
+	#Uses lambda and context managers
+	with beetroot.Defer() as defer:
+		f = open("a.txt", "w")
+		defer(lambda: print("Done"))
+		defer(lambda: f.close())
+		f.write("b")
+		
+	#Uses args and context managers
+	with beetroot.Defer() as defer:
+		f = open("a.txt", "w")
+		defer(print, "Done")
+		defer(f.close)
+		f.write("b")
+		
+	#Functions also work
+	@beetroot.Defer
+	def main(defer):
+		f = open("a.txt", "w")
+		defer(lambda: print("Done"))
+		defer(lambda: f.close())
+		f.write("b")
+		
+	main()
+
 Memory functions and stuff:
 ===========================
 
