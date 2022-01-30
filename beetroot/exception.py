@@ -46,3 +46,6 @@ class FunctionError(Exception):
 
 class wait_wot(Exception):
     pass
+
+class DeferError(Exception):
+    pass

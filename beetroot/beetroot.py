@@ -769,16 +769,13 @@ class Defer(object):
         exits, aargs, akwargs = [], [], []
         
         def ddefer(f, *args, **kwargs):
-            class DeferError(Exception):
-                pass
-            
             if callable(f):
                 exits.append(f)
                 aargs.append(args)
                 akwargs.append(kwargs)
                 
             else:
-                raise self.DeferError(f"Object {f} cannot be deferred.")
+                raise DeferError(f"Object {f} cannot be deferred.")
         
         err = False
         try:
@@ -804,10 +801,7 @@ class Defer(object):
             self.kwargs.append(kwargs)
             
         else:
-            raise self.DeferError(f"Object {f} cannot be deferred.")
-
-    class DeferError(Exception):
-        pass
+            raise DeferError(f"Object {f} cannot be deferred.")
     
     def __exit__(self, type, value, traceback):
         import sys
