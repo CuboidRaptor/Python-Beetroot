@@ -172,8 +172,6 @@ Miscellaneous stuff:
 
 - beetroot.strlist() ; Makes every single item in a list a string, with str() or .decode(), with proper bytestring handling.
 
-- beetroot.maplist() ; Basically map() but it gives an *actual* list
-
 - beetroot.errprint() ; Prints stuff to stderr.
 
 - beetroot.isSorted() ; Checks if a list is sorted without actually sorting it.
@@ -297,6 +295,8 @@ M A T H .
 - beetroot.math.prec(n) ; Converts to a Decimal, better for precision (bcuz floats r weird)
 
 - beetroot.math.isPrime(n) ; Checks if a number is prime. Returns a bool.
+
+- beetroot.math.mround(a, b) ; Rounds a to the closest multiple of b.
 
 PICKLES.
 ========

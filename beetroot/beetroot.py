@@ -665,7 +665,9 @@ def isSorted(array):
 
 def maplist(args, f=str):
     """Wrapper function for map(). Returns a regular list instead of a map object."""
-            
+    
+    errprint("beetroot.maplist() is deprecated. Use list(map()) from the default library instead.")
+    
     return list(map(str, args))
 
 def strlist(args):

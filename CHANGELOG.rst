@@ -215,4 +215,6 @@ Version number \= 1.Major.Minor.Patch
   | Fixed other dumb bug that disable the entire text class
   | Fixed a different dumb bug where I refactored too excitedly and broke things in multiple places
   | Added Defer()
+  | Added math.mround()
+  | Deprecated maplist()
   | 

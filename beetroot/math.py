@@ -7,6 +7,7 @@ from .objtype import objtype
 
 class math:
     def __init__(self):
+        #Avogadro's Number
         self.mole = self.prec(
             self.prec(
                 6.023
@@ -18,9 +19,15 @@ class math:
         )
         
     def prec(self, n):
+        """Precision class, better than float"""
         return d(str(n))
     
+    def mround(self, a, b):
+        """Rounds a to nearest multiple of b"""
+        return b * int(b_round(a / b))
+    
     def increment(self, n):
+        """Increments n."""
         try:
             return n + 1
         
@@ -28,6 +35,7 @@ class math:
             raise InvalidTypeError("Object " + objtype(n) + " is not incrementable.")
             
     def double(self, n):
+        """Doubles n."""
         try:
             return n * 2
         
@@ -35,6 +43,7 @@ class math:
             raise InvalidTypeError("Object " + objtype(n) + " is not incrementable.")
     
     def square(self, n):
+        """Squares n."""
         try:
             return n ** 2
         
@@ -42,6 +51,7 @@ class math:
             raise InvalidTypeError("Object " + objtype(n) + " is not incrementable.")
         
     def sqrt(self, n):
+        """Sqrt of n."""
         try:
             if n == 0:
                 return 0
@@ -56,6 +66,7 @@ class math:
             raise InvalidTypeError("Object " + objtype(n) + " is not incrementable.")
     
     def factorial(self, n):
+        """Factorial."""
         if objtype(n) == "complex":
             raise NumberError("Complex numbers are not supported yet.")
         
@@ -70,6 +81,7 @@ class math:
         return float(round(self.prec(n), a, *args, **kwargs))
     
     def isPrime(self, n):
+        """Checks if n is prime."""
         if n > 1:
             for i in range(2, int(n / 2) + 1):
                 if n % i == 0:
