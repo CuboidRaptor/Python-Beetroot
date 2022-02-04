@@ -24,7 +24,7 @@ class math:
     
     def mround(self, a, b):
         """Rounds a to nearest multiple of b"""
-        return b * int(b_round(a / b))
+        return b * int(self.b_round(a / b))
     
     def increment(self, n):
         """Increments n."""
