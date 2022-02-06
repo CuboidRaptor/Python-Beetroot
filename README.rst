@@ -270,6 +270,8 @@ Text manipulation stuff:
 
 - beetroot.text.blank ; A blank invisible zero-width char for your zero-width needs.
 
+- beetroot.text.section ; A § Character. Did this when I found minecraft hightlights these as delimiters.
+
 Compression class:
 ==================
 

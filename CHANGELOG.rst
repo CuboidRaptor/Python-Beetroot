@@ -217,4 +217,5 @@ Version number \= 1.Major.Minor.Patch
   | Added Defer()
   | Added math.mround()
   | Deprecated maplist()
+  | Added text.section
   | 

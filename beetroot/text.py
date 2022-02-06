@@ -21,6 +21,7 @@ class text:
         self.symreg = re.compile(r"(\*|_|~|\||`)")
             
         self.blank = chr(8291)
+        self.section = chr(167) #Added this when I accidentally found out Minecraft highlights these as delimiters
         
     def _objrepl(self, str_, a, b):
         """Function dependency of rouxls()"""
