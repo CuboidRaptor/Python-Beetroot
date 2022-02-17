@@ -148,20 +148,31 @@ def segfault():
     f = lambda a: f(a)
     f(f)
     
-def tree(size):
+def tree(size, escape=False):
     """Generates little text trees and returns them."""
     a = 1
     b = 2 * size - 1
     out = ""
     size = int(size)
+    
+    if escape:
+        b *= 2
+    
+    char = ""
+        
+    if escape:
+        char += "\\"
+        
+    char += "*"
+        
     for i in range(0, size):
-        out += "".join(["*" for j in range(0, a)]).center(b) + "\n"
+        out += "".join([char for j in range(0, a)]).center(b) + "\n"
         a += 2
         
     for i in range(0, int(mmath.ceil(size / 20))):
-        out += "*".center(b) + "\n"
+        out += char.center(b) + "\n"
     
-    return out[:-1]
+    return text.blank + out[:-1]
     
 def retargs(func):
     """Return all args in function in a list."""
