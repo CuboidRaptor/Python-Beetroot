@@ -219,4 +219,5 @@ Version number \= 1.Major.Minor.Patch
   | Deprecated maplist()
   | Added text.section
   | Changed text.blank to a more standard char
+  | Less stupid execfile()
   | 

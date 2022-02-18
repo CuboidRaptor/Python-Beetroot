@@ -722,9 +722,8 @@ def errprint(*args, **kwargs):
 
 def execfile(file:"a filepath to a .py file"):
     """Executes a python .py script"""
-    with open(p(file), "r", encoding="iso-8859-1") as f:
+    with open(p(file), "r", encoding="utf") as f:
         exec(f.read())
-        f.close()
 
 def unline(str_:"a string"):
     """Makes multi-line strings single-line"""
