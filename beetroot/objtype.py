@@ -3,6 +3,7 @@
 but now I have other global functions and nowhere to put them,
 and changing the name would've been too hard with my
 one billion files."""
+import io
 
 from .exception import *
 
@@ -13,51 +14,37 @@ class suppress(object):
     """Forcibly suppress stdout and stderr, however
     errors and stack traces will still show"""
     def __init__(self):
-        import os
         import sys
-        
+
         self.old_stdout = sys.stdout
         self.old_stderr = sys.stderr
-        
+
+    class StdDummy:
+        def __init__(self):
+            self.closed = False
+
+        def write(self, *args, **kwargs):
+            pass
+
+        def writelines(self, *args, **kwargs):
+            pass
+
+        def close(self, *args, **kwargs):
+            pass
+
     def __enter__(self):
-        import os
         import sys
-        
-        self.outnull_file = open(os.devnull, 'w')
-        self.errnull_file = open(os.devnull, 'w')
 
-        self.old_stdout_fileno_undup = sys.stdout.fileno()
-        self.old_stderr_fileno_undup = sys.stderr.fileno()
-
-        self.old_stdout_fileno = os.dup(sys.stdout.fileno())
-        self.old_stderr_fileno = os.dup(sys.stderr.fileno())
-
-        self.old_stdout = sys.stdout
-        self.old_stderr = sys.stderr
-
-        os.dup2(self.outnull_file.fileno(), self.old_stdout_fileno_undup)
-        os.dup2(self.errnull_file.fileno(), self.old_stderr_fileno_undup)
-
-        sys.stdout = self.outnull_file
-        sys.stderr = self.errnull_file  
-        return self
+        sys.stdout = self.StdDummy()
+        sys.stderr = self.StdDummy()
 
     def __exit__(self, *args, **kwargs):
         import os
         import sys
-        
+
         sys.stdout = self.old_stdout
         sys.stderr = self.old_stderr
 
-        os.dup2(self.old_stdout_fileno, self.old_stdout_fileno_undup)
-        os.dup2(self.old_stderr_fileno, self.old_stderr_fileno_undup)
-
-        os.close(self.old_stdout_fileno)
-        os.close(self.old_stderr_fileno)
-
-        self.outnull_file.close()
-        self.errnull_file.close()
-        
 class progBar:
     """Progress bar. Don't print output between progressing/"""
     def __init__(self, num):

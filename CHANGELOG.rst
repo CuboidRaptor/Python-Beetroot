@@ -220,4 +220,6 @@ Version number \= 1.Major.Minor.Patch
   | Added text.section
   | Changed text.blank to a more standard char
   | Less stupid execfile()
+  | Simplfied suppress()
+  | Removed some redundant code
   | 

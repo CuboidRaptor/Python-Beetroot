@@ -93,23 +93,23 @@ sys_stats = [
         )
     ).lower()
 ]
-with suppress():
-    import tkinter
-    root = tkinter.Tk()
-    try:
-        root.attributes("-alpha", 0)
-        
-    except:
-        pass
-    
-    screen_size = (
-        root.winfo_screenwidth(),
-        root.winfo_screenheight()
-    )
-    root.update()
-    root.destroy()
-    
-    del root
+
+import tkinter
+root = tkinter.Tk()
+try:
+    root.attributes("-alpha", 0)
+
+except:
+    pass
+
+screen_size = (
+    root.winfo_screenwidth(),
+    root.winfo_screenheight()
+)
+root.update()
+root.destroy()
+
+del root
 
 class recursion:
     """
