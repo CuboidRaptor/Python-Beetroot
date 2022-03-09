@@ -147,6 +147,31 @@ def segfault():
     sys.setrecursionlimit(maxint)
     f = lambda a: f(a)
     f(f)
+
+def glubfubcode(*args):
+    out, args = [], list(
+        quicksort(
+            list(
+                map(
+                    int,
+                    args
+                )
+            )
+        )
+    )
+    for i, v in enumerate(args[:~0]):
+        out.append(args[i+1] - args[i])
+
+    return int(
+        "".join(
+            list(
+                map(
+                    str,
+                    out
+                )
+            )
+        )
+    )
     
 def tree(size, escape=False):
     """Generates little text trees and returns them."""

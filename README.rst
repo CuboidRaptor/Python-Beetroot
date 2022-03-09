@@ -220,6 +220,8 @@ Miscellaneous stuff:
 		f.write("b")
 		
 	main()
+	
+- beetroot.glubfubcode() ; Pass in the six numbers that the guy in the Vault of Secrets gives you for "cod3breaker", and give him the return of this function. For Geometry Dash, because I got bored.
 
 Memory functions and stuff:
 ===========================

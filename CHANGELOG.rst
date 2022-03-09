@@ -223,4 +223,5 @@ Version number \= 1.Major.Minor.Patch
   | Simplfied suppress()
   | Removed some redundant code
   | Made stopwatch less stupid
+  | Added glubfubcode() because I'm a GD nerd
   | 
