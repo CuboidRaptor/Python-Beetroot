@@ -149,13 +149,11 @@ def segfault():
     f(f)
 
 def glubfubcode(*args):
-    out, args = [], list(
-        quicksort(
-            list(
-                map(
-                    int,
-                    args
-                )
+    out, args = [], quicksort(
+        list(
+            map(
+                int,
+                args
             )
         )
     )
